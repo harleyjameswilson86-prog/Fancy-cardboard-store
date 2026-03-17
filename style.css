@@ -85,3 +85,8 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 .logo svg { vertical-align: middle; }
 .logo-text { font-family: Arial Black, sans-serif; font-size: 1.1rem; font-weight: bold; color: #333; letter-spacing: -0.5px; }
 .logo-text .fancy-txt { color: #FF6600; }
+
+/* Logo Styles */
+.logo { font-family: Arial Black, Arial, sans-serif; font-size: 1.3rem; font-weight: 900; letter-spacing: -1px; }
+.logo .fancy-txt { color: #FF6600; }
+.logo .card-txt { color: #333; }
