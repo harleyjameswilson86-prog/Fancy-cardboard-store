@@ -122,4 +122,4 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 
 
 
-.logo { font-weight: bold; color: #fff; -webkit-text-stroke: 1px #000; text-shadow: 2px 2px 0 #000; }
+.logo { font-weight: bold; color: #fff; -webkit-text-stroke: 1px #000; text-shadow: 2px 2px 0 #000; font-size: 1rem; }
