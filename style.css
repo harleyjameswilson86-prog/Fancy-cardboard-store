@@ -17,7 +17,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .nav-links a:hover { color: var(--primary); }
 .search-bar { padding: 1rem 5%; background: var(--dark); }
 .search-bar input { width: 100%; padding: 0.8rem 1.5rem; border: none; border-radius: 50px; font-size: 1rem; }
-.hero { padding: 2rem 5%; background: linear-gradient(135deg, var(--orange) 0%, #d35400 100%); text-align: center; }
+.hero { padding: 2rem 5%; background: var(--orange); text-align: center; }
 .hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
 .hero p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 1.1rem; }
 .btn { display: inline-block; padding: 0.75rem 2rem; background: var(--btn-color); color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.2s; border-radius: 8px; text-transform: uppercase; }
