@@ -123,6 +123,6 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 
 /* Stacked Logo */
 .logo { font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; font-size: 1.2rem; display: flex; flex-direction: column; line-height: 1.1; }
-.logo .l1 { color: #FF6600; text-shadow: 0 0 10px rgba(255,102,0,0.5), 1px 1px 0 #000; font-weight: bold; }
-.logo .l2 { color: #333; text-shadow: 1px 1px 0 #FF6600; font-weight: bold; }
-.logo .l3 { color: #FF6600; text-shadow: 0 0 10px rgba(255,102,0,0.5), 1px 1px 0 #000; font-weight: bold; }
+.logo .l1 { color: #fff; -webkit-text-stroke: 1px #000; font-weight: bold; }
+.logo .l2 { color: #fff; -webkit-text-stroke: 1px #000; font-weight: bold; }
+.logo .l3 { color: #fff; -webkit-text-stroke: 1px #000; font-weight: bold; }
