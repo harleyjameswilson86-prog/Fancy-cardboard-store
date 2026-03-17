@@ -63,3 +63,23 @@ footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; bac
   letter-spacing: 2px;
   text-shadow: 0 0 30px rgba(245,197,24,0.5);
 }
+.logo { 
+  font-size: 1.8rem; 
+  font-weight: 800; 
+  color: #fff; 
+  text-transform: uppercase; 
+  display: flex; 
+  align-items: center; 
+  gap: 0.3rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+.logo fancy { 
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  color: #fff;
+  -webkit-text-stroke: 1.5px #FF9500;
+  text-stroke: 1.5px #FF9500;
+  filter: drop-shadow(3px 3px 0 #FF9500);
+}
