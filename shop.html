@@ -7,22 +7,24 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="top-bar">
-<span>📍 Gold Coast, Australia</span>
-<span>AUD $</span>
-</div>
-<nav>
+<header class="main-header">
+<div class="header-left">
+<span class="hamburger" onclick="toggleMenu()">☰</span>
 <div class="logo"><span>Fancy</span> <span>Cardboard</span> <span class="store">Store</span></div>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="shop.html">Shop</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
+</div>
+<div class="header-right">
+<span class="cart-icon">🛒</span>
+</div>
+</header>
 <div class="search-bar">
 <input type="text" placeholder="Search for Pokémon, One Piece, Magic cards...">
 </div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
 <main class="shop">
 <h1>🃏 Shop All</h1>
 <p class="subtitle">Browse our collection of authentic trading cards</p>
@@ -68,5 +70,10 @@
 <footer>
 <p>&copy; 2026 Fancy Cardboard Store. All rights reserved.</p>
 </footer>
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+</script>
 </body>
 </html>

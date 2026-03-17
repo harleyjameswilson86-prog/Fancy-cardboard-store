@@ -7,14 +7,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-<div class="logo">Fancy Cardboard Store</div>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="shop.html">Shop</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
+<header class="main-header">
+<div class="header-left">
+<span class="hamburger" onclick="toggleMenu()">☰</span>
+<div class="logo"><span>Fancy</span> <span>Cardboard</span> <span class="store">Store</span></div>
+</div>
+<div class="header-right">
+<span class="cart-icon">🛒</span>
+</div>
+</header>
+<div class="search-bar">
+<input type="text" placeholder="Search for Pokémon, One Piece, Magic cards...">
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </nav>
 <main class="contact">
 <h1>Contact Us</h1>
@@ -32,6 +41,13 @@
 </div>
 </div>
 </main>
-<footer><p>&copy; 2026 Fancy Cardboard Store</p></footer>
+<footer>
+<p>&copy; 2026 Fancy Cardboard Store. All rights reserved.</p>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+</script>
 </body>
 </html>
