@@ -160,5 +160,5 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 
 /* Simple Bubble Logo */
 .logo { font-family: Arial Black, sans-serif; font-size: 1.3rem; display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
-.logo .bubble { background: #fff; color: #FF6600; padding: 2px 8px; border-radius: 15px; border: 2px solid #FF6600; font-style: italic; }
-.logo .bubble-fill { background: #FF6600; color: #fff; padding: 2px 8px; border-radius: 15px; font-style: italic; }
+.logo .bubble { background: #fff; color: #000; padding: 2px 8px; border-radius: 15px; border: 2px solid #000; font-weight: bold; }
+.logo .bubble-fill { background: #000; color: #fff; padding: 2px 8px; border-radius: 15px; font-weight: bold; border: 2px solid #000; }
