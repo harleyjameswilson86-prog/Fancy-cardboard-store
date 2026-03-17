@@ -17,8 +17,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .nav-links { display: flex; list-style: none; gap: 2rem; }
 .nav-links a { text-decoration: none; color: #fff; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover { color: var(--primary); }
-.search-bar { padding: 1rem 5%; background: var(--dark); }
-.search-bar input { width: 100%; padding: 0.8rem 1.5rem; border: none; border-radius: 50px; font-size: 1rem; }
+.search-bar { padding: 1rem 5%; background: #fff; }
+.search-bar input { width: 100%; padding: 0.8rem 1.5rem; border: 2px solid #000; border-radius: 50px; font-size: 1rem; }
 .hero { padding: 2rem 5%; background: var(--orange); text-align: center; }
 .hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
 .hero p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 1.1rem; }
