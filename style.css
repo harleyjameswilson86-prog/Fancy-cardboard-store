@@ -91,16 +91,6 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 .logo .fancy-txt { color: #FF6600; }
 .logo .card-txt { color: #333; }
 
-/* Better Logo Styles */
-.logo { font-family: 'Segoe UI', Arial, sans-serif; font-size: 1.4rem; font-weight: 900; letter-spacing: -0.5px; display: flex; flex-direction: column; line-height: 1.1; }
-.logo .fancy-word { 
-  background: linear-gradient(90deg, #FF6A00, #FF9E00, #FF6A00);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-  text-shadow: 0 0 20px rgba(255,106,0,0.3);
-}
 .logo .cardboard-word {
   color: #1a1a1a;
   font-weight: 800;
@@ -111,16 +101,6 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
   to { background-position: 200% center; }
 }
 
-/* Cool Unique Logo */
-.logo { 
-  font-family: 'Trebuchet MS', Arial Black, sans-serif; 
-  font-size: 1.5rem; 
-  font-weight: 900; 
-  letter-spacing: -1px; 
-  display: flex; 
-  flex-direction: column; 
-  line-height: 1.05;
-}
 .logo-fancy { 
   color: #FF6600;
   text-shadow: 
@@ -140,23 +120,6 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
   letter-spacing: 1px;
 }
 
-/* Cool Unique Logo */
-.logo { font-family: 'Trebuchet MS', Arial Black, sans-serif; font-size: 1.5rem; font-weight: 900; letter-spacing: -1px; display: flex; flex-direction: column; line-height: 1.05; }
-.logo-fancy { color: #FF6600; text-shadow: 0 0 5px #FF6600, 0 0 10px #FF6600, 0 0 20px #FF6600, 2px 2px 0 #cc5200; transform: skewX(-3deg); }
-.logo-cardboard { color: #fff; text-shadow: 0 0 5px #000, 0 0 10px #000, 2px 2px 0 #000, -1px -1px 0 #333; letter-spacing: 1px; }
-
-/* Unique Logo with Spots */
-.logo { font-family: 'Trebuchet MS', Arial Black, sans-serif; font-size: 1.4rem; font-weight: 900; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; position: relative; }
-.logo .spot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-.logo .s1 { background: #FF6600; box-shadow: 0 0 8px #FF6600; animation: pulse 1.5s infinite; }
-.logo .s2 { background: #FFD700; box-shadow: 0 0 8px #FFD700; animation: pulse 1.5s infinite 0.3s; }
-.logo .s3 { background: #FF4500; box-shadow: 0 0 8px #FF4500; animation: pulse 1.5s infinite 0.6s; }
-.logo .fancy-txt { color: #FF6600; text-shadow: 0 0 10px #FF6600; transform: skewX(-2deg); }
-.logo .card-txt { color: #fff; text-shadow: 1px 1px 0 #000, -1px -1px 0 #333; }
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(0.8); }
-}
 
 /* Stacked Logo */
 .logo { font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; font-size: 1.2rem; display: flex; flex-direction: column; line-height: 1.1; }
