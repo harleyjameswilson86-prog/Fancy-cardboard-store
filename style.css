@@ -81,3 +81,7 @@ footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; bac
 .cart-icon { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.3rem; }
 .cart-icon svg { vertical-align: middle; }
 a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoration: none; }
+.logo { display: flex; align-items: center; gap: 0.5rem; }
+.logo svg { vertical-align: middle; }
+.logo-text { font-family: Arial Black, sans-serif; font-size: 1.1rem; font-weight: bold; color: #333; letter-spacing: -0.5px; }
+.logo-text .fancy-txt { color: #FF6600; }
