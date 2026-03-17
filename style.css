@@ -53,3 +53,13 @@ footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; bac
 @media (max-width: 600px) { .top-bar { display: none; } nav { flex-direction: column; gap: 1rem; padding: 1rem; } .nav-links { gap: 1.5rem; flex-wrap: wrap; justify-content: center; } .hero h1 { font-size: 1.5rem; } .products { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
 .logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -1px; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; }
 .logo span { font-size: 2rem; }
+.logo { font-size: 1.6rem; font-weight: 800; color: #fff; text-transform: uppercase; display: flex; align-items: center; gap: 0.3rem; }
+.logo .fancy { 
+  background: linear-gradient(135deg, #fff 0%, #f5c518 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-shadow: 0 0 30px rgba(245,197,24,0.5);
+}
