@@ -121,8 +121,5 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 }
 
 
-/* Stacked Logo */
-.logo { font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; font-size: 1.2rem; display: flex; flex-direction: column; line-height: 1.1; }
-.logo .l1 { color: #fff; -webkit-text-stroke: 1px #000; font-weight: bold; }
-.logo .l2 { color: #fff; -webkit-text-stroke: 1px #000; font-weight: bold; }
-.logo .l3 { color: #fff; -webkit-text-stroke: 1px #000; font-weight: bold; }
+
+.logo { font-weight: bold; }
