@@ -62,3 +62,19 @@ footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; bac
 .mobile-nav a { display: block; padding: 1rem; border-bottom: 1px solid #eee; color: #333; text-decoration: none; }
 .top-bar { display: none; }
 @media (max-width: 600px) { .logo { font-size: 0.9rem; } }
+.main-footer { background: #fff; padding: 2rem 5%; border-top: 1px solid #eee; }
+.footer-section { border-bottom: 1px solid #eee; padding: 0.5rem 0; }
+.footer-section h3 { font-size: 1rem; font-weight: 600; color: #333; cursor: pointer; display: flex; justify-content: space-between; }
+.footer-section ul { display: none; list-style: none; padding: 0.5rem 0; }
+.footer-section ul.active { display: block; }
+.footer-section li { padding: 0.3rem 0; }
+.footer-section a { color: #666; text-decoration: none; font-size: 0.9rem; }
+.newsletter { margin-top: 1.5rem; }
+.newsletter h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.newsletter-form { display: flex; gap: 0.5rem; }
+.newsletter-form input { flex: 1; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
+.newsletter-form button { padding: 0.5rem 1rem; background: var(--orange); color: #fff; border: none; border-radius: 4px; font-size: 1.2rem; }
+.footer-bottom { margin-top: 2rem; text-align: center; color: #666; font-size: 0.85rem; }
+.footer-bottom p { margin: 0.3rem 0; }
+.payment-icons { display: flex; justify-content: center; gap: 0.5rem; font-size: 1.5rem; margin: 1rem 0; }
+.chat-bubble { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; }

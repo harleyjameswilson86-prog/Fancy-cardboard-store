@@ -44,13 +44,46 @@
 <p>Competitive market pricing</p>
 </div>
 </section>
-<footer>
-<p>&copy; 2026 Fancy Cardboard Store. All rights reserved.</p>
+<footer class="main-footer">
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Useful Links +</h3>
+<ul>
+<li><a href="#">Shipping Policy</a></li>
+<li><a href="#">Refund Policy</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Must Read +</h3>
+<ul>
+<li><a href="#">Terms of Service</a></li>
+<li><a href="#">Cancellation Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Contact Us +</h3>
+<ul>
+<li><a href="mailto:hello@fancycardboardstore.com">hello@fancycardboardstore.com</a></li>
+</ul>
+</div>
+<div class="newsletter">
+<h3>Subscribe for latest promos</h3>
+<form class="newsletter-form">
+<input type="email" placeholder="Enter your email">
+<button type="submit">→</button>
+</form>
+</div>
+<div class="footer-bottom">
+<p>Australia | AUD $</p>
+<div class="payment-icons"><span>💳</span><span>💳</span><span>💳</span><span>💳</span><span>💳</span></div>
+<p>&copy; 2026 Fancy Cardboard Store</p>
+<p>ABN: 12 345 678 901</p>
+</div>
 </footer>
+<div class="chat-bubble">💬</div>
 <script>
-function toggleMenu() {
-  document.getElementById('mobileNav').classList.toggle('active');
-}
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
+function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 </script>
 </body>
 </html>
