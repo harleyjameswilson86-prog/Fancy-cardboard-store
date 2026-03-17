@@ -80,3 +80,4 @@ footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; bac
 .chat-bubble { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; }
 .cart-icon { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.3rem; }
 .cart-icon svg { vertical-align: middle; }
+a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoration: none; }
