@@ -55,7 +55,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .nav-links a:hover { color: var(--primary); }
 .search-bar { padding: 1rem 5%; background: #fff; }
 .search-bar input { width: 100%; padding: 0.8rem 1.5rem; border: 2px solid #000; border-radius: 50px; font-size: 1rem; }
-.hero { padding: 2rem 5%; background: var(--orange); text-align: center; }
+.hero { padding: 2rem 5%; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); text-align: center; }
 .pokemon-collage { padding: 2rem 5%; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); text-align: center; }
 .pokemon-collage h2 { color: #fff; margin-bottom: 1.5rem; }
 .collage-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 1.5rem; }
