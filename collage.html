@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokemon Card Collection</title>
+<style>
+body { 
+  margin: 0; 
+  padding: 20px; 
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.collage-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+h1 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.cards-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+.card:nth-child(2) {
+  transform: rotate(3deg);
+}
+.card:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 10;
+}
+.card img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+.card-label {
+  color: #fff;
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="collage-container">
+<h1>🔥 Our Pokemon Card Collection</h1>
+<div class="cards-grid">
+  <div class="card">
+    <img src="../card-photos/ash-pikachu-sm109-front.jpg" alt="Ash's Pikachu">
+    <div class="card-label">Ash's Pikachu (SM109)</div>
+  </div>
+  <div class="card">
+    <img src="../card-photos/card-2-front.jpg" alt="Card 2">
+    <div class="card-label">Pokemon Card</div>
+  </div>
+</div>
+</div>
+</body>
+</html>
