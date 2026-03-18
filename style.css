@@ -177,3 +177,11 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 
 .cart-count { position: absolute; top: -5px; right: -8px; background: red; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .cart-icon { position: relative; }
+
+.categories { padding: 2rem 5%; background: #fff; }
+.categories h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem; }
+.category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.category-card { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
+.category-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+.category-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.category-name { font-size: 0.9rem; font-weight: 600; color: #333; text-align: center; }
