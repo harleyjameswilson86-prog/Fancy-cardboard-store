@@ -75,6 +75,11 @@ footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; bac
 .footer-section h3 { font-size: 1rem; font-weight: 600; color: #333; cursor: pointer; display: flex; justify-content: space-between; }
 .footer-section ul { display: none; list-style: none; padding: 0.5rem 0; }
 .footer-section ul.active { display: block; }
+@media (min-width: 768px) {
+  .footer-section h3 { cursor: default; }
+  .footer-section ul { display: block !important; }
+  .footer-section h3::after { display: none; }
+}
 .footer-section li { padding: 0.3rem 0; }
 .footer-section a { color: #666; text-decoration: none; font-size: 0.9rem; }
 .newsletter { margin-top: 1.5rem; }
