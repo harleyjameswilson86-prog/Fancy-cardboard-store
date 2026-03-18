@@ -29,12 +29,46 @@
 </nav>
 <main class="shop">
 <h1>🛒 Your Cart</h1>
-<p class="subtitle">Your cart is currently empty</p>
-<div class="empty-cart">
+<div id="cart-items"></div>
+<div id="cart-total"></div>
+<div class="empty-cart" id="empty-cart" style="display:none;">
 <p>Start shopping to add items to your cart!</p>
 <a href="shop.html" class="btn">Browse Shop</a>
 </div>
 </main>
+<script>
+function loadCart() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let cartItems = document.getElementById('cart-items');
+  let emptyCart = document.getElementById('empty-cart');
+  let cartTotal = document.getElementById('cart-total');
+  
+  if (cart.length === 0) {
+    emptyCart.style.display = 'block';
+    return;
+  }
+  
+  let total = 0;
+  let html = '<div class="products">';
+  cart.forEach((item, index) => {
+    total += item.price;
+    html += '<div class="product-card"><div class="product-info"><div class="product-name">' + item.name + '</div><div class="product-price">$' + item.price.toFixed(2) + '</div><button class="btn" onclick="removeFromCart(' + index + ')">Remove</button></div></div>';
+  });
+  html += '</div>';
+  html += '<div class="cart-total"><h3>Total: $' + total.toFixed(2) + '</h3></div>';
+  
+  cartItems.innerHTML = html;
+}
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  loadCart();
+}
+
+loadCart();
+</script>
 <footer class="main-footer">
 <div class="footer-section">
 <h3 onclick="toggleFooter(this)">Useful Links +</h3>

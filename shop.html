@@ -37,7 +37,7 @@
 <div class="product-info">
 <div class="product-name">Pokémon TCG - Charizard VMAX</div>
 <div class="product-price">$45.00</div>
-<button class="btn">Add to Cart</button>
+<button class="btn" onclick="addToCart('Pokémon TCG - Charizard VMAX', 45.00)">Add to Cart</button>
 </div>
 </div>
 <div class="product-card">
@@ -46,7 +46,7 @@
 <div class="product-info">
 <div class="product-name">One Piece - Luffy Starter</div>
 <div class="product-price">$25.00</div>
-<button class="btn">Add to Cart</button>
+<button class="btn" onclick="addToCart('One Piece - Luffy Starter', 25.00)">Add to Cart</button>
 </div>
 </div>
 <div class="product-card">
@@ -55,7 +55,7 @@
 <div class="product-info">
 <div class="product-name">Magic: The Gathering Booster</div>
 <div class="product-price">$8.00</div>
-<button class="btn">Add to Cart</button>
+<button class="btn" onclick="addToCart('Magic: The Gathering Booster', 8.00)">Add to Cart</button>
 </div>
 </div>
 <div class="product-card">
@@ -64,11 +64,19 @@
 <div class="product-info">
 <div class="product-name">Pokémon TCG - Elite Trainer Box</div>
 <div class="product-price">$55.00</div>
-<button class="btn">Add to Cart</button>
+<button class="btn" onclick="addToCart('Pokémon TCG - Elite Trainer Box', 55.00)">Add to Cart</button>
 </div>
 </div>
 </div>
 </main>
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart.push({name: name, price: price});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + ' added to cart!');
+}
+</script>
 <footer class="main-footer">
 <div class="footer-section">
 <h3 onclick="toggleFooter(this)">Useful Links +</h3>
