@@ -27,6 +27,11 @@
 <nav class="mobile-nav" id="mobileNav">
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
+<a href="#" onclick="toggleNavCategories(event)">Categories</a>
+<div id="nav-categories" style="display:none;">
+<a href="shop.html" style="padding-left:20px;">Pokémon TCG</a>
+<a href="shop.html" style="padding-left:20px;">One Piece</a>
+</div>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
@@ -99,7 +104,7 @@ function updateCartCount() {
     countEl.style.display = cart.length > 0 ? 'flex' : 'none';
   }
 }
-updateCartCount();
+updateCartCount(); function toggleNavCategories(e) { e.preventDefault(); document.getElementById("nav-categories").style.display = document.getElementById("nav-categories").style.display === "none" ? "block" : "none"; }
 </script>
 </body>
 </html>
