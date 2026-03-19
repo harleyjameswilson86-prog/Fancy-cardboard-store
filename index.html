@@ -37,15 +37,19 @@
 </header>
 <section class="categories">
 <h2>Shop by Category</h2>
-<div class="category-grid">
-<a href="shop.html" class="category-card">
-<div class="category-name">Pokémon TCG</div>
-</a>
-<a href="shop.html" class="category-card">
-<div class="category-name">One Piece</div>
-</a>
+<div class="category-dropdown">
+<button class="category-btn" onclick="toggleCategories()">Select Category ▼</button>
+<div class="category-options" id="categoryOptions">
+<a href="shop.html" class="category-option">Pokémon TCG</a>
+<a href="shop.html" class="category-option">One Piece</a>
+</div>
 </div>
 </section>
+<script>
+function toggleCategories() {
+  document.getElementById('categoryOptions').classList.toggle('active');
+}
+</script>
 <footer class="main-footer">
 <div class="footer-section">
 <h3 onclick="toggleFooter(this)">Useful Links +</h3>
