@@ -54,21 +54,33 @@
 </div>
 </main>
 <script>
-function addToCart_REPLACE
+function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  cart.push({name: name, price: price});
+  let found = false;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      cart[i].quantity = (cart[i].quantity || 1) + 1;
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    cart.push({name: name, price: price, quantity: 1});
+  }
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(name + ' added to cart!');
   updateCartCount();
 }
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
   let countEl = document.getElementById('cart-count');
   if (countEl) {
-    countEl.textContent = cart.length;
-    countEl.style.display = cart.length > 0 ? 'flex' : 'none';
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
   }
 }
+</script>
 updateCartCount();
 </script>
 <footer class="main-footer">
