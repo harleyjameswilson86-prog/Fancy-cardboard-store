@@ -261,7 +261,7 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 .cart-total { text-align: center; margin: 2rem 0; }
 .cart-total h3 { font-size: 1.5rem; color: var(--dark); }
 
-.cart-count { position: absolute; top: -5px; right: -8px; background: red; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.cart-count { position: absolute; top: -5px; right: -8px; background: red; color: white; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .cart-icon { position: relative; }
 
 .categories { padding: 2rem 5%; background: #fff; }
