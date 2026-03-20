@@ -291,3 +291,4 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 .product-card { position: relative; }
 .qty-controls { position: absolute; top: 10px; right: 10px; }
 .empty-cart { margin-top: 20px; }
+.empty-cart .btn { padding: 0.5rem 1.5rem; font-size: 0.8rem; }
