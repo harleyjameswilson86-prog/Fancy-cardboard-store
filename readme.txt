@@ -1,8 +1,12 @@
-This font is free for PERSONAL USE only.
+Hi thanks for downloading our font :) this is demo version,  Download the commercial version here : https://www.limitype.com
 
-LINK TO PURCHASE COMMERCIAL LICENSE: 
-https://fontbundles.net/art-design/100414-love-malia
 
-thank you
+Follow our 
+social media:
 
-NEW BUNDLE popular fonts, only $ 4. Purchase link: https://fontbundles.net/art-design/106733-font-bundle-with-limited-time
+instagram.com/limitype
+https://www.behance.net/limitype
+https://www.limitype.com
+more information :  https://linktr.ee/limitype
+
+tag us with #limitype to get featured
