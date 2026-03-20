@@ -100,10 +100,11 @@ function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el
 function toggleSearch(e) { e.preventDefault(); document.getElementById('searchDropdown').classList.toggle('active'); }
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
   let countEl = document.getElementById('cart-count');
   if (countEl) {
-    countEl.textContent = cart.length;
-    countEl.style.display = cart.length > 0 ? 'flex' : 'none';
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
   }
 }
 updateCartCount(); function toggleNavCategories(e) { e.preventDefault(); document.getElementById("nav-categories").style.display = document.getElementById("nav-categories").style.display === "none" ? "block" : "none"; }
