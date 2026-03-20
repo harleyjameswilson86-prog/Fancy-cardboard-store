@@ -24,6 +24,12 @@
 <nav class="mobile-nav" id="mobileNav">
 <a href="index.html">Home</a>
 <a href="shop.html">Shop</a>
+<a href="#" onclick="toggleNavCategories(event)">Categories</a>
+<div id="nav-categories" style="display:none;">
+<a href="shop.html#pokemon" style="padding-left:20px;">Pokémon TCG</a>
+<a href="shop.html#onepiece" style="padding-left:20px;">One Piece</a>
+<a href="shop.html#lorcana" style="padding-left:20px;">Disney Lorcana</a>
+</div>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
@@ -132,6 +138,7 @@ updateCartCount();
 <div class="chat-bubble">💬</div>
 <script>
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
+function toggleNavCategories(e) { e.preventDefault(); document.getElementById('nav-categories').style.display = document.getElementById('nav-categories').style.display === 'none' ? 'block' : 'none'; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 </script>
 </body>
