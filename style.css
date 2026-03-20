@@ -141,7 +141,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .collage-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 1.5rem; }
 .collage-grid img { width: 200px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: transform 0.3s; }
 .collage-grid img:hover { transform: scale(1.05); }
-.hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: 'Victory Striker', 'Love Malia', 'Super Mellow', 'Grow Year', 'Rencana', 'Super Chiby', 'Gwenchana', 'Jumps Winter', 'Comic Sans MS', cursive; }
+.hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: 'BBH Sans Bogle', 'Victory Striker', 'Love Malia', 'Super Mellow', 'Grow Year', 'Rencana', 'Super Chiby', 'Gwenchana', 'Jumps Winter', 'Comic Sans MS', cursive; }
 .hero p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 1.1rem; }
 .btn { display: inline-block; padding: 0.75rem 2rem; background: var(--btn-color); color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.2s; border-radius: 8px; text-transform: uppercase; }
 .btn:hover { background: #219a52; transform: translateY(-2px); }
