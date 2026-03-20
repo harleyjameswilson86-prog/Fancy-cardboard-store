@@ -283,10 +283,10 @@ section { margin-bottom: 2rem; }
 section h2 { color: #333; margin: 1.5rem 0 1rem; }
 
 
-.qty-controls { display: flex; align-items: center; gap: 10px; margin: 10px 0; justify-content: flex-end; }
-.qty-btn-big { width: 40px; height: 40px; font-size: 24px; font-weight: bold; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 8px; }
+.qty-controls { display: flex; align-items: center; gap: 5px; margin: 10px 0; justify-content: flex-end; }
+.qty-btn-big { width: 30px; height: 30px; font-size: 18px; font-weight: bold; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 6px; }
 .qty-btn-big:hover { background: #555; }
-.qty-input { width: 60px; height: 40px; font-size: 20px; font-weight: bold; text-align: center; border: 2px solid #333; border-radius: 8px; padding: 5px; }
+.qty-input { width: 45px; height: 30px; font-size: 16px; font-weight: bold; text-align: center; border: 2px solid #333; border-radius: 6px; padding: 3px; }
 .qty-input:focus { outline: none; border-color: #4CAF50; }
 .product-card { position: relative; }
 .qty-controls { position: absolute; top: 10px; right: 10px; }
