@@ -43,6 +43,14 @@
   font-style: normal;
 }
 
+/* Super Mellow Font */
+@font-face {
+  font-family: 'Super Mellow';
+  src: url('Super Mellow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #f5c518;
