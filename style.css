@@ -105,6 +105,14 @@
   font-style: normal;
 }
 
+/* Extra Innings Font */
+@font-face {
+  font-family: 'Extra Innings';
+  src: url('Extra Innings.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #f5c518;
