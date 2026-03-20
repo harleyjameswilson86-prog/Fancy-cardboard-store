@@ -1,27 +1,8 @@
-                                               .:..:::=@@@#===++*#.        
-    ..                        .                +#+++@@#@@@#%@#:.:-         
-.*@@@@@%.  =@@@@@@@# -%@%    +@@* =@@@##*=+###+:   %@:      :%%  @@@%##*+. 
-%@@%==+-   :++#@@@@*  %@@*  :@@@- -@@@@@@@@@@@@@* -@+        -@- @@@@@@@@@+
-=@@@@%#=.    +@@@%-   :@@@- %@@#  -@@@= %@@# +@@@ :@+        =@- @@@%. =@@@
-  :=+%@@@  +@@@%=      +@@@#@@@.  -@@@- #@@+ -@@@  *@+     .+@*  %@@#  :@@@
-=@%##@@@% =@@@@@@@%=    %@@@@@-   :@@@= *@@+ -@@@   :*@%%%@%*:   %@@%  :@@@
-:+*%%#*-  -########-    :@@@@=    .###: -**: :##*       ..       +##+  .##*
-                      .-#@@@=                                              
-       =###*-       :@@@@@*.          :#%*.                                
-      *@@%#@-       =%#*=.            =@@@-                                
-    ::@@@-     ..            :::   .   ::.     .-==-=-:.    ---.           
-   .@@@@@@@. .@@@=  =@@@.   =@@@%@@@: :@@@-  :#@@@@@@@@+    @@@@@@@%=      
-    .-@@@=-   @@@+  +@@@    -@@@@@*=  :@@@- .@@@@=-+@@@:    @@@@%#@@@#     
-     :@@@.    @@@*  *@@#    :@@@#     :@@@- =@@@+  -@@@     @@@#  -@@@     
-     -@+.-.   @@@%::#@@#:-  .@@@=     -@@@= .@@@@=-*@@@:=.  @@@#  -@@@     
-     =@:-@@%+.=@@@@@@@@@@@# .@@@+     =@@@-  :%@@@@@@@@@@@: %@@%  :@@%     
-     .= -@@@@+  -=++=--+=:   ===:   =*@@@%     .---: :==-   -==-   -=-     
-        .+-@@*                     :@@@@*                                  
+This font is free for PERSONAL USE only.
 
+LINK TO PURCHASE COMMERCIAL LICENSE: 
+https://fontbundles.net/art-design/100414-love-malia
 
+thank you
 
-· Designed by Szymon Furjan
- 
-· Visit my my FontSpace profile to find more fonts: https://www.fontspace.com/szymon-furjan
-· Visit my portfolio to find more about me: https://www.furjandesign.com/
-· Follow me on Twitter if you like my fonts: @szymonfurjan
+NEW BUNDLE popular fonts, only $ 4. Purchase link: https://fontbundles.net/art-design/106733-font-bundle-with-limited-time
