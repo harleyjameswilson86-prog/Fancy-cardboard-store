@@ -1,12 +1,10 @@
-Hi thanks for downloading our font :) this is demo version,  Download the commercial version here : https://www.limitype.com
+NOTE: This demo font is for PERSONAL USE ONLY! But any donation are very appreciated.
+- Paypal account for donation : https://paypal.me/dida21
 
+- Link to purchase full version and commercial license:
+https://ahweproject.com/product/victory-striker/
 
-Follow our 
-social media:
+- If you need an extended license or corporate license, please contact us
+ahweproject@gmail.com
 
-instagram.com/limitype
-https://www.behance.net/limitype
-https://www.limitype.com
-more information :  https://linktr.ee/limitype
-
-tag us with #limitype to get featured
+Thank you.
