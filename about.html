@@ -52,3 +52,16 @@ function toggleNavCategories(e) { e.preventDefault(); document.getElementById('n
 </script>
 </body>
 </html>
+
+<script>
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  let countEl = document.getElementById('cart-count');
+  if (countEl) {
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
+  }
+}
+updateCartCount();
+</script>
