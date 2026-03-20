@@ -242,3 +242,8 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 section { margin-bottom: 2rem; }
 section h2 { color: #333; margin: 1.5rem 0 1rem; }
 
+
+.qty-controls { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+.qty-btn { width: 30px; height: 30px; font-size: 18px; font-weight: bold; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 5px; }
+.qty-btn:hover { background: #555; }
+.qty-display { font-size: 18px; font-weight: bold; min-width: 40px; text-align: center; }
