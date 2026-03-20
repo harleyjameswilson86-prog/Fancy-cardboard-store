@@ -192,3 +192,7 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 .category-options.active { display: block; }
 .category-option { display: block; padding: 0.8rem; background: #f8f9fa; margin: 0.3rem 0; border-radius: 8px; text-decoration: none; color: #333; }
 .category-option:hover { background: #e9ecef; }
+
+section { margin-bottom: 2rem; }
+section h2 { color: #333; margin: 1.5rem 0 1rem; }
+
