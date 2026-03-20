@@ -35,6 +35,14 @@
   font-style: normal;
 }
 
+/* Marous Font */
+@font-face {
+  font-family: 'Marous';
+  src: url('Marous.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #f5c518;
