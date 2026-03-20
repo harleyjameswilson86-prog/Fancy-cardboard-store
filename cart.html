@@ -57,8 +57,9 @@ function loadCart() {
   let total = 0;
   let html = '<div class="products">';
   cart.forEach((item, index) => {
-    total += item.price;
-    html += '<div class="product-card"><div class="product-info"><div class="product-name">' + item.name + '</div><div class="product-price">$' + item.price.toFixed(2) + '</div><button class="btn" onclick="removeFromCart(' + index + ')">Remove</button></div></div>';
+    let qty = item.quantity || 1;
+    total += item.price * qty;
+    html += '<div class="product-card"><div class="product-info"><div class="product-name">' + item.name + ' (x' + qty + ')</div><div class="product-price">$' + (item.price * qty).toFixed(2) + '</div><button class="btn" onclick="removeFromCart(' + index + ')">Remove</button></div></div>';
   });
   html += '</div>';
   html += '<div class="cart-total"><h3>Total: $' + total.toFixed(2) + '</h3></div>';
@@ -71,6 +72,7 @@ function removeFromCart(index) {
   cart.splice(index, 1);
   localStorage.setItem('cart', JSON.stringify(cart));
   loadCart();
+  updateCartCount();
 }
 
 loadCart();
@@ -78,10 +80,11 @@ loadCart();
 <script>
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
   let countEl = document.getElementById('cart-count');
   if (countEl) {
-    countEl.textContent = cart.length;
-    countEl.style.display = cart.length > 0 ? 'flex' : 'none';
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
   }
 }
 updateCartCount();
