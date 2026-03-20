@@ -27,6 +27,14 @@
   font-style: normal;
 }
 
+/* Grow Year Font */
+@font-face {
+  font-family: 'Grow Year';
+  src: url('Grow Year/Grow Year.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #f5c518;
