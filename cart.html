@@ -59,10 +59,13 @@ function loadCart() {
   cart.forEach((item, index) => {
     let qty = item.quantity || 1;
     total += item.price * qty;
-    html += '<div class="product-card"><div class="product-info"><div class="product-name">' + item.name + '</div>';
-    html += '<div class="qty-controls"><button class="qty-btn" onclick="changeQty(' + index + ', -1)">-</button>';
-    html += '<span class="qty-display">x' + qty + '</span>';
-    html += '<button class="qty-btn" onclick="changeQty(' + index + ', 1)">+</button></div>';
+    html += '<div class="product-card">';
+    html += '<div class="qty-controls">';
+    html += '<button class="qty-btn-big" onclick="changeQty(' + index + ', -1)">-</button>';
+    html += '<input type="number" class="qty-input" value="' + qty + '" min="1" onchange="changeQtyDirect(' + index + ', this.value)">';
+    html += '<button class="qty-btn-big" onclick="changeQty(' + index + ', 1)">+</button>';
+    html += '</div>';
+    html += '<div class="product-info"><div class="product-name">' + item.name + '</div>';
     html += '<div class="product-price">$' + (item.price * qty).toFixed(2) + '</div>';
     html += '<button class="btn" onclick="removeFromCart(' + index + ')">Remove</button></div></div>';
   });
@@ -80,6 +83,18 @@ function changeQty(index, change) {
       cart.splice(index, 1);
     }
   }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  loadCart();
+  updateCartCount();
+}
+
+function changeQtyDirect(index, value) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let qty = parseInt(value);
+  if (qty <= 0 || isNaN(qty)) {
+    qty = 1;
+  }
+  cart[index].quantity = qty;
   localStorage.setItem('cart', JSON.stringify(cart));
   loadCart();
   updateCartCount();
