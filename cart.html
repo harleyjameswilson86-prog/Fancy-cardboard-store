@@ -71,6 +71,7 @@ function loadCart() {
   });
   html += '</div>';
   html += '<div class="cart-total"><h3>Total: $' + total.toFixed(2) + '</h3></div>';
+  html += '<div class="checkout-btn-container"><button class="btn checkout-btn" onclick="checkout()">Proceed to Checkout</button></div>';
   
   cartItems.innerHTML = html;
 }
@@ -159,10 +160,23 @@ updateCartCount();
 </div>
 </footer>
 <div class="chat-bubble">💬</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="stripe-config.js"></script>
 <script>
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
 function toggleNavCategories(e) { e.preventDefault(); document.getElementById('nav-categories').style.display = document.getElementById('nav-categories').style.display === 'none' ? 'block' : 'none'; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
-</script>
+
+function checkout() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  if (cart.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
+  
+  // For now, show a message about setting up products
+  alert('Stripe checkout coming soon! We need to set up products in your Stripe dashboard first.');
+  // TODO: Implement Stripe Checkout when products are configured
+}
 </body>
 </html>

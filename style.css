@@ -294,3 +294,7 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 .empty-cart { margin-top: 20px; }
 .empty-cart p { margin-bottom: 15px; }
 .cart-count { position: absolute; top: -5px; right: -8px; background: red; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: bold; z-index: 9999; }
+
+.checkout-btn-container { text-align: center; margin-top: 20px; padding-bottom: 20px; }
+.checkout-btn { background: #4CAF50 !important; font-size: 1.1rem; padding: 1rem 3rem; }
+.checkout-btn:hover { background: #45a049 !important; }
