@@ -168,51 +168,39 @@ function toggleNavCategories(e) { e.preventDefault(); document.getElementById('n
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 
 function checkout() {
-  alert('Checkout function running');
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   if (cart.length === 0) {
     alert('Your cart is empty! Add some items first.');
     return;
   }
   
-  // Calculate total
   let total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
-  alert('Total: $' + total);
   
-  // Show checkout modal with form
-  let modal = document.getElementById('checkout-modal');
-  if (!modal) {
-    // Create modal if not exists
-    let modalHtml = '<div id="checkout-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;">';
-    modalHtml += '<div style="background:#fff;max-width:500px;margin:50px auto;padding:20px;border-radius:10px;max-height:90vh;overflow-y:auto;">';
-    modalHtml += '<h2>Checkout</h2>';
-    modalHtml += '<div id="checkout-form">';
-    modalHtml += '<p><strong>Order Total: $' + total.toFixed(2) + '</strong></p>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Full Name:*</label><br><input type="text" id="checkout-name" style="width:100%;padding:8px;margin-top:5px;" required></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Email:*</label><br><input type="email" id="checkout-email" style="width:100%;padding:8px;margin-top:5px;" required></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Phone:</label><br><input type="tel" id="checkout-phone" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Shipping Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;" required></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;" required></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;" required></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;" required></div>';
-    modalHtml += '<div style="margin-bottom:15px;"><label>Order Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
-    modalHtml += '<button class="btn checkout-btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button>';
-    modalHtml += '</div>';
-    modalHtml += '<button onclick="closeCheckout()" style="margin-top:10px;background:none;border:none;color:#666;cursor:pointer;">Cancel</button>';
-    modalHtml += '</div></div>';
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
-    modal = document.getElementById('checkout-modal');
-  }
+  // Show checkout modal
+  let modalHtml = '<div id="checkout-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;">';
+  modalHtml += '<div style="background:#fff;max-width:500px;margin:50px auto;padding:20px;border-radius:10px;max-height:90vh;overflow-y:auto;">';
+  modalHtml += '<h2>Checkout</h2>';
+  modalHtml += '<div id="checkout-form">';
+  modalHtml += '<p><strong>Total: $' + total.toFixed(2) + '</strong></p>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Full Name:*</label><br><input type="text" id="checkout-name" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Email:*</label><br><input type="email" id="checkout-email" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Phone:</label><br><input type="tel" id="checkout-phone" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
+  modalHtml += '<button class="btn checkout-btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button>';
+  modalHtml += '</div>';
+  modalHtml += '<button onclick="document.getElementById(\'checkout-modal\').style.display=\'none\'" style="margin-top:10px;background:none;border:none;color:#666;cursor:pointer;">Cancel</button>';
+  modalHtml += '</div></div>';
   
-  // Update total in modal
-  let totalEl = document.querySelector('#checkout-modal #checkout-form p strong');
-  if (totalEl) totalEl.textContent = 'Order Total: $' + total.toFixed(2);
-  modal.style.display = 'block';
-}
-
-function closeCheckout() {
-  let modal = document.getElementById('checkout-modal');
-  if (modal) modal.style.display = 'none';
+  // Remove old modal if exists
+  let oldModal = document.getElementById('checkout-modal');
+  if (oldModal) oldModal.remove();
+  
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+  document.getElementById('checkout-modal').style.display = 'block';
 }
 
 function processCheckout() {
@@ -229,63 +217,33 @@ function processCheckout() {
     return;
   }
   
-  // Get cart items
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   
-  // Customer info
-  let customer = {
-    name: name,
-    email: email,
-    phone: document.getElementById('checkout-phone').value,
-    address: address,
-    suburb: suburb,
-    state: state,
-    postcode: postcode,
-    notes: notes
-  };
+  let customer = { name: name, email: email, phone: document.getElementById('checkout-phone').value, address: address, suburb: suburb, state: state, postcode: postcode, notes: notes };
   
-  // Show loading
   let btn = document.getElementById('pay-btn');
-  let originalText = btn ? btn.textContent : 'Pay with Stripe';
-  if (btn) {
-    btn.textContent = 'Processing...';
-    btn.disabled = true;
-  }
+  if (btn) { btn.textContent = 'Processing...'; btn.disabled = true; }
   
-  // Call backend to create Stripe checkout session
   fetch('https://fancy-cardboard-stripe-backend.onrender.com/create-checkout-session', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      items: cart,
-      customer: customer
-    })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ items: cart, customer: customer })
   })
   .then(response => response.json())
   .then(data => {
     if (data.url) {
-      // Redirect to Stripe checkout
       window.location.href = data.url;
     } else if (data.error) {
       alert('Error: ' + data.error);
-      let btn = document.getElementById('pay-btn');
-      if (btn) {
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }
+      if (btn) { btn.textContent = 'Pay with Stripe'; btn.disabled = false; }
     }
   })
   .catch(error => {
     console.error('Error:', error);
-    let btn = document.getElementById('pay-btn');
-    if (btn) {
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
-    alert('Checkout system is being set up! Please contact us to complete your order.\n\nEmail: hello@fancycardboardstore.com');
+    if (btn) { btn.textContent = 'Pay with Stripe'; btn.disabled = false; }
+    alert('Payment system issue. Email hello@fancycardboardstore.com to complete order.');
   });
 }
+</script>
 </body>
 </html>
