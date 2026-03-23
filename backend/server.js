@@ -2,16 +2,12 @@ const express = require('express');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
-
-// Email configuration (using Formspree or similar)
-const OWNER_EMAIL = 'hello@fancycardboardstore.com';
 
 // Create Stripe Checkout Session
 app.post('/create-checkout-session', async (req, res) => {
@@ -30,7 +26,7 @@ app.post('/create-checkout-session', async (req, res) => {
           name: item.name,
           description: item.notes ? `Note: ${item.notes}` : '',
         },
-        unit_amount: Math.round(item.price * 100), // Convert to cents
+        unit_amount: Math.round(item.price * 100),
       },
       quantity: item.quantity || 1,
     }));
@@ -56,29 +52,6 @@ app.post('/create-checkout-session', async (req, res) => {
     console.error('Error creating checkout session:', error);
     res.status(500).json({ error: error.message });
   }
-});
-
-// Webhook for successful payments (basic version)
-app.post('/webhook', express.raw({type: 'application/json'}), async (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.error(`Webhook Error: ${err.message}`);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
-
-  // Handle the event
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
-    console.log('Payment successful for session:', session.id);
-    
-    // Here you could send a confirmation email or store the order
-  }
-
-  res.json({ received: true });
 });
 
 // Health check
