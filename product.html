@@ -136,7 +136,15 @@ function loadProduct() {
         <span class="product-detail-badge" style="background:${badgeColor}">${product.badge}</span>
         <h1 class="product-detail-name">${product.name}</h1>
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
-        <p class="product-detail-desc">${product.description}</p>
+        <p style="color:#666;margin-bottom:10px;">Shipping calculated at checkout</p>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+          <span style="font-weight:bold;">Quantity:</span>
+          <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">-</button>
+            <input type="number" id="detail-qty" value="1" min="1" style="width:50px;text-align:center;border:none;padding:8px;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=parseInt(q.value)+1" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
+          </div>
+        </div>
         <div class="product-detail-meta">
           <h3 style="cursor:pointer;padding:10px;background:#f5f5f5;border-radius:5px;display:flex;justify-content:space-between;align-items:center;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
             Product Description <span>▼</span>
@@ -151,7 +159,7 @@ function loadProduct() {
             <p>${product.details}</p>
           </div>
         </div>
-        <button class="btn" onclick="addToCart('${product.name}', ${product.price}); alert('Added to cart!');">Add to Cart</button>
+        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');">Add to Cart</button>
       </div>
     </div>
   `;
@@ -159,18 +167,19 @@ function loadProduct() {
   document.title = product.name + ' - Fancy Cardboard Store';
 }
 
-function addToCart(name, price) {
+function addToCart(name, price, qty) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let quantity = qty || 1;
   let found = false;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].name === name) {
-      cart[i].quantity = (cart[i].quantity || 1) + 1;
+      cart[i].quantity = (cart[i].quantity || 1) + quantity;
       found = true;
       break;
     }
   }
   if (!found) {
-    cart.push({name: name, price: price, quantity: 1});
+    cart.push({name: name, price: price, quantity: quantity});
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
