@@ -168,9 +168,10 @@ function toggleNavCategories(e) { e.preventDefault(); document.getElementById('n
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 
 function checkout() {
+  console.log('Checkout clicked');
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   if (cart.length === 0) {
-    alert('Your cart is empty!');
+    alert('Your cart is empty! Add some items first.');
     return;
   }
   
