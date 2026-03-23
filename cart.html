@@ -194,7 +194,7 @@ function checkout() {
     modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;" required></div>';
     modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;" required></div>';
     modalHtml += '<div style="margin-bottom:15px;"><label>Order Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
-    modalHtml += '<button class="btn checkout-btn" onclick="processCheckout()">Pay with Stripe</button>';
+    modalHtml += '<button class="btn checkout-btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button>';
     modalHtml += '</div>';
     modalHtml += '<button onclick="closeCheckout()" style="margin-top:10px;background:none;border:none;color:#666;cursor:pointer;">Cancel</button>';
     modalHtml += '</div></div>';
@@ -203,7 +203,8 @@ function checkout() {
   }
   
   // Update total in modal
-  document.querySelector('#checkout-modal #checkout-form p strong').textContent = 'Order Total: $' + total.toFixed(2);
+  let totalEl = document.querySelector('#checkout-modal #checkout-form p strong');
+  if (totalEl) totalEl.textContent = 'Order Total: $' + total.toFixed(2);
   modal.style.display = 'block';
 }
 
@@ -242,10 +243,12 @@ function processCheckout() {
   };
   
   // Show loading
-  let btn = document.querySelector('#checkout-form .checkout-btn');
-  let originalText = btn.textContent;
-  btn.textContent = 'Processing...';
-  btn.disabled = true;
+  let btn = document.getElementById('pay-btn');
+  let originalText = btn ? btn.textContent : 'Pay with Stripe';
+  if (btn) {
+    btn.textContent = 'Processing...';
+    btn.disabled = true;
+  }
   
   // Call backend to create Stripe checkout session
   fetch('https://fancy-cardboard-stripe-backend.onrender.com/create-checkout-session', {
@@ -265,15 +268,21 @@ function processCheckout() {
       window.location.href = data.url;
     } else if (data.error) {
       alert('Error: ' + data.error);
-      btn.textContent = originalText;
-      btn.disabled = false;
+      let btn = document.getElementById('pay-btn');
+      if (btn) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
     }
   })
   .catch(error => {
     console.error('Error:', error);
+    let btn = document.getElementById('pay-btn');
+    if (btn) {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
     alert('Checkout system is being set up! Please contact us to complete your order.\n\nEmail: hello@fancycardboardstore.com');
-    btn.textContent = originalText;
-    btn.disabled = false;
   });
 }
 </body>
