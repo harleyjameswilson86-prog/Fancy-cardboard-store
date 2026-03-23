@@ -138,9 +138,18 @@ function loadProduct() {
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
         <p class="product-detail-desc">${product.description}</p>
         <div class="product-detail-meta">
-          <p><strong>Category:</strong> ${product.category}</p>
-          <p><strong>Details:</strong></p>
-          <p>${product.details}</p>
+          <h3 style="cursor:pointer;padding:10px;background:#f5f5f5;border-radius:5px;display:flex;justify-content:space-between;align-items:center;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+            Product Description <span>▼</span>
+          </h3>
+          <div style="padding:15px;line-height:1.8;">
+            <p>${product.description}</p>
+          </div>
+          <h3 style="cursor:pointer;padding:10px;background:#f5f5f5;border-radius:5px;display:flex;justify-content:space-between;align-items:center;margin-top:10px;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+            Item Details <span>▼</span>
+          </h3>
+          <div style="padding:15px;line-height:1.8;">
+            <p>${product.details}</p>
+          </div>
         </div>
         <button class="btn" onclick="addToCart('${product.name}', ${product.price}); alert('Added to cart!');">Add to Cart</button>
       </div>
