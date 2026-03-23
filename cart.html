@@ -168,8 +168,10 @@ function toggleNavCategories(e) { e.preventDefault(); document.getElementById('n
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 
 function checkout() {
-  console.log('Checkout clicked');
+  console.log('Checkout function called');
+  alert('Checkout function running...');
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  alert('Cart has ' + cart.length + ' items');
   if (cart.length === 0) {
     alert('Your cart is empty! Add some items first.');
     return;
@@ -177,6 +179,11 @@ function checkout() {
   
   // Calculate total
   let total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+  alert('Total: $' + total.toFixed(2));
+  
+  // Show checkout modal with form
+  let modal = document.getElementById('checkout-modal');
+  if (!modal) {
   
   // Show checkout modal with form
   let modal = document.getElementById('checkout-modal');
