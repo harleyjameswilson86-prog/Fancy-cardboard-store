@@ -33,7 +33,7 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      success_url: process.env.SUCCESS_URL || 'https://fancycardboardstore.com/cart.html?success=true',
+      success_url: process.env.SUCCESS_URL || 'https://fancycardboardstore.com/success.html',
       cancel_url: process.env.CANCEL_URL || 'https://fancycardboardstore.com/cart.html?canceled=true',
       customer_email: customer.email,
       metadata: {
