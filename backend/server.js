@@ -22,7 +22,7 @@ app.post('/create-checkout-session', async (req, res) => {
         currency: 'aud',
         product_data: {
           name: item.name,
-          description: item.notes || '',
+          description: item.notes && item.notes.trim() ? item.notes : undefined,
         },
         unit_amount: Math.round(item.price * 100),
       },
