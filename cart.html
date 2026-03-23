@@ -71,7 +71,7 @@ function loadCart() {
   });
   html += '</div>';
   html += '<div class="cart-total"><h3>Total: $' + total.toFixed(2) + '</h3></div>';
-  html += '<div class="checkout-btn-container"><button class="btn checkout-btn" onclick="checkout()">Proceed to Checkout</button></div>';
+  html += '<div class="checkout-btn-container"><button class="btn checkout-btn" id="checkout-btn" onclick="alert(\'Button clicked!\'); checkout();">Proceed to Checkout</button></div>';
   
   cartItems.innerHTML = html;
 }
