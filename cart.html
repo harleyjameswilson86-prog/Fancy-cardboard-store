@@ -226,8 +226,11 @@ function processCheckout() {
     return;
   }
   
-  // Store checkout info
-  let checkoutInfo = {
+  // Get cart items
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  
+  // Customer info
+  let customer = {
     name: name,
     email: email,
     phone: document.getElementById('checkout-phone').value,
@@ -235,19 +238,43 @@ function processCheckout() {
     suburb: suburb,
     state: state,
     postcode: postcode,
-    notes: notes,
-    cart: JSON.parse(localStorage.getItem('cart') || '[]'),
-    total: JSON.parse(localStorage.getItem('cart') || '[]').reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0)
+    notes: notes
   };
-  localStorage.setItem('checkoutInfo', JSON.stringify(checkoutInfo));
   
-  // Initialize Stripe
-  const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+  // Show loading
+  let btn = document.querySelector('#checkout-form .checkout-btn');
+  let originalText = btn.textContent;
+  btn.textContent = 'Processing...';
+  btn.disabled = true;
   
-  // For now, show message about backend setup
-  // In production, this would call your backend to create a Stripe Checkout Session
-  alert('Checkout system is being set up! For now, please contact us to complete your order.\n\nEmail: hello@fancycardboardstore.com');
-  closeCheckout();
+  // Call backend to create Stripe checkout session
+  fetch('https://fancy-cardboard-stripe-backend.onrender.com/create-checkout-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      items: cart,
+      customer: customer
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.url) {
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
+    } else if (data.error) {
+      alert('Error: ' + data.error);
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Checkout system is being set up! Please contact us to complete your order.\n\nEmail: hello@fancycardboardstore.com');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  });
 }
 </body>
 </html>
