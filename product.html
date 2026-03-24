@@ -88,6 +88,8 @@ async function loadProducts() {
       products[p.id] = p;
     });
     loadProduct();
+  // Auto-refresh stock every 10 seconds
+  setInterval(loadProduct, 10000);
   } catch (e) {
     console.error('Failed to load products:', e);
     document.getElementById('product-content').innerHTML = '<p>Failed to load product. Please try again.</p>';
@@ -186,6 +188,8 @@ function updateCartCount() {
 }
 
 loadProduct();
+  // Auto-refresh stock every 10 seconds
+  setInterval(loadProduct, 10000);
 updateCartCount();
 </script>
 </body>

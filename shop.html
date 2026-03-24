@@ -44,7 +44,7 @@
 <section id="lorcana">
 <h2>Disney Lorcana</h2>
 <div class="products">
-<div class="product-card">
+<div class="product-card" data-product-id="lorcana-fabled-booster">
 <a href="product.html?id=lorcana-fabled-booster">
 <div class="product-badge">Only 1 Left</div>
 <div class="product-image"><img src="images/lorcana-fabled-booster.png" alt="Disney Lorcana Fabled Booster Box" style="max-width:100%;max-height:150px;"></div>
@@ -53,7 +53,7 @@
 </a>
 <button class="btn" onclick="addToCart('Disney Lorcana - Fabled Booster Box', 519.95)">Add to Cart</button>
 </div>
-<div class="product-card">
+<div class="product-card" data-product-id="lorcana-fabled-booster-unsealed">
 <a href="product.html?id=lorcana-fabled-booster-unsealed">
 <div class="product-badge">Only 2 Left</div>
 <div class="product-image"><img src="images/lorcana-fabled-booster.png" alt="Disney Lorcana Fabled Booster Box Unsealed" style="max-width:100%;max-height:150px;"></div>
@@ -129,3 +129,20 @@ function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el
 function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 updateCartCount();
 </script></footer>
+
+<script>
+async function updateStockBadges() {
+  try {
+    const res = await fetch('https://fancy-cardboard-stripe-backend.onrender.com/api/products');
+    const products = await res.json();
+    products.forEach(p => {
+      const badge = document.querySelector(`[data-product-id="${p.id}"] .product-badge`);
+      if (badge) {
+        badge.textContent = p.badge;
+      }
+    });
+  } catch(e) { console.log(e); }
+}
+updateStockBadges();
+setInterval(updateStockBadges, 10000);
+</script>
