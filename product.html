@@ -132,6 +132,8 @@ function loadProduct() {
             <input type="number" id="detail-qty" value="1" min="1" style="width:50px;text-align:center;border:none;padding:8px;">
             <button onclick="let q=document.getElementById('detail-qty');q.value=parseInt(q.value)+1" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
           </div>
+        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');" style="margin-bottom:15px;">Add to Cart</button>
+        
         </div>
         <div class="product-detail-meta">
           <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+') ? this.textContent.replace('+', '-') : this.textContent.replace('-', '+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description +</h3>
@@ -145,7 +147,7 @@ function loadProduct() {
           </ul>
           </div>
         </div>
-        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');">Add to Cart</button>
+        
       </div>
     </div>
   `;
