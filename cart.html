@@ -158,7 +158,7 @@ updateCartCount();
   modalHtml += '<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;" onchange="updateShipping()"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" onchange="updateShipping()" style="width:100%;padding:8px;margin-top:5px;"></div>';
-  modalHtml += '<div style="margin-bottom:15px;"><p><strong>Shipping:</strong></p><label><input type="radio" name="shipping" value="pickup" checked onclick="updateShipping()"> Pickup (Gold Coast)</label><br><label><input type="radio" name="shipping" value="delivery" onclick="updateShipping()"> Delivery</label><div id="shipping-cost" style="margin-top:5px;color:#666;"></div></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><p><strong>Shipping:</strong></p><label><input type="radio" name="shipping" value="pickup" checked onclick="updateShipping()"> Pickup - Gold Coast ( Nerang area )</label><br><label><input type="radio" name="shipping" value="delivery" onclick="updateShipping()"> Delivery</label><div id="shipping-cost" style="margin-top:5px;color:#666;"></div></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
   modalHtml += '<div id="total-with-shipping" style="margin-bottom:15px;font-weight:bold;"></div>';
   modalHtml += '<button class="btn checkout-btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button>';
@@ -194,7 +194,7 @@ function updateShipping() {
       shippingCost.innerHTML = 'Delivery Interstate: $20';
     }
   } else {
-    shippingCost.innerHTML = 'Pickup (Gold Coast) - Free';
+    shippingCost.innerHTML = 'Pickup - Gold Coast ( Nerang area ) - Free';
   }
   
   totalDiv.innerHTML = 'Total: $' + (subtotal + shipping).toFixed(2) + ' (incl. shipping)';
