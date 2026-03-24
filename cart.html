@@ -7,15 +7,17 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .cart-page { max-width: 800px; margin: 2rem auto; padding: 0 5%; }
-.cart-item { position: relative; padding: 1rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-.cart-item-info { flex: 1; padding-left: 10px; }
+.cart-item { position: relative; padding: 1rem; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; }
+.cart-item-info { flex: 1; padding: 0 1rem; }
+.cart-item-name { font-weight: 600; }
 .cart-item-price { color: #27ae60; font-weight: bold; }
 .empty-cart { text-align: center; padding: 3rem; }
 .cart-total { text-align: right; padding: 1rem 0; font-size: 1.5rem; font-weight: bold; }
-.qty-controls { position: absolute; top: 5px; right: 5px; display: flex; align-items: center; gap: 3px; }
-.qty-btn-big { width: 25px; height: 25px; font-size: 14px; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 5px; }
-.qty-input { width: 35px; height: 25px; font-size: 12px; text-align: center; border: 2px solid #333; border-radius: 5px; }
-.remove-btn { background: #e74c3c; color: #fff; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; margin-left: 5px; }
+.qty-controls { display: flex; align-items: center; gap: 5px; margin: 5px 0; position: absolute; top: 5px; right: 5px; }
+.qty-btn-big { width: 25px; height: 25px; font-size: 16px; font-weight: bold; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 5px; }
+.qty-input { width: 40px; height: 25px; font-size: 14px; font-weight: bold; text-align: center; border: 2px solid #333; border-radius: 5px; }
+.remove-btn { background: #e74c3c; color: #fff; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-left: 10px; }
+.product-card { position: relative; }
 </style>
 </head>
 <body>
@@ -89,19 +91,13 @@ function loadCart() {
   for (var i = 0; i < cart.length; i++) {
     var item = cart[i];
     var qty = item.quantity || 1;
-    var itemTotal = item.price * qty;
-    total += itemTotal;
-    html += '<div class="cart-item">';
-    html += '<div class="qty-controls">';
-    html += '<button class="qty-btn-big" onclick="changeQty(' + i + ', -1)">-</button>';
-    html += '<input type="number" class="qty-input" value="' + qty + '" onchange="changeQtyDirect(' + i + ', this.value)">';
-    html += '<button class="qty-btn-big" onclick="changeQty(' + i + ', 1)">+</button>';
-    html += '<button class="remove-btn" onclick="removeFromCart(' + i + ')">X</button>';
-    html += '</div>';
-    html += '<div class="cart-item-info"><strong>' + item.name + '</strong><br><span class="cart-item-price">$' + item.price.toFixed(2) + '</span></div>';
+    total += item.price * qty;
+    html += '<div class="cart-item product-card">';
+    html += '<div class="cart-item-info"><div class="cart-item-name">' + item.name + '</div><div class="cart-item-price">$' + item.price.toFixed(2) + '</div></div>';
+    html += '<div class="qty-controls"><button class="qty-btn-big" onclick="changeQty(' + i + ', -1)">-</button><input type="number" class="qty-input" value="' + qty + '" onchange="changeQtyDirect(' + i + ', this.value)"><button class="qty-btn-big" onclick="changeQty(' + i + ', 1)">+</button></div>';
     html += '</div>';
   }
-  html += '<div class="cart-total">Total: $' + total.toFixed(2) + '</div>';
+  html += '<div class="cart-total"><h3>Total: $' + total.toFixed(2) + '</h3></div>';
   html += '<div style="text-align:center;margin:20px 0;"><button class="btn" onclick="checkout()">Proceed to Checkout</button></div>';
   container.innerHTML = html;
 }
@@ -117,13 +113,6 @@ function changeQtyDirect(index, qty) {
   qty = parseInt(qty) || 1;
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
   if (qty <= 0) { cart.splice(index, 1); } else { cart[index].quantity = qty; }
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartCount();
-  loadCart();
-}
-function removeFromCart(index) {
-  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  cart.splice(index, 1);
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
   loadCart();
@@ -175,14 +164,12 @@ function updateShipping() {
 function processCheckout() {
   var name = document.getElementById('checkout-name').value;
   var email = document.getElementById('checkout-email').value;
-  var address = document.getElementById('checkout-address').value;
-  var suburb = document.getElementById('checkout-suburb').value;
-  if (!name || !email || !address || !suburb) { alert('Please fill in all required fields!'); return; }
+  if (!name || !email) { alert('Please fill in all required fields!'); return; }
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
   var isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
   var shipping = updateShipping();
   if (isDelivery && shipping > 0) { cart.push({name: 'Shipping', price: shipping, quantity: 1}); }
-  var customer = { name: name, email: email, phone: document.getElementById('checkout-phone').value, address: address, suburb: suburb, state: document.getElementById('checkout-state').value, postcode: document.getElementById('checkout-postcode').value, notes: document.getElementById('checkout-notes').value };
+  var customer = { name: name, email: email, phone: document.getElementById('checkout-phone').value, address: document.getElementById('checkout-address').value, suburb: document.getElementById('checkout-suburb').value, state: document.getElementById('checkout-state').value, postcode: document.getElementById('checkout-postcode').value, notes: document.getElementById('checkout-notes').value };
   var btn = document.getElementById('pay-btn');
   btn.textContent = 'Processing...'; btn.disabled = true;
   fetch('https://fancy-cardboard-stripe-backend.onrender.com/create-checkout-session', {
