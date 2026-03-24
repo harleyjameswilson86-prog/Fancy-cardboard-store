@@ -195,7 +195,7 @@ function addToCart(name, price, qty) {
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
-  setTimeout(function(){ alert('Added to cart!'); }, 10);
+  
 }
 
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }

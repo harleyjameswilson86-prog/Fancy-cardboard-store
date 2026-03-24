@@ -91,7 +91,7 @@ function addToCart(name, price) {
     cart.push({name: name, price: price, quantity: 1});
   }
   localStorage.setItem('cart', JSON.stringify(cart));
-  setTimeout(function(){ alert(name + ' added to cart!'); }, 10);
+  
   updateCartCount();
 }
 function updateCartCount() {
