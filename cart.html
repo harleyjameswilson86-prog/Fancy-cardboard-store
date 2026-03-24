@@ -100,7 +100,7 @@ function loadCart() {
     html += '</div>';
   }
   html += '<div class="cart-total">Total: $' + total.toFixed(2) + '</div>';
-  html += '<div style="text-align:center;margin:20px 0;"><button class="btn" onclick="checkout()">Proceed to Checkout</button></div>';
+  html += '<div style="text-align:center;margin:5px 0;"><button class="btn" onclick="checkout()">Proceed to Checkout</button></div>';
   container.innerHTML = html;
 }
 function changeQty(index, delta) {
