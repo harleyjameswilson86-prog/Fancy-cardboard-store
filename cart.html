@@ -156,9 +156,11 @@ updateCartCount();
   modalHtml += '<div style="margin-bottom:15px;"><label>Phone:</label><br><input type="tel" id="checkout-phone" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;"></div>';
-  modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;" onchange="updateShipping()"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><p><strong>Shipping:</strong></p><label><input type="radio" name="shipping" value="pickup" checked onclick="updateShipping()"> Pickup (Gold Coast)</label><br><label><input type="radio" name="shipping" value="delivery" onclick="updateShipping()"> Delivery</label><div id="shipping-cost" style="margin-top:5px;color:#666;"></div></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
+  modalHtml += '<div id="total-with-shipping" style="margin-bottom:15px;font-weight:bold;"></div>';
   modalHtml += '<button class="btn checkout-btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button>';
   modalHtml += '</div>';
   modalHtml += '<button onclick="document.getElementById(\'checkout-modal\').style.display=\'none\'" style="margin-top:10px;background:none;border:none;color:#666;cursor:pointer;">Cancel</button>';
@@ -170,6 +172,33 @@ updateCartCount();
   
   document.body.insertAdjacentHTML('beforeend', modalHtml);
   document.getElementById('checkout-modal').style.display = 'block';
+}
+
+function updateShipping() {
+  let state = document.getElementById('checkout-state').value.toUpperCase();
+  let shippingCost = document.getElementById('shipping-cost');
+  let totalDiv = document.getElementById('total-with-shipping');
+  let isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
+  
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+  let shipping = 0;
+  
+  if (isDelivery) {
+    if (state === 'QLD' || state === 'QUEENSLAND') {
+      shipping = 10;
+      shippingCost.innerHTML = 'Delivery QLD: $10';
+    } else {
+      shipping = 20;
+      shippingCost.innerHTML = 'Delivery Interstate: $20';
+    }
+  } else {
+    shippingCost.innerHTML = 'Pickup (Gold Coast) - Free';
+  }
+  
+  totalDiv.innerHTML = 'Total: $' + (subtotal + shipping).toFixed(2) + ' (incl. shipping)';
+  
+  return shipping;
 }
 
 function processCheckout() {
@@ -188,7 +217,15 @@ function processCheckout() {
   
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   
-  let customer = { name: name, email: email, phone: document.getElementById('checkout-phone').value, address: address, suburb: suburb, state: state, postcode: postcode, notes: notes };
+  let isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
+  let shippingCost = updateShipping();
+  
+  let customer = { name: name, email: email, phone: document.getElementById('checkout-phone').value, address: address, suburb: suburb, state: state, postcode: postcode, notes: notes, shipping: isDelivery ? (shippingCost > 0 ? shippingCost : 'interstate') : 'pickup' };
+  
+  // Add shipping as a line item if delivery selected
+  if (isDelivery && shippingCost > 0) {
+    cart.push({name: 'Shipping', price: shippingCost, quantity: 1});
+  }
   
   let btn = document.getElementById('pay-btn');
   if (btn) { btn.textContent = 'Processing...'; btn.disabled = true; }
