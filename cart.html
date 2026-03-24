@@ -187,11 +187,11 @@ function updateShipping() {
   if (isDelivery) {
     // Queensland postcodes start with 4 (4000-4999)
     if (postcode && postcode.startsWith('4') && postcode.length >= 4 && parseInt(postcode) >= 4000 && parseInt(postcode) <= 4999) {
-      shipping = 15;
-      shippingCost.innerHTML = 'Delivery QLD: $15';
+      shipping = 14.95;
+      shippingCost.innerHTML = 'Delivery QLD: $14.95';
     } else {
-      shipping = 20;
-      shippingCost.innerHTML = 'Delivery Interstate: $20';
+      shipping = 19.95;
+      shippingCost.innerHTML = 'Delivery Interstate: $19.95';
     }
   } else {
     shippingCost.innerHTML = 'Pickup - Gold Coast - Free';
