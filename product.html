@@ -178,7 +178,7 @@ function addToCart(name, price, qty) {
   }
   
   if (currentQty + quantity > maxStock) {
-    alert('Only ' + maxStock + ' available! You already have ' + currentQty + ' in your cart.');
+    alert('Only ' + maxStock + ' available! You already have ' + currentQty + ' in your cart.');return;
     return;
   }
   
@@ -195,6 +195,7 @@ function addToCart(name, price, qty) {
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
+  alert('Added to cart!');
 }
 
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
