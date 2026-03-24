@@ -43,7 +43,12 @@
 <a href="shop.html">Shop</a>
 <a href="admin.html">Admin</a>
 </nav>
-<main class="admin-page">
+<div id="loginScreen" style="max-width:400px;margin:100px auto;padding:20px;text-align:center;">
+<h2>Admin Login</h2>
+<input type="password" id="adminPassword" placeholder="Enter password" style="width:100%;padding:10px;margin:10px 0;">
+<button onclick="checkPassword()" style="padding:10px 20px;background:#27ae60;color:#fff;border:none;cursor:pointer;">Login</button>
+</div>
+
 <h1>Admin Panel</h1>
 <div class="admin-tabs">
 <button class="admin-tab active" onclick="showTab('inventory')">Inventory</button>
@@ -89,6 +94,16 @@
 </main>
 
 <script>
+function checkPassword() {
+  var pass = document.getElementById("adminPassword").value;
+  if(pass === "admin123") {
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("adminContent").style.display = "block";
+  } else {
+    alert("Incorrect password");
+  }
+}
+
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
 
 function showTab(tabId) {
