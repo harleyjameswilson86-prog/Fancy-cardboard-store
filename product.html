@@ -43,7 +43,6 @@
 <a href="contact.html">Contact</a>
 </nav>
 <main class="product-detail">
-<a href="shop.html" class="back-btn">← Back to Shop</a>
 <div id="product-content">Loading...</div>
 </main>
 <footer class="main-footer">
@@ -75,26 +74,28 @@
 </div>
 </footer>
 <script>
-let products = {};
-let product = null;
-
-// Fetch products from backend
-async function loadProducts() {
-  try {
-    const response = await fetch('https://fancy-cardboard-stripe-backend.onrender.com/api/products');
-    const data = await response.json();
-    products = {};
-    data.forEach(p => {
-      products[p.id] = p;
-    });
-    loadProduct();
-  } catch (e) {
-    console.error('Failed to load products:', e);
-    document.getElementById('product-content').innerHTML = '<p>Failed to load product. Please try again.</p>';
+const products = {
+  'lorcana-fabled-booster': {
+    name: 'Disney Lorcana - Fabled Booster Box',
+    stock: 1,
+    price: 519.95,
+    image: 'images/lorcana-fabled-booster.png',
+    badge: 'Only 1 Left',
+    category: 'Disney Lorcana',
+    description: 'The 9th set in the Disney Lorcana TCG. Each booster box contains 24 packs, with 12 cards per pack including a guaranteed foil card. With 24 foil cards per box and chances to find Super Rare, Legendary, and Enchanted cards.',
+    details: 'Factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
+  },
+  'lorcana-fabled-booster-unsealed': {
+    name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
+    stock: 2,
+    price: 399.95,
+    image: 'images/lorcana-fabled-booster.png',
+    badge: 'Only 2 Left',
+    category: 'Disney Lorcana',
+    description: 'Get the complete Fabled booster box experience at a reduced price. The outer wrap has been removed but all 24 packs inside remain factory sealed. Same great cards, better value.',
+    details: 'All packs still factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
   }
-  // Auto-refresh stock every 10 seconds
-  setInterval(loadProducts, 10000);
-}
+};
 
 function getUrlParam(name) {
   const params = new URLSearchParams(window.location.search);
@@ -113,8 +114,6 @@ function loadProduct() {
   
   let badgeText = product.stock > 0 ? (product.stock === 1 ? "Only 1 Left" : product.stock === 2 ? "Only 2 Left" : "In Stock") : "Sold Out";
   let badgeColor = product.stock > 0 ? '#e74c3c' : '#666';
-  if (product.badge === 'In Stock') badgeColor = '#27ae60';
-  if (product.badge === 'Pre-order') badgeColor = '#3498db';
   
   content.innerHTML = `
     <div class="product-detail-container">
@@ -134,16 +133,16 @@ function loadProduct() {
             <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
           </div>
         </div>
-        <button class="btn" id="add-to-cart-btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1; if(product.stock < 1) { alert('Sorry, this item is sold out!'); return; } addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');" style="margin-top:3px;margin-bottom:15px;">${product.stock > 0 ? "Add to Cart" : "Sold Out"}</button>
+        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);alert('Added to cart!');" style="margin-top:3px;margin-bottom:15px;">Add to Cart</button>
         <div class="product-detail-meta">
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+') ? this.textContent.replace('+', '-') : this.textContent.replace('-', '+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description +</h3>
           <div style="display:none;margin:10px 0;">
           <p>${product.description}</p>
           </div>
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+') ? this.textContent.replace('+', '-') : this.textContent.replace('-', '+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;margin-top:10px;">Item Details +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;margin-top:10px;">Item Details +</h3>
           <div style="display:none;margin:10px 0;">
           <ul style="padding-left:20px;margin:10px 0;">
-            ${(function(){ var items = product.details.split('|'); return items.map(function(d){ return '<li>' + d.trim() + '</li>'; }).join(''); })()}
+            ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
           </ul>
           </div>
         </div>
@@ -173,21 +172,12 @@ function addToCart(name, price, qty) {
 }
 
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
-function toggleNavCategories(e) { e.preventDefault(); document.getElementById('nav-categories').style.display = document.getElementById('nav-categories').style.display === 'none' ? 'block' : 'none'; }
+function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
-function updateCartCount() {
-  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  let countEl = document.getElementById('cart-count');
-  if (countEl) {
-    countEl.textContent = totalItems;
-    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
-  }
-}
+function toggleSearch(e) { e.preventDefault(); var searchDiv = document.getElementById('search-results'); if (searchDiv) { searchDiv.style.display = searchDiv.style.display === 'none' ? 'block' : 'none'; } }
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 
 loadProduct();
-  // Auto-refresh stock every 10 seconds
-  setInterval(loadProducts, 10000);
 updateCartCount();
 </script>
 </body>
