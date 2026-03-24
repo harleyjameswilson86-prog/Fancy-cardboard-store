@@ -7,10 +7,11 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .cart-page { max-width: 800px; margin: 2rem auto; padding: 0 5%; }
-.cart-item { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 1rem; padding-right: 80px; border-bottom: 1px solid #eee; }
-.cart-item-info { flex: 1; }
+.cart-item { position: relative; padding: 1rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+.cart-item-info { flex: 1; padding-left: 10px; }
 .cart-item-price { color: #27ae60; font-weight: bold; }
 .empty-cart { text-align: center; padding: 3rem; }
+.cart-total { text-align: right; padding: 1rem 0; font-size: 1.5rem; font-weight: bold; }
 .qty-controls { position: absolute; top: 5px; right: 5px; display: flex; align-items: center; gap: 3px; }
 .qty-btn-big { width: 25px; height: 25px; font-size: 14px; cursor: pointer; background: #333; color: #fff; border: none; border-radius: 5px; }
 .qty-input { width: 35px; height: 25px; font-size: 12px; text-align: center; border: 2px solid #333; border-radius: 5px; }
@@ -24,7 +25,6 @@
 <a href="index.html" class="logo">FANCY CARDBOARD STORE</a>
 </div>
 <div class="header-right">
-<a href="#" class="search-icon" onclick="toggleSearch(event)">🔍</a>
 <a href="cart.html" class="cart-icon">🛒<span id="cart-count" style="display:none;">0</span></a>
 </div>
 </header>
@@ -76,69 +76,132 @@
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
 function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
-function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(s,i){return s+(i.quantity||1);},0); var c = document.getElementById('cart-count'); if(c){c.textContent=totalItems;c.style.display=totalItems>0?'flex':'none';} }
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 function loadCart() {
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  var c = document.getElementById('cart-items');
-  if(cart.length===0){c.innerHTML='<div class="empty-cart"><p>Your cart is empty!</p><a href="shop.html" class="btn">Browse Shop</a></div>';return;}
-  var html='',total=0;
-  for(var i=0;i<cart.length;i++){
-    var it=cart[i],qty=it.quantity||1,itemTotal=it.price*qty;total+=itemTotal;
-    html+='<div class="cart-item"><div class="qty-controls"><button class="qty-btn-big" onclick="changeQty('+i+',-1)">-</button><input type="number" class="qty-input" value="'+qty+'" onchange="changeQtyDirect('+i+',this.value)"><button class="qty-btn-big" onclick="changeQty('+i+',1)">+</button><button class="remove-btn" onclick="removeFromCart('+i+')">X</button></div><div class="cart-item-info"><strong>'+it.name+'</strong><br><span class="cart-item-price">$'+it.price.toFixed(2)+'</span></div></div>';
+  var container = document.getElementById('cart-items');
+  if (cart.length === 0) {
+    container.innerHTML = '<div class="empty-cart"><p>Your cart is empty!</p><a href="shop.html" class="btn">Browse Shop</a></div>';
+    return;
   }
-  html+='<div class="cart-total"><h3>Total: $'+total.toFixed(2)+'</h3></div><div class="checkout-btn-container"><button class="btn checkout-btn" onclick="checkout()">Proceed to Checkout</button></div>';
-  c.innerHTML=html;
-}
-function changeQty(i,d){var cart=JSON.parse(localStorage.getItem('cart')||'[]');cart[i].quantity=(cart[i].quantity||1)+d;if(cart[i].quantity<=0){cart.splice(i,1);}localStorage.setItem('cart',JSON.stringify(cart));updateCartCount();loadCart();}
-function changeQtyDirect(i,q){q=parseInt(q)||1;var cart=JSON.parse(localStorage.getItem('cart')||'[]');if(q<=0){cart.splice(i,1);}else{cart[i].quantity=q;}localStorage.setItem('cart',JSON.stringify(cart));updateCartCount();loadCart();}
-function removeFromCart(i){var cart=JSON.parse(localStorage.getItem('cart')||'[]');cart.splice(i,1);localStorage.setItem('cart',JSON.stringify(cart));updateCartCount();loadCart();}
-function checkout(){
-  var cart=JSON.parse(localStorage.getItem('cart')||'[]');
-  if(cart.length===0){alert('Your cart is empty!');return;}
-  var m=document.getElementById('checkout-modal');
-  if(!m){
-    var h='<div id="checkout-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;"><div style="background:#fff;max-width:500px;margin:50px auto;padding:20px;border-radius:10px;max-height:90vh;overflow-y:auto;"><h2>Checkout</h2><div id="checkout-form">';
-    h+='<p><strong>Total: $'+cart.reduce(function(s,i){return s+(i.price*(i.quantity||1));},0).toFixed(2)+'</strong></p>';
-    h+='<div style="margin-bottom:15px;"><label>Full Name:*</label><br><input type="text" id="checkout-name" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><label>Email:*</label><br><input type="email" id="checkout-email" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><label>Phone:</label><br><input type="tel" id="checkout-phone" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><label>Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;"></div>';
-    h+='<div style="margin-bottom:15px;"><p><strong>Shipping:</strong></p><div style="display:flex;gap:10px;flex-wrap:wrap;"><label style="flex:1;min-width:140px;padding:15px;border:2px solid #ddd;border-radius:8px;cursor:pointer;text-align:center;"><input type="radio" name="shipping" value="pickup" checked onclick="updateShipping()" style="display:none;"><strong>Pickup</strong><br><span style="color:#666;">Gold Coast</span></label><label style="flex:1;min-width:140px;padding:15px;border:2px solid #ddd;border-radius:8px;cursor:pointer;text-align:center;"><input type="radio" name="shipping" value="delivery" onclick="updateShipping()" style="display:none;"><strong>Delivery</strong><br><span style="color:#666;">Calculated below</span></label></div><div id="shipping-cost" style="margin-top:10px;color:#666;"></div></div>';
-    h+='<div style="margin-bottom:15px;"><label>Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
-    h+='<div id="total-with-shipping" style="margin-bottom:15px;font-weight:bold;"></div>';
-    h+='<button class="btn checkout-btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button></div><button onclick="document.getElementById(\'checkout-modal\').style.display=\'none\'" style="margin-top:10px;background:none;border:none;color:#666;cursor:pointer;">Cancel</button></div></div>';
-    document.body.insertAdjacentHTML('beforeend',h);m=document.getElementById('checkout-modal');
+  var html = '';
+  var total = 0;
+  for (var i = 0; i < cart.length; i++) {
+    var item = cart[i];
+    var qty = item.quantity || 1;
+    var itemTotal = item.price * qty;
+    total += itemTotal;
+    html += '<div class="cart-item">';
+    html += '<div class="qty-controls">';
+    html += '<button class="qty-btn-big" onclick="changeQty(' + i + ', -1)">-</button>';
+    html += '<input type="number" class="qty-input" value="' + qty + '" onchange="changeQtyDirect(' + i + ', this.value)">';
+    html += '<button class="qty-btn-big" onclick="changeQty(' + i + ', 1)">+</button>';
+    html += '<button class="remove-btn" onclick="removeFromCart(' + i + ')">X</button>';
+    html += '</div>';
+    html += '<div class="cart-item-info"><strong>' + item.name + '</strong><br><span class="cart-item-price">$' + item.price.toFixed(2) + '</span></div>';
+    html += '</div>';
   }
-  m.style.display='block';updateShipping();
+  html += '<div class="cart-total">Total: $' + total.toFixed(2) + '</div>';
+  html += '<div style="text-align:center;margin:20px 0;"><button class="btn" onclick="checkout()">Proceed to Checkout</button></div>';
+  container.innerHTML = html;
 }
-function updateShipping(){
-  var pc=document.getElementById('checkout-postcode').value,sc=document.getElementById('shipping-cost'),td=document.getElementById('total-with-shipping');
-  var isDel=document.querySelector('input[name="shipping"]:checked').value==='delivery';
-  var cart=JSON.parse(localStorage.getItem('cart')||'[]');
-  var sub=cart.reduce(function(s,i){return s+(i.price*(i.quantity||1));},0);
-  var ship=0;
-  if(isDel){if(pc.charAt(0)==='4'&&pc.length>=4){ship=14.95;sc.innerHTML='Delivery QLD: $14.95';}else{ship=19.95;sc.innerHTML='Delivery Interstate: $19.95';}}
-  else{sc.innerHTML='Pickup - Gold Coast';}
-  td.innerHTML='Total: $'+(sub+ship).toFixed(2)+' (incl. shipping)';return ship;
+function changeQty(index, delta) {
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart[index].quantity = (cart[index].quantity || 1) + delta;
+  if (cart[index].quantity <= 0) { cart.splice(index, 1); }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  loadCart();
 }
-function processCheckout(){
-  var name=document.getElementById('checkout-name').value,email=document.getElementById('checkout-email').value,addr=document.getElementById('checkout-address').value,sub=document.getElementById('checkout-suburb').value,state=document.getElementById('checkout-state').value,pc=document.getElementById('checkout-postcode').value;
-  if(!name||!email||!addr||!sub||!state||!pc){alert('Please fill in all required fields!');return;}
-  var cart=JSON.parse(localStorage.getItem('cart')||'[]');
-  var isDel=document.querySelector('input[name="shipping"]:checked').value==='delivery';
-  var ship=updateShipping();
-  if(isDel&&ship>0){cart.push({name:'Shipping',price:ship,quantity:1});}
-  var cust={name:name,email:email,phone:document.getElementById('checkout-phone').value,address:addr,suburb:sub,state:state,postcode:pc,notes:document.getElementById('checkout-notes').value};
-  var btn=document.getElementById('pay-btn');btn.textContent='Processing...';btn.disabled=true;
-  fetch('https://fancy-cardboard-stripe-backend.onrender.com/create-checkout-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,customer:cust})})
-  .then(function(r){return r.json();})
-  .then(function(d){if(d.url){window.location.href=d.url;}else if(d.error){alert('Error: '+d.error);btn.textContent='Pay with Stripe';btn.disabled=false;}})
-  .catch(function(e){console.error(e);btn.textContent='Pay with Stripe';btn.disabled=false;alert('Payment issue. Email hello@fancycardboardstore.com');});
+function changeQtyDirect(index, qty) {
+  qty = parseInt(qty) || 1;
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  if (qty <= 0) { cart.splice(index, 1); } else { cart[index].quantity = qty; }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  loadCart();
 }
-updateCartCount();loadCart();
+function removeFromCart(index) {
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  loadCart();
+}
+function checkout() {
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  if (cart.length === 0) { alert('Your cart is empty!'); return; }
+  var modal = document.getElementById('checkout-modal');
+  if (!modal) {
+    var modalHtml = '<div id="checkout-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;">';
+    modalHtml += '<div style="background:#fff;max-width:500px;margin:50px auto;padding:20px;border-radius:10px;max-height:90vh;overflow-y:auto;">';
+    modalHtml += '<h2>Checkout</h2>';
+    modalHtml += '<div id="checkout-form">';
+    modalHtml += '<p><strong>Total: $' + cart.reduce(function(s,i){return s+(i.price*(i.quantity||1));},0).toFixed(2) + '</strong></p>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Full Name:*</label><br><input type="text" id="checkout-name" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Email:*</label><br><input type="email" id="checkout-email" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Phone:</label><br><input type="tel" id="checkout-phone" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;"></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><p><strong>Shipping:</strong></p><div style="display:flex;gap:10px;flex-wrap:wrap;"><label style="flex:1;min-width:140px;padding:15px;border:2px solid #ddd;border-radius:8px;cursor:pointer;text-align:center;"><input type="radio" name="shipping" value="pickup" checked onclick="updateShipping()" style="display:none;"><strong>Pickup</strong><br><span style="color:#666;">Gold Coast</span></label><label style="flex:1;min-width:140px;padding:15px;border:2px solid #ddd;border-radius:8px;cursor:pointer;text-align:center;"><input type="radio" name="shipping" value="delivery" onclick="updateShipping()" style="display:none;"><strong>Delivery</strong><br><span style="color:#666;">Calculated below</span></label></div><div id="shipping-cost" style="margin-top:10px;color:#666;"></div></div>';
+    modalHtml += '<div style="margin-bottom:15px;"><label>Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
+    modalHtml += '<div id="total-with-shipping" style="margin-bottom:15px;font-weight:bold;"></div>';
+    modalHtml += '<button class="btn" id="pay-btn" onclick="processCheckout()">Pay with Stripe</button>';
+    modalHtml += '</div><button onclick="document.getElementById(\'checkout-modal\').style.display=\'none\'" style="margin-top:10px;background:none;border:none;color:#666;cursor:pointer;">Cancel</button>';
+    modalHtml += '</div></div>';
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    modal = document.getElementById('checkout-modal');
+  }
+  modal.style.display = 'block';
+  updateShipping();
+}
+function updateShipping() {
+  var postcode = document.getElementById('checkout-postcode').value;
+  var shippingCost = document.getElementById('shipping-cost');
+  var totalDiv = document.getElementById('total-with-shipping');
+  var isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  var subtotal = cart.reduce(function(s,i){return s+(i.price*(i.quantity||1));},0);
+  var shipping = 0;
+  if (isDelivery) {
+    if (postcode && postcode.charAt(0) === '4' && postcode.length >= 4) { shipping = 14.95; shippingCost.innerHTML = 'Delivery QLD: $14.95'; }
+    else { shipping = 19.95; shippingCost.innerHTML = 'Delivery Interstate: $19.95'; }
+  } else { shippingCost.innerHTML = 'Pickup - Gold Coast'; }
+  totalDiv.innerHTML = 'Total: $' + (subtotal + shipping).toFixed(2) + ' (incl. shipping)';
+  return shipping;
+}
+function processCheckout() {
+  var name = document.getElementById('checkout-name').value;
+  var email = document.getElementById('checkout-email').value;
+  var address = document.getElementById('checkout-address').value;
+  var suburb = document.getElementById('checkout-suburb').value;
+  if (!name || !email || !address || !suburb) { alert('Please fill in all required fields!'); return; }
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  var isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
+  var shipping = updateShipping();
+  if (isDelivery && shipping > 0) { cart.push({name: 'Shipping', price: shipping, quantity: 1}); }
+  var customer = { name: name, email: email, phone: document.getElementById('checkout-phone').value, address: address, suburb: suburb, state: document.getElementById('checkout-state').value, postcode: document.getElementById('checkout-postcode').value, notes: document.getElementById('checkout-notes').value };
+  var btn = document.getElementById('pay-btn');
+  btn.textContent = 'Processing...'; btn.disabled = true;
+  fetch('https://fancy-cardboard-stripe-backend.onrender.com/create-checkout-session', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({items: cart, customer: customer})
+  })
+  .then(function(response) { return response.json(); })
+  .then(function(data) {
+    if (data.url) { window.location.href = data.url; }
+    else if (data.error) { alert('Error: ' + data.error); btn.textContent = 'Pay with Stripe'; btn.disabled = false; }
+  })
+  .catch(function(error) {
+    console.error('Error:', error);
+    btn.textContent = 'Pay with Stripe'; btn.disabled = false;
+    alert('Payment system issue. Email hello@fancycardboardstore.com to complete order.');
+  });
+}
+updateCartCount();
+loadCart();
 </script>
 </body>
 </html>
