@@ -157,7 +157,7 @@ updateCartCount();
   modalHtml += '<div style="margin-bottom:15px;"><label>Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Suburb:*</label><br><input type="text" id="checkout-suburb" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>State:*</label><br><input type="text" id="checkout-state" style="width:100%;padding:8px;margin-top:5px;" onchange="updateShipping()"></div>';
-  modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" style="width:100%;padding:8px;margin-top:5px;"></div>';
+  modalHtml += '<div style="margin-bottom:15px;"><label>Postcode:*</label><br><input type="text" id="checkout-postcode" onchange="updateShipping()" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><p><strong>Shipping:</strong></p><label><input type="radio" name="shipping" value="pickup" checked onclick="updateShipping()"> Pickup (Gold Coast)</label><br><label><input type="radio" name="shipping" value="delivery" onclick="updateShipping()"> Delivery</label><div id="shipping-cost" style="margin-top:5px;color:#666;"></div></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Notes:</label><br><textarea id="checkout-notes" style="width:100%;padding:8px;margin-top:5px;" rows="3"></textarea></div>';
   modalHtml += '<div id="total-with-shipping" style="margin-bottom:15px;font-weight:bold;"></div>';
@@ -175,7 +175,7 @@ updateCartCount();
 }
 
 function updateShipping() {
-  let state = document.getElementById('checkout-state').value.toUpperCase();
+  let postcode = document.getElementById('checkout-postcode').value;
   let shippingCost = document.getElementById('shipping-cost');
   let totalDiv = document.getElementById('total-with-shipping');
   let isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
@@ -185,9 +185,10 @@ function updateShipping() {
   let shipping = 0;
   
   if (isDelivery) {
-    if (state === 'QLD' || state === 'QUEENSLAND') {
-      shipping = 10;
-      shippingCost.innerHTML = 'Delivery QLD: $10';
+    // Queensland postcodes start with 4 (4000-4999)
+    if (postcode && postcode.startsWith('4') && postcode.length >= 4 && parseInt(postcode) >= 4000 && parseInt(postcode) <= 4999) {
+      shipping = 15;
+      shippingCost.innerHTML = 'Delivery QLD: $15';
     } else {
       shipping = 20;
       shippingCost.innerHTML = 'Delivery Interstate: $20';
