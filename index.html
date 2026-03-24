@@ -20,7 +20,7 @@
   <span id="cart-count" style="display:none;">0</span>
 </a>
 </div>
-<div class="search-dropdown" style="display:none;" id="searchDropdown">
+<div class="search-dropdown" id="searchDropdown">
 <input type="text" id="search-input" placeholder="Search products..." onkeyup="searchProducts()" style="width:100%;padding:12px 20px;border:2px solid #000;border-radius:50px;font-size:1rem;box-sizing:border-box;">
 <div id="search-results" style="padding:10px;max-height:300px;overflow-y:auto;"></div>
 </div>
@@ -81,7 +81,7 @@ function searchProducts() {
     return;
   }
   
-  let matches = products.filter(p => p.name.toLowerCase().includes(query);
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
   
   if (matches.length === 0) {
     results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
@@ -91,10 +91,12 @@ function searchProducts() {
     ).join('');
   }
 }
+</script>
+<script>
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
-function toggleNavCategories(e) { e.preventDefault(); document.getElementById('nav-categories').style.display = document.getElementById('nav-categories').style.display === 'none' ? 'block' : 'none'; }
+function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
-function updateCartCount() { let cart = JSON.parse(localStorage.getItem('cart') || '[]'); let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0); let countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 updateCartCount();
 </script>
 <footer class="main-footer">

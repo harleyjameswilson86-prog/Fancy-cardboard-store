@@ -123,6 +123,33 @@ function updateCartCount() {
 }
 updateCartCount();
 </script>
+<script>
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
+function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
+function updateShipping() {
+  var postcode = document.getElementById('checkout-postcode').value;
+  var shippingCost = document.getElementById('shipping-cost');
+  var totalDiv = document.getElementById('total-with-shipping');
+  var isDelivery = document.querySelector('input[name="shipping"]:checked').value === 'delivery';
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * (item.quantity || 1)); }, 0);
+  var shipping = 0;
+  if (isDelivery) {
+    if (postcode && postcode.startsWith('4') && postcode.length >= 4 && parseInt(postcode) >= 4000 && parseInt(postcode) <= 4999) {
+      shipping = 14.95;
+      shippingCost.innerHTML = 'Delivery QLD: $14.95';
+    } else {
+      shipping = 19.95;
+      shippingCost.innerHTML = 'Delivery Interstate: $19.95';
+    }
+  } else {
+    shippingCost.innerHTML = 'Pickup - Gold Coast';
+  }
+  totalDiv.innerHTML = 'Total: $' + (subtotal + shipping).toFixed(2) + ' (incl. shipping)';
+  return shipping;
+}
+</script>
 <footer class="main-footer">
 <div class="footer-section">
 <h3 onclick="toggleFooter(this)">Useful Links +</h3>
@@ -152,7 +179,6 @@ updateCartCount();
 <p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
 </div>
 </footer>
-<script>
   modalHtml += '<div style="margin-bottom:15px;"><label>Email:*</label><br><input type="email" id="checkout-email" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Phone:</label><br><input type="tel" id="checkout-phone" style="width:100%;padding:8px;margin-top:5px;"></div>';
   modalHtml += '<div style="margin-bottom:15px;"><label>Address:*</label><br><input type="text" id="checkout-address" style="width:100%;padding:8px;margin-top:5px;"></div>';
