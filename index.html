@@ -21,7 +21,8 @@
 </a>
 </div>
 <div class="search-dropdown" id="searchDropdown">
-<input type="text" placeholder="Search for Pokémon, One Piece, Magic cards...">
+<input type="text" id="search-input" placeholder="Search products..." onkeyup="searchProducts()" style="width:100%;padding:12px 20px;border:2px solid #000;border-radius:50px;font-size:1rem;box-sizing:border-box;">
+<div id="search-results" style="padding:10px;max-height:300px;overflow-y:auto;"></div>
 </div>
 </header>
 <nav class="mobile-nav" id="mobileNav">
@@ -55,6 +56,40 @@
 <script>
 function toggleCategories() {
   document.getElementById('categoryOptions').classList.toggle('active');
+}
+
+function toggleSearch(e) {
+  e.preventDefault();
+  let dropdown = document.getElementById('searchDropdown');
+  dropdown.style.display = dropdown.style.display === 'none' || !dropdown.style.display ? 'block' : 'none';
+  if (dropdown.style.display === 'block') {
+    document.getElementById('search-input').focus();
+  }
+}
+
+function searchProducts() {
+  let query = document.getElementById('search-input').value.toLowerCase();
+  let results = document.getElementById('search-results');
+  
+  const products = [
+    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
+    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
+  ];
+  
+  if (query.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+  
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+  } else {
+    results.innerHTML = matches.map(p => 
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
+    ).join('');
+  }
 }
 </script>
 <footer class="main-footer">
