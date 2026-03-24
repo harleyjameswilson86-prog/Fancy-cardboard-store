@@ -75,6 +75,10 @@
 </div>
 </footer>
 <script>
+const productStock = {
+  "Disney Lorcana - Fabled Booster Box": 1,
+  "Disney Lorcana - Fabled Booster Box (Unsealed)": 2
+};
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
 function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
@@ -128,6 +132,15 @@ function removeFromCart(index) {
 }
 function checkout() {
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  // Check stock
+  for (var i = 0; i < cart.length; i++) {
+    var maxStock = productStock[cart[i].name];
+    if (maxStock && cart[i].quantity > maxStock) {
+      alert('Only ' + maxStock + ' available for ' + cart[i].name + '. Please adjust quantity.');
+      return;
+    }
+  }
+
   if (cart.length === 0) { alert('Your cart is empty!'); return; }
   var modal = document.getElementById('checkout-modal');
   if (!modal) {
