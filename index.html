@@ -86,21 +86,3 @@ function toggleCategories() {
 <p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
 </div>
 </footer>
-<div class="chat-bubble">💬</div>
-<script>
-function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
-function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
-function toggleSearch(e) { e.preventDefault(); document.getElementById('searchDropdown').classList.toggle('active'); }
-function updateCartCount() {
-  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  let countEl = document.getElementById('cart-count');
-  if (countEl) {
-    countEl.textContent = totalItems;
-    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
-  }
-}
-updateCartCount(); function toggleNavCategories(e) { e.preventDefault(); document.getElementById("nav-categories").style.display = document.getElementById("nav-categories").style.display === "none" ? "block" : "none"; }
-</script>
-</body>
-</html>

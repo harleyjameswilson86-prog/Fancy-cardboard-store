@@ -78,54 +78,6 @@
 <p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
 </div>
 </footer>
-<div class="chat-bubble">💬</div>
-<script>
-// Product data
-const products = {
-  'lorcana-fabled-booster': {
-    name: 'Disney Lorcana - Fabled Booster Box',
-    price: 519.95,
-    image: 'images/lorcana-fabled-booster.png',
-    badge: 'Only 1 Left',
-    category: 'Disney Lorcana',
-    description: 'Expand your Disney Lorcana collection with the Fabled booster box - the 9th set in the Lorcana TCG. Each pack contains 12 random cards featuring beloved Disney characters, plus one guaranteed foil card per pack. Each box contains 24 packs with a chance for Super Rare, Legendary, or Enchanted cards. Total of 24 guaranteed foil cards per box.',
-    details: '• Factory sealed<br>• 24 packs per box<br>• 12 cards per pack<br>• 24 guaranteed foil cards (one per pack)<br>• Chance for Enchanted cards'
-  },
-  'lorcana-fabled-booster-unsealed': {
-    name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
-    price: 399.95,
-    image: 'images/lorcana-fabled-booster.png',
-    badge: 'Only 2 Left',
-    category: 'Disney Lorcana',
-    description: 'Get the complete Fabled booster box experience at a reduced price - the 9th set in the Lorcana TCG. Each pack contains 12 random cards featuring beloved Disney characters, plus one guaranteed foil card per pack. The outer wrap has been removed but all 24 packs inside remain factory sealed. Total of 24 guaranteed foil cards per box with chance for Super Rare, Legendary, or Enchanted cards.',
-    details: '• All packs still factory sealed<br>• 24 packs per box<br>• 12 cards per pack<br>• 24 guaranteed foil cards (one per pack)<br>• Chance for Enchanted cards'
-  }
-};
-
-function getUrlParam(name) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(name);
-}
-
-function loadProduct() {
-  const productId = getUrlParam('id');
-  const product = products[productId];
-  const content = document.getElementById('product-content');
-  
-  if (!product) {
-    content.innerHTML = '<p>Product not found. <a href="shop.html">Back to shop</a></p>';
-    return;
-  }
-  
-  let badgeColor = '#e74c3c';
-  if (product.badge === 'In Stock') badgeColor = '#27ae60';
-  if (product.badge === 'Pre-order') badgeColor = '#3498db';
-  
-  content.innerHTML = `
-    <div class="product-detail-container">
-      <div class="product-detail-image">
-        <img src="${product.image}" alt="${product.name}">
-      </div>
       <div class="product-detail-info">
         <span class="product-detail-badge" style="background:${badgeColor}">${product.badge}</span>
         <h1 class="product-detail-name">${product.name}</h1>
