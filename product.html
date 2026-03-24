@@ -7,18 +7,16 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .product-detail { max-width: 800px; margin: 2rem auto; padding: 0 5%; }
-.product-detail-container { display: flex; flex-wrap: wrap; gap: 2rem; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.product-detail-container { display: flex; flex-wrap: wrap; gap: 2rem; background: #fff; padding: 2rem; border-radius: 10px; }
 .product-detail-image { flex: 1; min-width: 100%; }
 .product-detail-image img { width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; }
 .product-detail-info { flex: 1; min-width: 100%; }
 .product-detail-badge { display: inline-block; background: #e74c3c; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
-.product-detail-name { font-size: 1.8rem; text-align: left; padding-left: 0.3cm; margin-bottom: 0.5rem; color: var(--dark); text-decoration: none; }
-.product-detail-price { font-size: 2rem; text-align: left; padding-left: 0.3cm; color: #27ae60; font-weight: bold; margin-bottom: 1rem; text-decoration: none; }
-.product-detail-desc { color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+.product-detail-name { font-size: 1.8rem; text-align: left; margin-bottom: 0.5rem; color: var(--dark); }
+.product-detail-price { font-size: 2rem; text-align: left; color: #27ae60; font-weight: bold; margin-bottom: 1rem; }
 .product-detail-meta { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
 .product-detail-meta p { margin: 0.5rem 0; color: #555; }
 .back-btn { display: inline-block; margin-bottom: 1rem; color: #666; text-decoration: none; }
-.back-btn:hover { color: var(--dark); }
 </style>
 </head>
 <body>
@@ -70,14 +68,58 @@
 <li><a href="mailto:hello@fancycardboardstore.com">hello@fancycardboardstore.com</a></li>
 </ul>
 </div>
-</ul>
-</div>
 <div class="footer-bottom">
 <p>Australia | AUD $</p>
 <p>&copy; 2026 Fancy Cardboard Store</p>
 <p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
 </div>
 </footer>
+<script>
+const products = {
+  'lorcana-fabled-booster': {
+    name: 'Disney Lorcana - Fabled Booster Box',
+    price: 519.95,
+    image: 'images/lorcana-fabled-booster.png',
+    badge: 'Only 1 Left',
+    category: 'Disney Lorcana',
+    description: 'The 9th set in the Disney Lorcana TCG. Each booster box contains 24 packs, with 12 cards per pack including a guaranteed foil card. With 24 foil cards per box and chances to find Super Rare, Legendary, and Enchanted cards.',
+    details: 'Factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
+  },
+  'lorcana-fabled-booster-unsealed': {
+    name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
+    price: 399.95,
+    image: 'images/lorcana-fabled-booster.png',
+    badge: 'Only 2 Left',
+    category: 'Disney Lorcana',
+    description: 'Get the complete Fabled booster box experience at a reduced price. The outer wrap has been removed but all 24 packs inside remain factory sealed. Same great cards, better value.',
+    details: 'All packs still factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
+  }
+};
+
+function getUrlParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
+function loadProduct() {
+  const productId = getUrlParam('id');
+  const product = products[productId];
+  const content = document.getElementById('product-content');
+  
+  if (!product) {
+    content.innerHTML = '<p>Product not found. <a href="shop.html">Back to shop</a></p>';
+    return;
+  }
+  
+  let badgeColor = '#e74c3c';
+  if (product.badge === 'In Stock') badgeColor = '#27ae60';
+  if (product.badge === 'Pre-order') badgeColor = '#3498db';
+  
+  content.innerHTML = `
+    <div class="product-detail-container">
+      <div class="product-detail-image">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
       <div class="product-detail-info">
         <span class="product-detail-badge" style="background:${badgeColor}">${product.badge}</span>
         <h1 class="product-detail-name">${product.name}</h1>
@@ -92,18 +134,10 @@
           </div>
         </div>
         <div class="product-detail-meta">
-          <h3 style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-            Product Description <span>▼</span>
-          </h3>
-          <div style="padding:10px;line-height:1.6;font-size:0.85rem;">
-            <p>${product.description}</p>
-          </div>
-          <h3 style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:0.9rem;" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
-            Item Details <span>▼</span>
-          </h3>
-          <div style="padding:10px;line-height:1.6;font-size:0.85rem;">
-            <p>${product.details}</p>
-          </div>
+          <h3 style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description</h3>
+          <p>${product.description}</p>
+          <h3 style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;margin-top:10px;">Item Details</h3>
+          <p>${product.details}</p>
         </div>
         <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');">Add to Cart</button>
       </div>
@@ -143,28 +177,6 @@ function updateCartCount() {
     countEl.style.display = totalItems > 0 ? 'flex' : 'none';
   }
 }
-
-<script>
-const products = {
-  'lorcana-fabled-booster': {
-    name: 'Disney Lorcana - Fabled Booster Box',
-    price: 519.95,
-    image: 'images/lorcana-fabled-booster.png',
-    badge: 'Only 1 Left',
-    category: 'Disney Lorcana',
-    description: 'The 9th set in the Disney Lorcana TCG. Each booster box contains 24 packs, with 12 cards per pack including a guaranteed foil card. With 24 foil cards per box and chances to find Super Rare, Legendary, and Enchanted cards.',
-    details: 'Factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
-  },
-  'lorcana-fabled-booster-unsealed': {
-    name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
-    price: 399.95,
-    image: 'images/lorcana-fabled-booster.png',
-    badge: 'Only 2 Left',
-    category: 'Disney Lorcana',
-    description: 'Get the complete Fabled booster box experience at a reduced price. The outer wrap has been removed but all 24 packs inside remain factory sealed. Same great cards, better value.',
-    details: 'All packs still factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
-  }
-};
 
 loadProduct();
 updateCartCount();
