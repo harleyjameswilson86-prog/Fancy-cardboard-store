@@ -41,6 +41,11 @@
 
 </main>
 <script>
+const productStock = {
+  'Disney Lorcana - Fabled Booster Box': 1,
+  'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
+};
+
 function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   let found = false;

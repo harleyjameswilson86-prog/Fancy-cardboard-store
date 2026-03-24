@@ -67,6 +67,18 @@ const productStock = {
 
 function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  
+  // Check stock
+  let currentQty = 0;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) currentQty = cart[i].quantity || 0;
+  }
+  let maxStock = productStock[name];
+  if (maxStock && currentQty >= maxStock) {
+    alert('Only ' + maxStock + ' available!');
+    return;
+  }
+  
   let found = false;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].name === name) {
