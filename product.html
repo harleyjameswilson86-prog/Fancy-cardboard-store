@@ -78,6 +78,7 @@
 const products = {
   'lorcana-fabled-booster': {
     name: 'Disney Lorcana - Fabled Booster Box',
+    stock: 1,
     price: 519.95,
     image: 'images/lorcana-fabled-booster.png',
     badge: 'Only 1 Left',
@@ -87,6 +88,7 @@ const products = {
   },
   'lorcana-fabled-booster-unsealed': {
     name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
+    stock: 2,
     price: 399.95,
     image: 'images/lorcana-fabled-booster.png',
     badge: 'Only 2 Left',
@@ -129,11 +131,11 @@ function loadProduct() {
           <span style="font-weight:normal;">Quantity:</span>
           <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
             <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">-</button>
-            <input type="number" id="detail-qty" value="1" min="1" style="width:50px;text-align:center;border:none;padding:8px;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=parseInt(q.value)+1" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
+            <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
           </div>
         </div>
-        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');" style="margin-top:8px;margin-bottom:15px;">Add to Cart</button>
+        <button class="btn" id="add-to-cart-btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1; if(product.stock < 1) { alert('Sorry, this item is sold out!'); return; } addToCart('${product.name}', ${product.price},qty); alert('Added to cart!');" style="margin-top:8px;margin-bottom:15px;">${product.stock > 0 ? (product.stock === 1 ? "Add to Cart (1 left)" : "Add to Cart") : "Sold Out"}</button>
         <div class="product-detail-meta">
           <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+') ? this.textContent.replace('+', '-') : this.textContent.replace('-', '+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description +</h3>
           <div style="display:none;margin:10px 0;">
