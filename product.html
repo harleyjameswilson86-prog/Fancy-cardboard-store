@@ -75,6 +75,9 @@
 </footer>
 <script>
 const products = {
+  'lorcana-fabled-booster': { stock: 1 },
+  'lorcana-fabled-booster-unsealed': { stock: 2 },
+
   'lorcana-fabled-booster': {
     name: 'Disney Lorcana - Fabled Booster Box',
     stock: 1,
@@ -156,6 +159,29 @@ function loadProduct() {
 function addToCart(name, price, qty) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   let quantity = qty || 1;
+  
+  // Check stock limit
+  let currentQty = 0;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      currentQty = cart[i].quantity || 0;
+    }
+  }
+  
+  // Find product stock
+  let maxStock = 0;
+  for (let [id, p] of Object.entries(products)) {
+    if (p.name === name) {
+      maxStock = p.stock;
+      break;
+    }
+  }
+  
+  if (currentQty + quantity > maxStock) {
+    alert('Only ' + maxStock + ' available! You already have ' + currentQty + ' in your cart.');
+    return;
+  }
+  
   let found = false;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].name === name) {
