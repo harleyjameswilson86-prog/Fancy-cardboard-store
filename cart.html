@@ -96,7 +96,7 @@ function loadCart() {
     html += '<div class="cart-item">';
     html += '<div class="cart-item-info"><div class="cart-item-name">' + item.name + '</div><div class="cart-item-price">$' + item.price.toFixed(2) + '</div></div>';
     html += '<div class="qty-controls"><button class="qty-btn-big" onclick="changeQty(' + i + ', -1)">-</button><input type="number" class="qty-input" value="' + qty + '" onchange="changeQtyDirect(' + i + ', this.value)"><button class="qty-btn-big" onclick="changeQty(' + i + ', 1)">+</button></div>';
-    html += '<div><button class="remove-btn" onclick="removeFromCart(' + i + ')">Remove</button></div>';
+    html += '<div><button class="remove-btn" onclick="removeFromCart(' + i + ')">REMOVE</button></div>';
     html += '</div>';
   }
   html += '<div class="cart-total">Total: $' + total.toFixed(2) + '</div>';
