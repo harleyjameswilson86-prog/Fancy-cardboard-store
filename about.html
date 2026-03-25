@@ -64,7 +64,7 @@ function searchProducts() {
     results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
   } else {
     results.innerHTML = matches.map(p => 
-      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#ff9f1c;">$' + p.price.toFixed(2) + '</span></a>'
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
     ).join('');
   }
 }
