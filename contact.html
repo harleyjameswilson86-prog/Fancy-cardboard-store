@@ -108,7 +108,7 @@ function searchProducts() {
   }
 }
 
-function toggleSearch(e) { e.preventDefault(); var searchDiv = document.getElementById("searchDropdown"); dropdown.style.display = dropdown.style.display === "none" || !dropdown.style.display ? "block" : "none"; }
+function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElementById("searchDropdown"); dropdown.style.display = dropdown.style.display === "none" || !dropdown.style.display ? "block" : "none"; }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 </script>
 </body>
