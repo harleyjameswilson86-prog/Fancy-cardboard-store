@@ -11,7 +11,7 @@
 .product-detail-image { flex: 1; min-width: 100%; }
 .product-detail-image img { width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; }
 .product-detail-info { flex: 1; min-width: 100%; }
-.product-detail-badge { display: inline-block; background: #e74c3c; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
+.product-detail-badge { display: inline-block; background: #ff9f1c; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
 .product-detail-name { font-size: 1.8rem; text-align: left; margin-bottom: 0.5rem; color: var(--dark); }
 .product-detail-price { font-size: 2rem; text-align: left; color: #27ae60; font-weight: bold; margin-bottom: 1rem; }
 .product-detail-meta { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
@@ -116,7 +116,7 @@ function loadProduct() {
   }
   
   let badgeText = product.stock > 0 ? (product.stock === 1 ? "Only 1 Left" : product.stock === 2 ? "Only 2 Left" : "In Stock") : "Sold Out";
-  let badgeColor = product.stock > 0 ? '#e74c3c' : '#666';
+  let badgeColor = product.stock > 0 ? '#ff9f1c' : '#666';
   
   content.innerHTML = `
     <div class="product-detail-container">
