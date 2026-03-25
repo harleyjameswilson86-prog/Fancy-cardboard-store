@@ -137,7 +137,33 @@ updateCartCount();
 <script>
 function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
 function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
-function toggleSearch(e) { e.preventDefault(); var searchDiv = document.getElementById("search-results"); if (searchDiv) { searchDiv.style.display = searchDiv.style.display === "none" ? "block" : "none"; } }
+
+function searchProducts() {
+  let query = document.getElementById('search-input').value.toLowerCase();
+  let results = document.getElementById('search-results');
+  
+  const products = [
+    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
+    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
+  ];
+  
+  if (query.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+  
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+  } else {
+    results.innerHTML = matches.map(p => 
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
+    ).join('');
+  }
+}
+
+function toggleSearch(e) { e.preventDefault(); var searchDiv = document.getElementById("searchDropdown"); if (searchDiv) { searchDiv.style.display = searchDiv.style.display === "none" ? "block" : "none"; } }
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 updateCartCount();
