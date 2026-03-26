@@ -24,6 +24,49 @@ const transporter = nodemailer.createTransport({
 });
 
 // Send order email
+// Send thank you email to customer
+function sendCustomerEmail(customer, items, total) {
+  if (!process.env.EMAIL_USER) {
+    console.log('Email not configured, skipping...');
+    return;
+  }
+  
+  const itemsList = items.map(item => `${item.name} x${item.quantity}`).join(', ');
+  
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: customer.email, // Send to customer
+    subject: 'Thank you for your order! - Fancy Cardboard Store',
+    text: `Hi ${customer.name.split(' ')[0]},
+
+Thank you for your purchase!
+
+ORDER DETAILS:
+${itemsList}
+
+Total: $${total.toFixed(2)}
+
+Shipping Address:
+${customer.address}
+${customer.suburb}, ${customer.state} ${customer.postcode}
+
+We'll send you another email once your order has been shipped.
+
+If you have any questions, reply to this email or contact us at support@fancycardboardstore.com
+
+Thanks again!
+- Fancy Cardboard Store`
+  };
+  
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log('Customer email error:', error);
+    } else {
+      console.log('Customer thank you email sent:', info.response);
+    }
+  });
+}
+
 function sendOrderEmail(customer, items, total) {
   if (!process.env.EMAIL_USER) {
     console.log('Email not configured, skipping...');
@@ -279,6 +322,7 @@ app.post('/create-checkout-session', async (req, res) => {
     
     // Send email notification
     sendOrderEmail(customer, items, total);
+    sendCustomerEmail(customer, items, total);
 
     // Decrement stock
     decrementStock(items);
