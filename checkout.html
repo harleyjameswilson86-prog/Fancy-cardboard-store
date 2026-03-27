@@ -5,9 +5,189 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout - Fancy Cardboard Store</title>
 <link rel="stylesheet" href="style.css">
+<style>
+.checkout-page { max-width: 900px; margin: 2rem auto; padding: 0 5%; }
+.checkout-container { display: flex; flex-wrap: wrap; gap: 2rem; }
+.checkout-left { flex: 1; min-width: 300px; }
+.checkout-right { flex: 1; min-width: 300px; background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+h2 { color: #FF6600; margin-bottom: 1rem; border-bottom: 2px solid #FF6600; padding-bottom: 0.5rem; }
+.order-summary { background: #f9f9f9; padding: 1rem; border-radius: 5px; }
+.order-item { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+.order-total { font-size: 1.2rem; font-weight: bold; color: #FF6600; margin-top: 1rem; }
+.btn { background: #FF6600; color: white; border: none; padding: 1rem 2rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 100%; }
+.btn:hover { background: #e65c00; }
+.radio-group { display: flex; gap: 1rem; }
+.radio-option { display: flex; align-items: center; gap: 0.5rem; }
+</style>
 </head>
 <body>
+<header style="background: linear-gradient(135deg, #FF6600, #ff8533); padding: 1rem 5%;">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+<a href="index.html" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold;">🏈 Fancy Cardboard Store</a>
+<nav style="display: flex; gap: 1rem; flex-wrap: wrap;">
+<a href="index.html" style="color: white; text-decoration: none;">Home</a>
+<a href="shop.html" style="color: white; text-decoration: none;">Shop</a>
+<a href="cart.html" style="color: white; text-decoration: none;">Cart</a>
+</nav>
+</div>
+</header>
+<main class="checkout-page">
 <h1>Checkout</h1>
-<p>Loading...</p>
+<div class="checkout-container">
+<div class="checkout-left">
+<h2>Customer Information</h2>
+<div class="form-group">
+<label for="email">Email *</label>
+<input type="email" id="email" required placeholder="your@email.com">
+</div>
+<h2>Shipping Address</h2>
+<div class="form-group">
+<label for="name">Full Name *</label>
+<input type="text" id="name" required placeholder="John Doe">
+</div>
+<div class="form-group">
+<label for="phone">Phone *</label>
+<input type="tel" id="phone" required placeholder="04xxxxxxxx">
+</div>
+<div class="form-group">
+<label for="address">Address *</label>
+<input type="text" id="address" required placeholder="123 Main St">
+</div>
+<div class="form-group">
+<label for="suburb">Suburb *</label>
+<input type="text" id="suburb" required placeholder="Suburb">
+</div>
+<div class="form-group">
+<label for="state">State *</label>
+<select id="state" required>
+<option value="">Select State</option>
+<option value="QLD">QLD</option>
+<option value="NSW">NSW</option>
+<option value="VIC">VIC</option>
+<option value="WA">WA</option>
+<option value="SA">SA</option>
+<option value="TAS">TAS</option>
+<option value="ACT">ACT</option>
+<option value="NT">NT</option>
+</select>
+</div>
+<div class="form-group">
+<label for="postcode">Postcode *</label>
+<input type="text" id="postcode" required placeholder="4000">
+</div>
+<h2>Shipping Options</h2>
+<div class="radio-group">
+<div class="radio-option">
+<input type="radio" id="pickup" name="shipping" value="pickup" checked>
+<label for="pickup">Pickup (Gold Coast)</label>
+</div>
+<div class="radio-option">
+<input type="radio" id="delivery" name="shipping" value="delivery">
+<label for="delivery">Delivery (QLD only)</label>
+</div>
+</div>
+<div class="form-group" style="margin-top: 1rem;">
+<label for="notes">Order Notes</label>
+<textarea id="notes" rows="3" placeholder="Any special instructions..."></textarea>
+</div>
+</div>
+<div class="checkout-right">
+<h2>Order Summary</h2>
+<div id="order-items"></div>
+<div class="order-total">
+<div class="order-item"><span>Subtotal:</span><span id="subtotal">$0.00</span></div>
+<div class="order-item"><span>Shipping:</span><span id="shipping-cost">$0.00</span></div>
+<div class="order-item"><span>Total:</span><span id="total">$0.00</span></div>
+</div>
+<button class="btn" onclick="processCheckout()" style="margin-top: 1.5rem;">Pay Now</button>
+</div>
+</div>
+</main>
+<script>
+const API_URL = 'https://fancy-cardboard-stripe-backend.onrender.com';
+
+function loadCart() {
+const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+const container = document.getElementById('order-items');
+if (cart.length === 0) {
+container.innerHTML = '<p>Your cart is empty.</p>';
+updateTotals(0);
+return;
+}
+let html = '';
+let subtotal = 0;
+cart.forEach(item => {
+const price = parseFloat(item.price) || 0;
+subtotal += price * (item.quantity || 1);
+html += '<div class="order-item"><span>' + (item.name || 'Product') + ' x' + (item.quantity || 1) + '</span><span>$' + (price * (item.quantity || 1)).toFixed(2) + '</span></div>';
+});
+document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+updateTotals(subtotal);
+}
+
+function updateTotals(subtotal) {
+const shipping = document.querySelector('input[name="shipping"]:checked').value === 'delivery' ? 10 : 0;
+document.getElementById('shipping-cost').textContent = shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2);
+document.getElementById('total').textContent = '$' + (subtotal + shipping).toFixed(2);
+}
+
+document.querySelectorAll('input[name="shipping"]').forEach(r => {
+r.addEventListener('change', () => {
+const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$','')) || 0;
+updateTotals(subtotal);
+});
+});
+
+async function processCheckout() {
+const email = document.getElementById('email').value;
+const name = document.getElementById('name').value;
+const phone = document.getElementById('phone').value;
+const address = document.getElementById('address').value;
+const suburb = document.getElementById('suburb').value;
+const state = document.getElementById('state').value;
+const postcode = document.getElementById('postcode').value;
+const shipping = document.querySelector('input[name="shipping"]:checked').value;
+const notes = document.getElementById('notes').value;
+
+if (!email || !name || !phone || !address || !suburb || !state || !postcode) {
+alert('Please fill in all required fields.');
+return;
+}
+
+const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+if (cart.length === 0) {
+alert('Your cart is empty.');
+return;
+}
+
+const subtotal = cart.reduce((sum, item) => sum + (parseFloat(item.price) || 0) * (item.quantity || 1), 0);
+const shippingCost = shipping === 'delivery' ? 10 : 0;
+const total = subtotal + shippingCost;
+
+try {
+const response = await fetch(API_URL + '/create-checkout-session', {
+method: 'POST',
+headers: {'Content-Type': 'application/json'},
+body: JSON.stringify({
+items: cart.map(item => ({id: item.id, quantity: item.quantity || 1})),
+customer: {email, name, phone, address, suburb, state, postcode, shipping, notes},
+successUrl: window.location.origin + '/success.html',
+cancelUrl: window.location.origin + '/cancel.html'
+})
+});
+
+if (!response.ok) throw new Error('Checkout failed');
+const {url} = await response.json();
+window.location.href = url;
+} catch (err) {
+alert('Error: ' + err.message);
+}
+}
+
+loadCart();
+</script>
 </body>
 </html>
