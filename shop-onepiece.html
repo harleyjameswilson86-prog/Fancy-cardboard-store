@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Piece - Fancy Cardboard Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="main-header">
+<div class="header-left">
+<span class="hamburger" onclick="toggleMenu()">☰</span>
+<a href="index.html" class="logo">FANCY CARDBOARD STORE</div>
+</div>
+<div class="header-right">
+<a href="#" class="search-icon" onclick="toggleSearch(event)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
+<a href="cart.html" class="cart-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cart-count" style="display:none;">0</span></a>
+</div>
+<div class="search-dropdown" id="searchDropdown">
+<input type="text" placeholder="Search products..." id="search-input" onkeyup="searchProducts()" style="width:100%;padding:12px 20px;border:2px solid #000;border-radius:50px;font-size:1rem;box-sizing:border-box;">
+<div id="search-results"></div>
+</div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="#" onclick="toggleNavCategories(event)">Categories</a>
+<div id="nav-categories" style="display:none;">
+<a href="shop-pokemon.html" style="padding-left:20px;">Pokémon TCG</a>
+<a href="shop-onepiece.html" style="padding-left:20px;">One Piece</a>
+<a href="shop-lorcana.html" style="padding-left:20px;">Disney Lorcana</a>
+</div>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+<main class="shop">
+<h1>One Piece</h1>
+<p class="subtitle">Browse our authentic One Piece trading cards</p>
+
+<section id="onepiece"><p>Coming soon!</p></section>
+
+</main>
+<script>
+const productStock = {
+  'Disney Lorcana - Fabled Booster Box': 1,
+  'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
+};
+
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let found = false;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      cart[i].quantity = (cart[i].quantity || 1) + 1;
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    cart.push({name: name, price: price, quantity: 1});
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + ' added to cart!');
+  
+}
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  let countEl = document.getElementById('cart-count');
+  if (countEl) {
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
+  }
+}
+updateCartCount();
+</script>
+<footer class="main-footer">
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Useful Links +</h3>
+<ul>
+<li><a href="shipping.html">Shipping Policy</a></li>
+<li><a href="refund.html">Refund Policy</a></li>
+<li><a href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Must Read +</h3>
+<ul>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="cancellation.html">Cancellation Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Contact Us +</h3>
+<ul>
+<li><a href="mailto:hello@fancycardboardstore.com">hello@fancycardboardstore.com</a></li>
+</ul>
+</div>
+<div class="footer-bottom">
+<p>Australia | AUD $</p>
+
+<p>&copy; 2026 Fancy Cardboard Store</p>
+<p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
+</div>
+<script>
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
+function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+
+function searchProducts() {
+  let query = document.getElementById('search-input').value.toLowerCase();
+  let results = document.getElementById('search-results');
+  
+  const products = [
+    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
+    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
+  ];
+  
+  if (query.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+  
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+  } else {
+    results.innerHTML = matches.map(p => 
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
+    ).join('');
+  }
+}
+
+function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElementById("searchDropdown"); dropdown.style.display = dropdown.style.display === "none" || !dropdown.style.display ? "block" : "none"; }
+function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
+updateCartCount();
+</script></footer>

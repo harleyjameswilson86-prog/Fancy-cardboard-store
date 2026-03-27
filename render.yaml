@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: fancy-cardboard-stripe-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: SUCCESS_URL
+        value: "https://fancycardboardstore.com/success.html"
+      - key: CANCEL_URL
+        value: "https://fancycardboardstore.com/cart.html?canceled=true"

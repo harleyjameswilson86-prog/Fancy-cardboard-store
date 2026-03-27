@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product - Fancy Cardboard Store</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.product-detail { max-width: 800px; margin: 2rem auto; padding: 0 5%; }
+.product-detail-container { display: flex; flex-wrap: wrap; gap: 2rem; background: #fff; padding: 2rem; border-radius: 10px; }
+.product-detail-image { flex: 1; min-width: 100%; }
+.product-detail-image img { width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; }
+.product-detail-info { flex: 1; min-width: 100%; }
+.product-detail-badge { display: inline-block; background: #ff9f1c; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
+.product-detail-name { font-size: 1.8rem; text-align: left; margin-bottom: 0.5rem; color: var(--dark); }
+.product-detail-price { font-size: 2rem; text-align: left; color: #ff9f1c; font-weight: bold; margin-bottom: 1rem; }
+.product-detail-meta { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+.product-detail-meta p { margin: 0.5rem 0; color: #555; }
+.back-btn { display: inline-block; margin-bottom: 1rem; color: #666; text-decoration: none; }
+</style>
+</head>
+<body>
+<header class="main-header">
+<div class="header-left">
+<span class="hamburger" onclick="toggleMenu()">☰</span>
+<a href="index.html" class="logo">FANCY CARDBOARD STORE</a>
+</div>
+<div class="header-right">
+<a href="#" class="search-icon" onclick="toggleSearch(event)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
+<a href="cart.html" class="cart-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cart-count" style="display:none;">0</span></a>
+</div>
+<div class="search-dropdown" id="searchDropdown">
+<input type="text" placeholder="Search products..." id="search-input" onkeyup="searchProducts()" style="width:100%;padding:12px 20px;border:2px solid #000;border-radius:50px;font-size:1rem;box-sizing:border-box;">
+<div id="search-results"></div>
+</div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="#" onclick="toggleNavCategories(event)">Categories</a>
+<div id="nav-categories" style="display:none;">
+<a href="shop-pokemon.html" style="padding-left:20px;">Pokémon TCG</a>
+<a href="shop-onepiece.html" style="padding-left:20px;">One Piece</a>
+<a href="shop-lorcana.html" style="padding-left:20px;">Disney Lorcana</a>
+</div>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+<main class="product-detail">
+<div id="product-content">Loading...</div>
+</main>
+<footer class="main-footer">
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Useful Links +</h3>
+<ul>
+<li><a href="shipping.html">Shipping Policy</a></li>
+<li><a href="refund.html">Refund Policy</a></li>
+<li><a href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Must Read +</h3>
+<ul>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="cancellation.html">Cancellation Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Contact Us +</h3>
+<ul>
+<li><a href="mailto:hello@fancycardboardstore.com">hello@fancycardboardstore.com</a></li>
+</ul>
+</div>
+<div class="footer-bottom">
+<p>Australia | AUD $</p>
+<p>&copy; 2026 Fancy Cardboard Store</p>
+<p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
+</div>
+</footer>
+<script>
+const products = {
+  'lorcana-fabled-booster': { stock: 1 },
+  'lorcana-fabled-booster-unsealed': { stock: 2 },
+
+  'lorcana-fabled-booster': {
+    name: 'Disney Lorcana - Fabled Booster Box',
+    stock: 1,
+    price: 519.95,
+    image: 'images/lorcana-fabled-booster.png',
+    badge: 'Only 1 Left',
+    category: 'Disney Lorcana',
+    description: 'The 9th set in the Disney Lorcana TCG. Each booster box contains 24 packs, with 12 cards per pack including a guaranteed foil card. With 24 foil cards per box and chances to find Super Rare, Legendary, and Enchanted cards.',
+    details: 'Factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
+  },
+  'lorcana-fabled-booster-unsealed': {
+    name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
+    stock: 2,
+    price: 399.95,
+    image: 'images/lorcana-fabled-booster.png',
+    badge: 'Only 2 Left',
+    category: 'Disney Lorcana',
+    description: 'Get the complete Fabled booster box experience at a reduced price. The outer wrap has been removed but all 24 packs inside remain factory sealed. Same great cards, better value.',
+    details: 'All packs still factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
+  }
+};
+
+function getUrlParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
+function loadProduct() {
+  const productId = getUrlParam('id');
+  const product = products[productId];
+  const content = document.getElementById('product-content');
+  
+  if (!product) {
+    content.innerHTML = '<p>Product not found. <a href="shop.html">Back to shop</a></p>';
+    return;
+  }
+  
+  let badgeText = product.stock > 0 ? (product.stock === 1 ? "Only 1 Left" : product.stock === 2 ? "Only 2 Left" : "In Stock") : "Sold Out";
+  let badgeColor = product.stock > 0 ? '#ff9f1c' : '#666';
+  
+  content.innerHTML = `
+    <div class="product-detail-container">
+      <div class="product-detail-image">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
+      <div class="product-detail-info">
+        <span class="product-detail-badge" style="background:${badgeColor}">${badgeText}</span>
+        <h1 class="product-detail-name">${product.name}</h1>
+        <div class="product-detail-price">$${product.price.toFixed(2)}</div>
+        <p style="color:#666;margin-bottom:10px;">Shipping calculated at checkout</p>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+          <span style="font-weight:normal;">Quantity:</span>
+          <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">-</button>
+            <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
+          </div>
+        </div>
+        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:3px;margin-bottom:15px;">Add to Cart</button>
+        <div class="product-detail-meta">
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description +</h3>
+          <div style="display:none;margin:10px 0;">
+          <p>${product.description}</p>
+          </div>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;margin-top:10px;">Item Details +</h3>
+          <div style="display:none;margin:10px 0;">
+          <ul style="padding-left:20px;margin:10px 0;">
+            ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.title = product.name + ' - Fancy Cardboard Store';
+}
+
+function addToCart(name, price, qty) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let quantity = qty || 1;
+  
+  // Check stock limit
+  let currentQty = 0;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      currentQty = cart[i].quantity || 0;
+    }
+  }
+  
+  // Find product stock
+  let maxStock = 0;
+  for (let [id, p] of Object.entries(products)) {
+    if (p.name === name) {
+      maxStock = p.stock;
+      break;
+    }
+  }
+  
+  if (currentQty + quantity > maxStock) {
+    alert('Only ' + maxStock + ' available! You already have ' + currentQty + ' in your cart.');return;
+    return;
+  }
+  
+  let found = false;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      cart[i].quantity = (cart[i].quantity || 1) + quantity;
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    cart.push({name: name, price: price, quantity: quantity});
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + ' added to cart!');
+  updateCartCount();
+  
+}
+
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
+function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
+function searchProducts() {
+  let query = document.getElementById('search-input').value.toLowerCase();
+  let results = document.getElementById('search-results');
+  
+  const products = [
+    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
+    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
+  ];
+  
+  if (query.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+  
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+  } else {
+    results.innerHTML = matches.map(p => 
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
+    ).join('');
+  }
+}
+
+function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElementById('searchDropdown'); dropdown.style.display = dropdown.style.display === 'none' || !dropdown.style.display ? 'block' : 'none'; }
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
+
+loadProduct();
+updateCartCount();
+</script>
+</body>
+</html>

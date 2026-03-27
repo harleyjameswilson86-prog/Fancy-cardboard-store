@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Fancy Cardboard Store</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+h1 { color: #333; }
+h2 { color: #555; margin-top: 30px; }
+a { color: #FF6600; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy</h1>
+<p><strong>Last updated:</strong> March 2026</p>
+
+<h2>Introduction</h2>
+<p>Fancy Cardboard Store ("we," "our," or "us") operates the website fancycardboardstore.com. We are committed to protecting your privacy.</p>
+
+<h2>Information We Collect</h2>
+<p>We collect information you provide directly to us, such as when you:</p>
+<ul>
+<li>Contact us through our contact form</li>
+<li>Purchase items from us</li>
+</ul>
+
+<h2>How We Use Information</h2>
+<p>We use the information we collect to:</p>
+<ul>
+<li>Process your orders</li>
+<li>Respond to your inquiries</li>
+<li>Improve our services</li>
+</ul>
+
+<h2>Information Sharing</h2>
+<p>We do not sell, trade, or otherwise transfer your personal information to outside parties unless we provide you with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or servicing you.</p>
+
+<h2>Security</h2>
+<p>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information.</p>
+
+<h2>Cookies</h2>
+<p>We use cookies to help us remember and process the items in your shopping cart and understand and save your preferences for future visits.</p>
+
+<h2>Contact Information</h2>
+<p>If you have any questions about this Privacy Policy, please contact us at hello@fancycardboardstore.com</p>
+<p><a href="index.html">← Back to Home</a></p>
+</body>
+</html>
+
+<script>
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  let countEl = document.getElementById('cart-count');
+  if (countEl) {
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
+  }
+}
+updateCartCount();
+</script>
