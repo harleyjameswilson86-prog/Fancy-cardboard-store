@@ -29,6 +29,7 @@
 </main>
 <script>
 let inventory = [];
+const productStock = {};
 
 fetch('backend/inventory.json')
   .then(r => r.json())
@@ -37,28 +38,53 @@ fetch('backend/inventory.json')
     const pokemonCards = inventory.filter(i => i.category === 'Pokemon');
     const container = document.getElementById('pokemon-products');
     pokemonCards.forEach(card => {
+      const shipping = card.shipping || 0;
       const cardEl = document.createElement('div');
       cardEl.className = 'product-card';
       cardEl.innerHTML = `
         <a href="product.html?id=${card.id}">
-          <div class="product-image">
-            <img src="${card.image}" alt="${card.name}">
+          <div class="product-image" style="display:flex;justify-content:center;align-items:center;height:200px;overflow:hidden;">
+            <img src="${card.image}" alt="${card.name}" style="max-width:100%;max-height:180px;object-fit:contain;">
           </div>
           <div class="product-name">${card.name}</div>
           <div class="product-price">$${card.price.toFixed(2)}</div>
+          ${shipping > 0 ? `<div style="font-size:0.8em;color:#666;">+ $${shipping.toFixed(2)} shipping</div>` : ''}
         </a>
-        <button class="btn" onclick="addToCart('${card.name}', ${card.price})">Add to Cart</button>
+        <button class="btn" onclick="addToCart('${card.name.replace(/'/g, "\\'")}', ${card.price}, ${card.quantity || 1}, ${shipping})">Add to Cart</button>
       `;
       container.appendChild(cardEl);
     });
   });
 
-function addToCart(name, price) {
+function addToCart(name, price, maxQty=99, shipping=0) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  cart.push({name, price, quantity: 1});
+  let existing = cart.find(i => i.name === name);
+  if (existing) {
+    if (existing.quantity < maxQty) {
+      existing.quantity++;
+    } else {
+      alert('Max quantity reached!');
+      return;
+    }
+  } else {
+    cart.push({name, price, quantity: 1, shipping});
+  }
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(name + ' added to cart!');
+  updateCartCount();
 }
+
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  let countEl = document.getElementById('cart-count');
+  if (countEl) {
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'inline' : 'none';
+  }
+}
+
+updateCartCount();
 </script>
 </body>
 </html>
