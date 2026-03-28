@@ -1,0 +1,152 @@
+[
+  {
+    "id": "gengar-001",
+    "name": "Gengar EB games Promo - 050/088 - Perfect Order - Holo",
+    "category": "Pokemon",
+    "price": 149.95,
+    "image": "../images/gengar-1-front.jpg",
+    "backImage": "../images/gengar-1-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "clefairy-001",
+    "name": "Clefairy - 094/088 - Perfect Order - Illustration Rare",
+    "category": "Pokemon",
+    "price": 59.95,
+    "image": "../images/clefairy-1-front.jpg",
+    "backImage": "../images/clefairy-1-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "sabo-op05",
+    "name": "Sabo - OP-05-007 - Illustration Box - Promo",
+    "category": "One Piece",
+    "price": 3.95,
+    "quantity": 2,
+    "shipping": 1.95,
+    "image": "../images/sabo-front.jpg",
+    "backImage": "../images/sabo-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "ace-st15",
+    "name": "Portgas D. Ace - ST15-005 - Illustration Box - Promo",
+    "category": "One Piece",
+    "price": 9.95,
+    "quantity": 3,
+    "shipping": 1.95,
+    "image": "../images/ace-st15-front.jpg",
+    "backImage": "../images/ace-st15-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "rosinante-op12",
+    "name": "Donquixote Rosinante - OP12-108 - Illustration Box - Promo",
+    "category": "One Piece",
+    "price": 6.95,
+    "quantity": 5,
+    "shipping": 1.95,
+    "image": "../images/rosinante-front.jpg",
+    "backImage": "../images/rosinante-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "ace-op13",
+    "name": "Portgas D. Ace - OP13-119 - Carrying On His Will - SEC",
+    "category": "One Piece",
+    "price": 9.95,
+    "quantity": 1,
+    "shipping": 1.95,
+    "image": "../images/ace-op13-front.jpg",
+    "backImage": "../images/ace-op13-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "mr2-eb01",
+    "name": "Mr. 2 Bon Kurei - EB01-061 - Memorial Collection - SEC",
+    "category": "One Piece",
+    "price": 34.95,
+    "quantity": 1,
+    "shipping": 9.95,
+    "image": "../images/mr2-front.jpg",
+    "backImage": "../images/mr2-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "reiju-eb03",
+    "name": "Vinsmoke Reiju - EB03-031 - Heroines Edition - SR",
+    "category": "One Piece",
+    "price": 17.95,
+    "quantity": 1,
+    "shipping": 1.95,
+    "image": "../images/reiju-front.jpg",
+    "backImage": "../images/reiju-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "uta-eb03",
+    "name": "Uta - EB03-003 - Heroines Edition - SP",
+    "category": "One Piece",
+    "price": 5.95,
+    "quantity": 1,
+    "shipping": 1.95,
+    "image": "../images/uta-front.jpg",
+    "backImage": "../images/uta-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "crocodile-op14",
+    "name": "Crocodile - OP14-120 - The Azure Sea Seven - SEC",
+    "category": "One Piece",
+    "price": 14.95,
+    "quantity": 2,
+    "shipping": 1.95,
+    "image": "../images/crocodile-front.jpg",
+    "backImage": "../images/crocodile-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "carrot-eb03",
+    "name": "Carrot - EB03-013 - Heroines Edition - SR",
+    "category": "One Piece",
+    "price": 39.95,
+    "quantity": 1,
+    "shipping": 9.95,
+    "image": "../images/carrot-front.jpg",
+    "backImage": "../images/carrot-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "rayleigh-op08",
+    "name": "Silvers Rayleigh - OP08-118 - Two Legends - SEC",
+    "category": "One Piece",
+    "price": 9.95,
+    "quantity": 2,
+    "shipping": 1.95,
+    "image": "../images/rayleigh-front.jpg",
+    "backImage": "../images/rayleigh-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "vivi-eb03",
+    "name": "Nefeltari Vivi - EB03-024 - Heroines Edition - SR",
+    "category": "One Piece",
+    "price": 19.95,
+    "quantity": 1,
+    "shipping": 1.95,
+    "image": "../images/vivi-front.jpg",
+    "backImage": "../images/vivi-back.jpg",
+    "description": "Ships with protected packaging"
+  },
+  {
+    "id": "mihawk-op14",
+    "name": "Dracule Mihawk - OP14-119 - The Azure Sea Seven - SR",
+    "category": "One Piece",
+    "price": 12.95,
+    "quantity": 2,
+    "shipping": 1.95,
+    "image": "../images/mihawk-front.jpg",
+    "backImage": "../images/mihawk-back.jpg",
+    "description": "Ships with protected packaging"
+  }
+]
