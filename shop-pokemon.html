@@ -38,15 +38,32 @@
 <h1>Pokémon TCG</h1>
 <p class="subtitle">Browse our authentic Pokémon trading cards</p>
 
-<section id="pokemon">
-<p>Coming soon!</p>
-</section>
+<section id="pokemon"></section>
 </main>
 <script>
 const productStock = {
   'Disney Lorcana - Fabled Booster Box': 1,
   'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
 };
+
+// Fetch Pokemon cards from inventory
+fetch('backend/inventory.json')
+  .then(response => response.json())
+  .then(inventory => {
+    const pokemonSection = document.getElementById('pokemon');
+    inventory.filter(card => card.category === 'Pokemon').forEach(card => {
+      pokemonSection.innerHTML += `
+        <div class="product-card">
+          <a href="product.html?id=${card.id}">
+            <div class="product-image"><img src="${card.image}" alt="${card.name}"></div>
+            <div class="product-name">${card.name}</div>
+            <div class="product-price">$${card.price.toFixed(2)}</div>
+          </a>
+          <button class="btn" onclick="addToCart('${card.name}', ${card.price})">Add to Cart</button>
+        </div>
+      `;
+    });
+  });
 
 function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');

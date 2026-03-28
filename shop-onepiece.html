@@ -47,6 +47,27 @@ const productStock = {
   'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
 };
 
+// Fetch One Piece cards from inventory
+fetch('backend/inventory.json')
+  .then(response => response.json())
+  .then(inventory => {
+    const onepieceSection = document.getElementById('onepiece');
+    inventory.filter(card => card.category === 'One Piece').forEach(card => {
+      const shipping = card.shipping || 0;
+      onepieceSection.innerHTML += `
+        <div class="product-card">
+          <a href="product.html?id=${card.id}">
+            <div class="product-image"><img src="${card.image}" alt="${card.name}"></div>
+            <div class="product-name">${card.name}</div>
+            <div class="product-price">$${card.price.toFixed(2)}</div>
+            ${shipping > 0 ? '<div style="font-size:0.8em;color:#666;">+ $' + shipping.toFixed(2) + ' shipping</div>' : ''}
+          </a>
+          <button class="btn" onclick="addToCart('${card.name}', ${card.price})">Add to Cart</button>
+        </div>
+      `;
+    });
+  });
+
 function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   let found = false;
