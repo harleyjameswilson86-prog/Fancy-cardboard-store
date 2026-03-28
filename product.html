@@ -264,7 +264,7 @@ function loadProduct() {
   content.innerHTML = `
     <div class="product-detail-container">
       <div class="product-detail-image">
-        <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} onclick="if(this.dataset.backImage){let t=this.src;this.src=this.dataset.backImage;this.dataset.backImage=t;}" ondblclick="let o=document.createElement('div');o.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;cursor:pointer;';let i=document.createElement('img');i.src=this.src;i.style.cssText='max-width:90%;max-height:90%;object-fit:contain;';o.appendChild(i);document.body.appendChild(o);o.onclick=()=>o.remove();" style="cursor:pointer;">
+        <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;">
       </div>
       <div class="product-detail-info">
         <span class="product-detail-badge" style="background:${badgeColor}">${badgeText}</span>
@@ -375,6 +375,43 @@ function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') 
 
 loadProduct();
 updateCartCount();
+
+// Add zoom and swipe functionality to product image
+document.addEventListener('DOMContentLoaded', function() {
+  const img = document.getElementById('product-img');
+  if (img && img.dataset.backImage) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let showingFront = true;
+    
+    // Click to zoom
+    img.addEventListener('click', function(e) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;cursor:zoom-out;';
+      const zoomImg = document.createElement('img');
+      zoomImg.src = img.src;
+      zoomImg.style.cssText = 'max-width:90%;max-height:90%;object-fit:contain;';
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function() { overlay.remove(); });
+    });
+    
+    // Swipe to swap images
+    img.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    img.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        // Swipe left - show back
+        if (showingFront) { img.src = img.dataset.backImage; showingFront = false; }
+      } else if (touchEndX - touchStartX > 50) {
+        // Swipe right - show front
+        if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; }
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>
