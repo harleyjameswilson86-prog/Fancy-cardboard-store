@@ -1,3 +1,6 @@
+/* Google Fonts - Playfair Display */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 /* Jumps Winter Font */
 @font-face {
   font-family: 'Jumps Winter';
@@ -122,7 +125,8 @@
   --btn-color: #27ae60; --orange: #FF6600;
   --light: #f8f9fa;
 }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
+body {
+    font-family: 'Playfair Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
 .top-bar { background: var(--orange); color: #fff; padding: 0.5rem 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
 .header-right { display: flex; align-items: center; gap: 1rem; }
 .search-icon, .cart-icon { color: #fff; text-decoration: none; display: flex; align-items: center; }
@@ -345,4 +349,9 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
     font-size: 11px;
     margin-top: 420px;
     display: block;
+}
+
+/* Keep logo and banner fonts */
+.logo, a.logo, .site-title, .hero h1, .hero h2 {
+    font-family: 'Blocky', 'Hatori', 'Zyzol Bold', 'Zyzol', 'Marous', 'Super Chiby', 'Gwenchana', 'Jumps Winter', 'Comic Sans MS', cursive !important;
 }
