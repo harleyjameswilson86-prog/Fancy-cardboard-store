@@ -102,6 +102,10 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 <input type="radio" name="shipping" value="delivery" checked onclick="updateTotals()">
 <span><strong>Delivery</strong> - Calculated at checkout</span>
 </label>
+<label class="shipping-option">
+<input type="radio" name="shipping" value="pickup" onclick="updateTotals()">
+<span><strong>Pickup (Gold Coast)</strong> - FREE</span>
+</label>
 </div>
 <div class="form-group">
 <label for="notes">Order Notes</label>
@@ -176,9 +180,11 @@ updateTotals(subtotal);
 
 function updateTotals() {
 const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$','')) || 0;
-const postcode = document.getElementById('postcode').value;
+const shippingEl = document.querySelector('input[name="shipping"]:checked');
 let shippingCost = 0;
 
+if (shippingEl && shippingEl.value === 'delivery') {
+const postcode = document.getElementById('postcode').value;
 if (postcode) {
 const firstDigit = postcode.charAt(0);
 if (['4', '7'].includes(firstDigit)) {
@@ -187,8 +193,9 @@ shippingCost = 9.95;
 shippingCost = 14.95;
 }
 }
+}
 
-document.getElementById('shipping-cost').textContent = shippingCost === 0 ? 'Calculated at checkout' : '$' + shippingCost.toFixed(2);
+document.getElementById('shipping-cost').textContent = shippingCost === 0 ? 'FREE' : '$' + shippingCost.toFixed(2);
 document.getElementById('total').textContent = '$' + (subtotal + shippingCost).toFixed(2);
 }
 
