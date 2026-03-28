@@ -20,9 +20,10 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 .btn:hover { background: #e65c00; }
 .radio-group { display: flex; gap: 1rem; margin-bottom: 1rem; }
 .radio-option { display: flex; align-items: center; gap: 0.5rem; }
-.shipping-options { background: #f9f9f9; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; }
-.shipping-option { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; cursor: pointer; }
-.shipping-option:hover { background: #eee; border-radius: 5px; }
+.shipping-options { background: #fff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 2px solid #ddd; }
+.shipping-option { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; cursor: pointer; border: 2px solid #eee; border-radius: 8px; margin-bottom: 0.5rem; background: #f9f9f9; }
+.shipping-option:hover { background: #f0f0f0; border-color: #ccc; }
+.shipping-option:has(input:checked) { border-color: var(--accent); background: #fff5e6; }
 </style>
 </head>
 <body>
