@@ -103,8 +103,12 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 <span><strong>Pickup (Gold Coast)</strong> - FREE</span>
 </label>
 <label class="shipping-option">
-<input type="radio" name="shipping" value="delivery" onclick="updateTotals()">
-<span><strong>Delivery (QLD only)</strong> - $10</span>
+<input type="radio" name="shipping" value="interstate" onclick="updateTotals()">
+<span><strong>Interstate Delivery</strong> - $9.95</span>
+</label>
+<label class="shipping-option">
+<input type="radio" name="shipping" value="outstate" onclick="updateTotals()">
+<span><strong>Out of State Delivery</strong> - $14.95</span>
 </label>
 </div>
 <div class="form-group">
@@ -181,7 +185,7 @@ updateTotals(subtotal);
 function updateTotals() {
 const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$','')) || 0;
 const shippingEl = document.querySelector('input[name="shipping"]:checked');
-const shippingCost = shippingEl && shippingEl.value === 'delivery' ? 10 : 0;
+const shippingCost = shippingEl && shippingEl.value === 'interstate' ? 9.95 : (shippingEl && shippingEl.value === 'outstate' ? 14.95 : 0);
 document.getElementById('shipping-cost').textContent = shippingCost === 0 ? 'FREE' : '$' + shippingCost.toFixed(2);
 document.getElementById('total').textContent = '$' + (subtotal + shippingCost).toFixed(2);
 }
