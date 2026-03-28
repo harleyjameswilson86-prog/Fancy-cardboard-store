@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pickup Policy - Fancy Cardboard Store</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+h1 { color: #333; }
+h2 { color: #555; margin-top: 30px; }
+a { color: #FF6600; }
+</style>
+</head>
+<body>
+<h1>Pickup Policy</h1>
+<p><strong>Last updated:</strong> March 2026</p>
+
+<h2>Pickup Location</h2>
+<p>You can pick up your order from our store location on the Gold Coast. We will notify you when your order is ready for pickup.</p>
+
+<h2>Pickup Hours</h2>
+<p>Our pickup hours are Monday to Friday, 9am to 5pm. Please contact us if you need to arrange a different time.</p>
+
+<h2>Order Processing</h2>
+<p>Orders are typically ready for pickup within 1-2 business days. You will receive an email notification when your order is ready.</p>
+
+<h2>What to Bring</h2>
+<p>Please bring a valid ID and your order confirmation email when picking up your order.</p>
+
+<h2>Contact Us</h2>
+<p>If you have any questions about our Pickup Policy, please contact us at hello@fancycardboardstore.com</p>
+<p><a href="index.html">← Back to Home</a></p>
+</body>
+</html>
+
+<script>
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  let countEl = document.getElementById('cart-count');
+  if (countEl) {
+    countEl.textContent = totalItems;
+    countEl.style.display = totalItems > 0 ? 'flex' : 'none';
+  }
+}
+updateCartCount();
+</script>

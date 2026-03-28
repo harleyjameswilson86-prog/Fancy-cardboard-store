@@ -21,9 +21,11 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 .radio-group { display: flex; gap: 1rem; margin-bottom: 1rem; }
 .radio-option { display: flex; align-items: center; gap: 0.5rem; }
 .shipping-options { background: #fff; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 2px solid #ddd; }
-.shipping-option { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; cursor: pointer; border: 2px solid #eee; border-radius: 8px; margin-bottom: 0.5rem; background: #f9f9f9; }
+.shipping-option { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; cursor: pointer; border: 2px solid #eee; border-radius: 8px; margin-bottom: 0.5rem; background: #f9f9f9; flex-wrap: wrap; }
 .shipping-option:hover { background: #f0f0f0; border-color: #ccc; }
 .shipping-option:has(input:checked) { border-color: var(--accent); background: #fff5e6; }
+.info-bubble { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: #666; color: #fff; border-radius: 50%; font-size: 12px; font-weight: bold; text-decoration: none; margin-left: auto; flex-shrink: 0; }
+.info-bubble:hover { background: #FF6600; }
 </style>
 </head>
 <body>
@@ -100,10 +102,12 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 <label class="shipping-option">
 <input type="radio" name="shipping" value="delivery" checked onclick="updateTotals()">
 <span><strong>Delivery</strong> - Calculated at checkout</span>
+<a href="shipping.html" class="info-bubble" title="Shipping Policy">i</a>
 </label>
 <label class="shipping-option">
 <input type="radio" name="shipping" value="pickup" onclick="updateTotals()">
 <span><strong>Pickup (Gold Coast)</strong> - FREE</span>
+<a href="pickup.html" class="info-bubble" title="Pickup Policy">i</a>
 </label>
 </div>
 <div class="form-group">
