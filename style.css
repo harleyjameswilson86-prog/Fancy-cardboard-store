@@ -349,9 +349,9 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
     display: inline-block;
     background: rgba(0,0,0,0.6);
     color: white;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
     margin-top: 431px;
     display: block;
     width: fit-content;
