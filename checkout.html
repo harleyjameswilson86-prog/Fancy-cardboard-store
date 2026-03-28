@@ -160,6 +160,23 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 </footer>
 <script>
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
+
+function toggleSearch(e) {
+  e.preventDefault();
+  const dropdown = document.getElementById('searchDropdown');
+  dropdown.classList.toggle('active');
+}
+
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+
+function searchProducts() {
+  const input = document.getElementById('search-input');
+  const filter = input.value.toLowerCase();
+  window.location.href = 'shop.html?search=' + encodeURIComponent(filter);
+}
+
 const API_URL = 'https://fancy-cardboard-stripe-backend.onrender.com';
 
 function loadCart() {
