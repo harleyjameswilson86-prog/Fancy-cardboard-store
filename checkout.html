@@ -164,7 +164,11 @@ function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el
 function toggleSearch(e) {
   e.preventDefault();
   const dropdown = document.getElementById('searchDropdown');
-  dropdown.classList.toggle('active');
+  if (dropdown.style.display === 'none' || !dropdown.style.display) {
+    dropdown.style.display = 'block';
+  } else {
+    dropdown.style.display = 'none';
+  }
 }
 
 function toggleMenu() {
