@@ -43,7 +43,7 @@ fetch('backend/inventory.json')
       cardEl.className = 'product-card';
       cardEl.innerHTML = `
         <a href="product.html?id=${card.id}">
-          <div class="product-image">
+          <div class="product-image" style="height:180px;display:flex;align-items:center;justify-content:center;">
             <img src="${card.image || 'images/placeholder.jpg'}" alt="${card.name}">
           </div>
           <div class="product-name">${card.name}</div>
