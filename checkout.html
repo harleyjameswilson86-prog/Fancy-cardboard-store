@@ -172,9 +172,30 @@ function toggleMenu() {
 }
 
 function searchProducts() {
-  const input = document.getElementById('search-input');
-  const filter = input.value.toLowerCase();
-  window.location.href = 'shop.html?search=' + encodeURIComponent(filter);
+  let query = document.getElementById('search-input').value.toLowerCase();
+  let results = document.getElementById('search-results');
+  
+  const products = [
+    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
+    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'},
+    {name: 'Pokemon Cards', category: 'pokemon', url: 'shop-pokemon.html'},
+    {name: 'One Piece Cards', category: 'onepiece', url: 'shop-onepiece.html'}
+  ];
+  
+  if (query.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+  
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+  } else {
+    results.innerHTML = matches.map(p => 
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong></a>'
+    ).join('');
+  }
 }
 
 const API_URL = 'https://fancy-cardboard-stripe-backend.onrender.com';
@@ -267,6 +288,8 @@ alert('Error: ' + err.message);
 }
 
 loadCart();
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
+updateCartCount();
 </script>
 </body>
 </html><!-- updated -->
