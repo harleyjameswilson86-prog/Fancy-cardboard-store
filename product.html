@@ -264,6 +264,7 @@ function loadProduct() {
   content.innerHTML = `
     <div class="product-detail-container">
       <div class="product-detail-image">
+        ${product.backImage ? '<div class="photo-indicator">2 photos - swipe to view</div>' : ''}
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;">
       </div>
       <div class="product-detail-info">
