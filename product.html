@@ -79,15 +79,11 @@
 </footer>
 <script>
 const products = {
-  'lorcana-fabled-booster': { stock: 1 },
-  'lorcana-fabled-booster-unsealed': { stock: 2 },
-
   'lorcana-fabled-booster': {
     name: 'Disney Lorcana - Fabled Booster Box',
     stock: 1,
     price: 519.95,
     image: 'images/lorcana-fabled-booster.png',
-    badge: 'Only 1 Left',
     category: 'Disney Lorcana',
     description: 'The 9th set in the Disney Lorcana TCG. Each booster box contains 24 packs, with 12 cards per pack including a guaranteed foil card. With 24 foil cards per box and chances to find Super Rare, Legendary, and Enchanted cards.',
     details: 'Factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
@@ -97,7 +93,6 @@ const products = {
     stock: 2,
     price: 399.95,
     image: 'images/lorcana-fabled-booster.png',
-    badge: 'Only 2 Left',
     category: 'Disney Lorcana',
     description: 'Get the complete Fabled booster box experience at a reduced price. The outer wrap has been removed but all 24 packs inside remain factory sealed. Same great cards, better value.',
     details: 'All packs still factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
@@ -269,7 +264,7 @@ function loadProduct() {
   content.innerHTML = `
     <div class="product-detail-container">
       <div class="product-detail-image">
-        <img src="${product.image}" alt="${product.name}">
+        <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} onclick="if(this.dataset.backImage){let t=this.src;this.src=this.dataset.backImage;this.dataset.backImage=t;}" ondblclick="let o=document.createElement('div');o.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;cursor:pointer;';let i=document.createElement('img');i.src=this.src;i.style.cssText='max-width:90%;max-height:90%;object-fit:contain;';o.appendChild(i);document.body.appendChild(o);o.onclick=()=>o.remove();" style="cursor:pointer;">
       </div>
       <div class="product-detail-info">
         <span class="product-detail-badge" style="background:${badgeColor}">${badgeText}</span>
