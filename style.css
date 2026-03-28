@@ -353,9 +353,8 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
     border-radius: 12px;
     font-size: 11px;
     margin-top: 433px;
+    margin-left: 100px;
     display: block;
-    position: relative;
-    left: -30px;
 }
 
 /* Keep logo and banner fonts */
