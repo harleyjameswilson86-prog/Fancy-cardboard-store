@@ -61,14 +61,20 @@ fetch('backend/inventory.json')
             <div class="product-name">${card.name}</div>
             <div class="product-price">$${card.price.toFixed(2)}</div>
           </a>
-          <button class="btn" onclick="addToCart('${card.name}', ${card.price})">Add to Cart</button>
+          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.stock})">Add to Cart</button>
         </div>
       `;
     });
   });
 
-function addToCart(name, price) {
+function addToCart(name, price, maxStock) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let currentQty = cart.find(i => i.name === name)?.quantity || 0;
+  let max = maxStock || 99;
+  if (currentQty >= max) {
+    alert('Maximum ' + max + ' available!');
+    return;
+  }
   let found = false;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].name === name) {
