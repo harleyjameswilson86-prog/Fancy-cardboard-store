@@ -26,28 +26,28 @@
 <a href="index.html">Home</a>
 <a href="#" onclick="toggleNavCategories(event)">Categories</a>
 <div id="nav-categories" style="display:none;">
-<a href="shop-pokemon.html" style="padding-left:20px;" onclick="togglePokemonSubs(event)">Pokémon TCG</a>
+<a href="shop-pokemon-singles.html" style="padding-left:20px;" onclick="togglePokemonSubs(event)">Pokémon TCG</a>
 <div id="nav-pokemon-subs" style="display:none;padding-left:40px;">
 <a href="shop-pokemon-sealed.html">Sealed Products</a>
 <a href="shop-pokemon-singles.html">Single Cards</a>
 <a href="shop-pokemon-graded.html">Graded Cards</a>
 </div>
-<a href="shop-onepiece.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">One Piece</a>
+<a href="shop-onepiece-singles.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">One Piece</a>
 <div id="nav-op-subs" style="display:none;padding-left:40px;">
 <a href="shop-onepiece-sealed.html">Sealed Products</a>
 <a href="shop-onepiece-singles.html">Single Cards</a>
 <a href="shop-onepiece-graded.html">Graded Cards</a>
 </div>
-<a href="shop-lorcana.html" style="padding-left:20px;" onclick="toggleLorcanaSubs(event)">Disney Lorcana</a>
+<a href="shop-lorcana-singles.html" style="padding-left:20px;" onclick="toggleLorcanaSubs(event)">Disney Lorcana</a>
 <div id="nav-lorcana-subs" style="display:none;padding-left:40px;">
 <a href="shop-lorcana-sealed.html">Sealed Products</a>
 <a href="shop-lorcana-singles.html">Single Cards</a>
 <a href="shop-lorcana-graded.html">Graded Cards</a>
 </div>
 
-<a href="shop-pokemon.html" style="padding-left:20px;">Pokémon TCG</a>
-<a href="shop-onepiece.html" style="padding-left:20px;">One Piece</a>
-<a href="shop-lorcana.html" style="padding-left:20px;">Disney Lorcana</a>
+<a href="shop-pokemon-singles.html" style="padding-left:20px;">Pokémon TCG</a>
+<a href="shop-onepiece-singles.html" style="padding-left:20px;">One Piece</a>
+<a href="shop-lorcana-singles.html" style="padding-left:20px;">Disney Lorcana</a>
 </div>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
@@ -75,7 +75,7 @@ fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
     const pokemonSection = document.getElementById('pokemon');
-    inventory.filter(card => card.category === 'Pokemon').forEach(card => {
+    inventory.filter(card => card.category === 'Pokemon' && card.type === 'graded').forEach(card => {
       let badge = card.stock <= 3 ? '<div class="product-badge">Only ' + card.stock + ' Left</div>' : '';
       pokemonSection.innerHTML += `
         <div class="product-card">
