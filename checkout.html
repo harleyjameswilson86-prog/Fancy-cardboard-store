@@ -96,19 +96,11 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 <label for="postcode">Postcode *</label>
 <input type="text" id="postcode" required placeholder="4000">
 </div>
-<h2>Shipping Options</h2>
+<h2>Delivery</h2>
 <div class="shipping-options">
 <label class="shipping-option">
-<input type="radio" name="shipping" value="pickup" checked onclick="updateTotals()">
-<span><strong>Pickup (Gold Coast)</strong> - FREE</span>
-</label>
-<label class="shipping-option">
-<input type="radio" name="shipping" value="interstate" onclick="updateTotals()">
-<span><strong>Interstate Delivery</strong> - $9.95</span>
-</label>
-<label class="shipping-option">
-<input type="radio" name="shipping" value="outstate" onclick="updateTotals()">
-<span><strong>Out of State Delivery</strong> - $14.95</span>
+<input type="radio" name="shipping" value="delivery" checked onclick="updateTotals()">
+<span><strong>Delivery</strong> - Calculated at checkout</span>
 </label>
 </div>
 <div class="form-group">
@@ -184,9 +176,19 @@ updateTotals(subtotal);
 
 function updateTotals() {
 const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$','')) || 0;
-const shippingEl = document.querySelector('input[name="shipping"]:checked');
-const shippingCost = shippingEl && shippingEl.value === 'interstate' ? 9.95 : (shippingEl && shippingEl.value === 'outstate' ? 14.95 : 0);
-document.getElementById('shipping-cost').textContent = shippingCost === 0 ? 'FREE' : '$' + shippingCost.toFixed(2);
+const postcode = document.getElementById('postcode').value;
+let shippingCost = 0;
+
+if (postcode) {
+const firstDigit = postcode.charAt(0);
+if (['4', '7'].includes(firstDigit)) {
+shippingCost = 9.95;
+} else if (['0', '1', '2', '3', '5', '6', '8', '9'].includes(firstDigit)) {
+shippingCost = 14.95;
+}
+}
+
+document.getElementById('shipping-cost').textContent = shippingCost === 0 ? 'Calculated at checkout' : '$' + shippingCost.toFixed(2);
 document.getElementById('total').textContent = '$' + (subtotal + shippingCost).toFixed(2);
 }
 
