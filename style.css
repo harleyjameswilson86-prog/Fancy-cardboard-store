@@ -352,6 +352,6 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 }
 
 /* Keep logo and banner fonts */
-.logo, a.logo, .site-title, .hero h1, .hero h2 {
+.logo, a.logo, .site-title {
     font-family: 'Blocky', 'Hatori', 'Zyzol Bold', 'Zyzol', 'Marous', 'Super Chiby', 'Gwenchana', 'Jumps Winter', 'Comic Sans MS', cursive !important;
 }
