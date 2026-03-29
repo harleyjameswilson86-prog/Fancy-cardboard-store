@@ -98,6 +98,10 @@ function toggleMenu() {
 }
 function toggleNavCategories(e) { e.preventDefault(); document.getElementById('nav-categories').style.display = document.getElementById('nav-categories').style.display === 'none' ? 'block' : 'none'; }
 
+function togglePokemonSubs(e) { e.preventDefault(); document.getElementById('nav-pokemon-subs').style.display = document.getElementById('nav-pokemon-subs').style.display === 'none' ? 'block' : 'none'; }
+function toggleOnePieceSubs(e) { e.preventDefault(); document.getElementById('nav-op-subs').style.display = document.getElementById('nav-op-subs').style.display === 'none' ? 'block' : 'none'; }
+function toggleLorcanaSubs(e) { e.preventDefault(); document.getElementById('nav-lorcana-subs').style.display = document.getElementById('nav-lorcana-subs').style.display === 'none' ? 'block' : 'none'; }
+
 function searchProducts() {
   let query = document.getElementById('search-input').value.toLowerCase();
   let results = document.getElementById('search-results');
