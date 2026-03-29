@@ -164,17 +164,6 @@
     "description": "Ships with protected packaging"
   },
   {
-    "id": "lorcana-fabled-booster",
-    "name": "Disney Lorcana - Fabled Booster Box",
-    "category": "Lorcana",
-    "type": "sealed",
-    "price": 519.95,
-    "quantity": 1,
-    "image": "../images/lorcana-fabled-front.jpg",
-    "backImage": "../images/lorcana-fabled-back.jpg",
-    "description": "Ships with protected packaging"
-  },
-  {
     "id": "lorcana-fabled-booster-unsealed",
     "name": "Disney Lorcana - Fabled Booster Box (Unsealed)",
     "category": "Lorcana",
