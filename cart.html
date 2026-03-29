@@ -123,7 +123,7 @@ function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') 
 function loadCart() {
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
   var container = document.getElementById('cart-items');
-  if (cart.length === 0) { container.innerHTML = '<div class="empty-cart"><p>Your cart is empty!</p><a href="shop.html" class="btn">Browse Shop</a></div>'; return; }
+  if (cart.length === 0) { container.innerHTML = '<div class="empty-cart"><p>Your cart is empty!</p><a href="shop-pokemon-singles.html" class="btn">Browse Shop</a></div>'; return; }
   var html = ''; var total = 0;
   for (var i = 0; i < cart.length; i++) {
     var item = cart[i]; var qty = item.quantity || 1;
