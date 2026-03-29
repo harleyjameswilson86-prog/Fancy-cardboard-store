@@ -177,6 +177,11 @@ h2 { color: #27ae60; margin-bottom: 1rem; border-bottom: 2px solid #27ae60; padd
 <script>
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 
+function toggleNavCategories(e) { e.preventDefault(); document.getElementById('nav-categories').style.display = document.getElementById('nav-categories').style.display === 'none' ? 'block' : 'none'; }
+function togglePokemonSubs(e) { e.preventDefault(); document.getElementById('nav-pokemon-subs').style.display = document.getElementById('nav-pokemon-subs').style.display === 'none' ? 'block' : 'none'; }
+function toggleOnePieceSubs(e) { e.preventDefault(); document.getElementById('nav-op-subs').style.display = document.getElementById('nav-op-subs').style.display === 'none' ? 'block' : 'none'; }
+function toggleLorcanaSubs(e) { e.preventDefault(); document.getElementById('nav-lorcana-subs').style.display = document.getElementById('nav-lorcana-subs').style.display === 'none' ? 'block' : 'none'; }
+
 function toggleSearch(e) {
   e.preventDefault();
   const dropdown = document.getElementById('searchDropdown');
