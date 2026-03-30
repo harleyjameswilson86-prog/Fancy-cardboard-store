@@ -70,7 +70,7 @@ fetch('backend/inventory.json')
     const onepieceSection = document.getElementById('onepiece');
     inventory.filter(card => card.category === 'One Piece' && card.type === 'graded').forEach(card => {
       const shipping = card.shipping || 0;
-      let badge = card.stock <= 3 ? '<div class="product-badge">Only ' + card.stock + ' Left</div>' : '';
+      let badge = card.quantity <= 3 ? '<div class="product-badge">Only ' + card.quantity + ' Left</div>' : '';
       onepieceSection.innerHTML += `
         <div class="product-card">
           <a href="product.html?id=${card.id}">
@@ -79,7 +79,7 @@ fetch('backend/inventory.json')
             <div class="product-name">${card.name}</div>
             <div class="product-price">$${card.price.toFixed(2)}</div>
           </a>
-          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.stock})">Add to Cart</button>
+          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity})">Add to Cart</button>
         </div>
       `;
     });
