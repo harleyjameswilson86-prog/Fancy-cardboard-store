@@ -139,7 +139,10 @@ function loadCart() {
 }
 function changeQty(index, delta) {
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  cart[index].quantity = (cart[index].quantity || 1) + delta;
+  var newQty = (cart[index].quantity || 1) + delta;
+  var maxStock = productStock[cart[index].name];
+  if (maxStock && newQty > maxStock) { newQty = maxStock; }
+  cart[index].quantity = newQty;
   if (cart[index].quantity <= 0) { cart.splice(index, 1); }
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount(); loadCart();
@@ -147,6 +150,8 @@ function changeQty(index, delta) {
 function changeQtyDirect(index, qty) {
   qty = parseInt(qty) || 1;
   var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  var maxStock = productStock[cart[index].name];
+  if (maxStock && qty > maxStock) { qty = maxStock; }
   if (qty <= 0) { cart.splice(index, 1); } else { cart[index].quantity = qty; }
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount(); loadCart();
