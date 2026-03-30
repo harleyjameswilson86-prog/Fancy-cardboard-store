@@ -104,6 +104,7 @@ function addToCart(name, price, maxStock) {
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(name + ' added to cart!');
+  updateCartCount();
   
 }
 function updateCartCount() {
