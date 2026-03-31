@@ -106,18 +106,6 @@
     "description": "Ships with protected packaging"
   },
   {
-    "id": "crocodile-op14",
-    "name": "Crocodile - OP14-120 - The Azure Sea Seven - SEC",
-    "category": "One Piece",
-    "type": "singles",
-    "price": 14.95,
-    "quantity": 2,
-    "shipping": 1.95,
-    "image": "../images/crocodile-front.jpg",
-    "backImage": "../images/crocodile-back.jpg",
-    "description": "Ships with protected packaging"
-  },
-  {
     "id": "carrot-eb03",
     "name": "Carrot - EB03-013 - Heroines Edition - SR",
     "category": "One Piece",
