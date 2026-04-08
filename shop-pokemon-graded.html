@@ -69,14 +69,14 @@ fetch('backend/inventory.json')
   .then(inventory => {
     const pokemonSection = document.getElementById('pokemon');
     inventory.filter(card => card.category === 'Pokemon' && card.type === 'graded').forEach(card => {
-      let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FF6600 !important;">Only ' + card.quantity + ' Left</div>' : '';
+      let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
       pokemonSection.innerHTML += `
         <div class="product-card">
           <a href="product.html?id=${card.id}">
             ${badge}
             <div class="product-image"><img src="${card.image}" alt="${card.name}" style="max-width:100%;max-height:150px;"></div>
             <div class="product-name">${card.name}</div>
-            <div class="product-price" style="color:#FF6600 !important;">$${card.price.toFixed(2)}</div>
+            <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
           </a>
           <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity})">Add to Cart</button>
         </div>
