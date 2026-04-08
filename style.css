@@ -171,7 +171,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .shop, .about, .contact { padding: 2rem 5%; max-width: 1200px; margin: 0 auto; }
 .shop h1, .about h1, .contact h1 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.5px; color: var(--dark); }
 .subtitle { color: #000; margin-bottom: 2rem; }
-.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+.products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
 .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
 .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 .product-badge { position: absolute; top: 10px; right: 10px; background: #FC4C02; color: #fff; padding: 0.25rem 0.5rem; font-size: 0.7rem; font-weight: 700; border-radius: 4px; text-transform: uppercase; }
@@ -371,5 +371,7 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 .logo, a.logo, .site-title {
     font-family: 'Blocky', 'Hatori', 'Zyzol Bold', 'Zyzol', 'Marous', 'Super Chiby', 'Gwenchana', 'Jumps Winter', 'Comic Sans MS', cursive !important;
 }
-.products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
 .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
