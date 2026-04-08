@@ -127,7 +127,8 @@
   --dark: #1a1a1a;
   --secondary: #e67e22;
   --accent: #FF6600;
-  --btn-color: #27ae60; --orange: #FF6600;
+  --btn-color: #27ae60; --header-orange: #FC4C02;
+  --orange: #FF6600;
   --header-orange: #FC4C02;
   --light: #f8f9fa;
 }
