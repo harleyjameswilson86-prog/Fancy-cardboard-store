@@ -260,7 +260,7 @@ function getUrlParam(name) {
 
 function loadProduct() {
   const productId = getUrlParam('id');
-  const product = products[productId];
+  const product = products[productId] || Object.values(products).find(p => p.name === decodeURIComponent(productId));
   const content = document.getElementById('product-content');
   
   if (!product) {
