@@ -45,7 +45,7 @@ fetch('backend/inventory.json')
             <img src="${card.image}" alt="${card.name}">
           </div>
           <div class="product-name">${card.name}</div>
-          <div class="product-price" style="color:#000000 !important;">$${card.price.toFixed(2)}</div>
+          <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
         </a>
         <button class="btn" onclick="addToCart('${card.name}', ${card.price})">Add to Cart</button>
       `;
