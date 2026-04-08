@@ -140,28 +140,5 @@
     "image": "../images/vivi-front.jpg",
     "backImage": "../images/vivi-back.jpg",
     "description": "Ships with protected packaging"
-  },
-  {
-    "id": "mihawk-op14",
-    "name": "Dracule Mihawk - OP14-119 - The Azure Sea Seven - SR",
-    "category": "One Piece",
-    "type": "singles",
-    "price": 12.95,
-    "quantity": 2,
-    "shipping": 1.95,
-    "image": "../images/mihawk-front.jpg",
-    "backImage": "../images/mihawk-back.jpg",
-    "description": "Ships with protected packaging"
-  },
-  {
-    "id": "lorcana-fabled-booster-unsealed",
-    "name": "Disney Lorcana - Fabled Booster Box (Unsealed)",
-    "category": "Lorcana",
-    "type": "sealed",
-    "price": 399.95,
-    "quantity": 2,
-    "image": "../images/lorcana-fabled-unsealed-front.jpg",
-    "backImage": "../images/lorcana-fabled-unsealed-back.jpg",
-    "description": "Ships with protected packaging"
   }
 ]
