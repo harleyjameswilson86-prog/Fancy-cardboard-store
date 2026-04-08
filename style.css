@@ -376,3 +376,4 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 
 .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .product-card { border: 1px solid #aaa; }
+.product-price { color: #000000 !important; }
