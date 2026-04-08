@@ -378,3 +378,5 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 .product-card { border: 1px solid #ccc; }
 .product-price { color: #000000 !important; }
 .product-card button { position: relative !important; width: 100% !important; display: block !important; margin-top: auto !important; }
+.product-card { display: flex; flex-direction: column; justify-content: space-between; }
+.product-card button { width: 100% !important; display: block !important; flex: none !important; }
