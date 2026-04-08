@@ -132,7 +132,7 @@
 }
 body {
     font-family: 'Playfair Display', serif; font-weight: 400; -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
-.top-bar { background: var(--orange); color: #fff; padding: 0.5rem 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+.top-bar { background: var(--header-orange); color: #fff; padding: 0.5rem 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
 .header-right { display: flex; align-items: center; gap: 1rem; }
 .search-icon, .cart-icon { color: #fff; text-decoration: none; display: flex; align-items: center; }
 .search-icon svg { width: 23px; height: 23px; margin-top: 0px; }
