@@ -387,3 +387,5 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 .product-card .product-name { height: 40px; overflow: hidden; }
 .product-card .product-price { margin-top: auto; margin-bottom: 10px; }
 .product-card button { margin-top: auto !important; width: 100% !important; }
+.product-name { padding-left: 10px !important; padding-right: 10px !important; }
+.product-price { padding-left: 10px !important; padding-right: 10px !important; }
