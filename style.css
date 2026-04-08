@@ -192,8 +192,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .contact-info { padding-top: 2rem; border-top: 1px solid #eee; }
 .contact-info p { margin-bottom: 0.5rem; }
 footer { text-align: center; padding: 2rem; color: #fff; font-size: 0.85rem; background: var(--header-orange); }
-.chat-bubble { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 40px; background: var(--btn-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; font-size: 1.5rem; }
-.main-header { height: 40px;  display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 5%; background: var(--header-orange); position: relative; }
+.chat-bubble { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 100px; background: var(--btn-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; font-size: 1.5rem; }
+.main-header { height: 100px;  display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 5%; background: var(--header-orange); position: relative; }
 .header-left { display: flex; align-items: center; gap: 1rem; }
 .hamburger { font-size: 1.72rem; color: #fff; cursor: pointer; margin-right: 0.3rem; margin-top: -5px; }
 .header-right { display: flex; align-items: center; }
@@ -384,7 +384,7 @@ section h2 { color: #333; margin: 1.5rem 0 1rem; }
 .product-card > * { margin-bottom: auto; }
 .product-card button { margin-top: auto !important; }
 .product-card { display: flex; flex-direction: column; min-height: 320px; }
-.product-card .product-name { height: 40px; overflow: hidden; }
+.product-card .product-name { height: 100px; overflow: hidden; }
 .product-card .product-price { margin-top: auto; margin-bottom: 10px; }
 .product-card button { margin-top: auto !important; width: 100% !important; }
 .product-name { padding-left: 10px !important; padding-right: 10px !important; }
