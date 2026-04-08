@@ -127,9 +127,9 @@
   --dark: #1a1a1a;
   --secondary: #e67e22;
   --accent: #FF6600;
-  --btn-color: #27ae60; --header-orange: #FC4C02;
+  --btn-color: #27ae60; --header-orange: #000000;
   --orange: #FF6600;
-  --header-orange: #FC4C02;
+  --header-orange: #000000;
   --light: #f8f9fa;
 }
 body {
@@ -252,9 +252,9 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 .logo-fancy { 
   color: #FF6600;
   text-shadow: 
-    0 0 5px #FC4C02,
-    0 0 10px #FC4C02,
-    0 0 20px #FC4C02,
+    0 0 5px #000000,
+    0 0 10px #000000,
+    0 0 20px #000000,
     2px 2px 0 #cc5200;
   transform: skewX(-3deg);
 }
@@ -294,7 +294,7 @@ a.cart-icon:visited, a.cart-icon:active { color: #fff !important; text-decoratio
 .category-option:hover { background: #e9ecef; }
 
 .sub-categories { display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap; justify-content: center; }
-.sub-cat-btn { padding: 0.8rem 1.5rem; background: #FC4C02; color: #fff; border: none; border-radius: 8px; font-size: 1rem; text-decoration: none; cursor: pointer; }
+.sub-cat-btn { padding: 0.8rem 1.5rem; background: #000000; color: #fff; border: none; border-radius: 8px; font-size: 1rem; text-decoration: none; cursor: pointer; }
 .sub-cat-btn:hover { background: #e65c00; }
 
 section { margin-bottom: 2rem; }
