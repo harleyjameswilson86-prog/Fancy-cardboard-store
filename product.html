@@ -301,7 +301,7 @@ function loadProduct() {
   <!-- You might also like - separate box -->
   <div style="margin-top:1.5rem;padding:1.5rem;background:#ffffff;border-radius:10px;">
     <h2 style="font-size:1.3rem;margin-bottom:1rem;">You might also like</h2>
-    <div id="related-products" style="display:flex;gap:16px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;"></div><div style="width:50px;background:#FF6600;height:4px;border-radius:2px;margin:10px 0 0 0;transition:margin-left 0.3s ease-out;"></div>
+    <div id="related-products" style="display:flex;gap:16px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;"></div><div style="width:50px;background:#FF6600;height:4px;border-radius:2px;margin:10px auto 0;"></div>
   </div>
   `;
   
@@ -313,29 +313,6 @@ function loadProduct() {
 
 function loadRelatedProducts(category, currentName) {
   const container = document.getElementById('related-products');
-  const indicator = document.querySelector('#related-products + div');
-  
-  if (container && indicator) {
-    const updateScroll = () => {
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      const scrolled = container.scrollLeft;
-      if (maxScroll > 0) {
-        const pct = scrolled / maxScroll;
-        const maxMove = container.clientWidth - 70;
-        indicator.style.marginLeft = (pct * maxMove) + 'px';
-      } else {
-        indicator.style.marginLeft = '0';
-      }
-    };
-    let ticking = false;
-    container.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => { updateScroll(); ticking = false; });
-        ticking = true;
-      }
-    });
-    updateScroll();
-  }
   if (!container) return;
   
   // Find products in same category (excluding current)
