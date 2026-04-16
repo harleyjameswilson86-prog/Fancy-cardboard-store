@@ -276,18 +276,18 @@ function loadProduct() {
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
           <span style="font-weight:normal;">Quantity:</span>
           <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">-</button>
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#fff;cursor:pointer;">-</button>
             <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#f5f5f5;cursor:pointer;">+</button>
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#fff;cursor:pointer;">+</button>
           </div>
         </div>
         <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:3px;margin-bottom:15px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
         <div class="product-detail-meta">
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;">Product Description +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#fff;border-radius:5px;">Product Description +</h3>
           <div style="display:none;margin:10px 0;">
           <p>${product.description}</p>
           </div>
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#f5f5f5;border-radius:5px;margin-top:10px;">Item Details +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#fff;border-radius:5px;margin-top:10px;">Item Details +</h3>
           <div style="display:none;margin:10px 0;">
           <ul style="padding-left:20px;margin:10px 0;">
             ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
