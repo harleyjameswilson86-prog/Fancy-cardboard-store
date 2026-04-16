@@ -494,6 +494,12 @@ document.addEventListener('DOMContentLoaded', function() {
     dots.children[0].style.background = index === 0 ? '#FC4C02' : '#ccc';
     dots.children[1].style.background = index === 1 ? '#FC4C02' : '#ccc';
   }
+}function updateDots(index) {
+  const dots = document.getElementById('photo-dots');
+  if (dots) {
+    dots.children[0].style.background = index === 0 ? '#FC4C02' : '#ccc';
+    dots.children[1].style.background = index === 1 ? '#FC4C02' : '#ccc';
+  }
 }
 });
 </script>
