@@ -276,18 +276,18 @@ function loadProduct() {
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
           <span style="font-weight:normal;">Quantity:</span>
           <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#fff;cursor:pointer;">-</button>
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;">-</button>
             <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#fff;cursor:pointer;">+</button>
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;">+</button>
           </div>
         </div>
         <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:3px;margin-bottom:15px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
         <div class="product-detail-meta">
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#fff;border-radius:5px;">Product Description +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;">Product Description +</h3>
           <div style="display:none;margin:10px 0;">
           <p>${product.description}</p>
           </div>
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#fff;border-radius:5px;margin-top:10px;">Item Details +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:10px;">Item Details +</h3>
           <div style="display:none;margin:10px 0;">
           <ul style="padding-left:20px;margin:10px 0;">
             ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
@@ -299,9 +299,9 @@ function loadProduct() {
   </div>
   
   <!-- You might also like - separate box -->
-  <div style="margin-top:1.5rem;padding:1.5rem;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+  <div style="margin-top:1.5rem;padding:1.5rem;background:#ffffff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
     <h2 style="font-size:1.3rem;margin-bottom:1rem;">You might also like</h2>
-    <div id="related-products" style="display:flex;gap:15px;margin-left:0px;background:#fff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;scrollbar-width:thin;-webkit-overflow-scrolling:touch;"></div><div id="scroll-indicator" style="width:60px;background:#FF6600;height:4px;border-radius:2px;margin-top:15px;transition:margin-left 0.3s ease-out;"></div>
+    <div id="related-products" style="display:flex;gap:15px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;scrollbar-width:thin;-webkit-overflow-scrolling:touch;"></div><div id="scroll-indicator" style="width:60px;background:#FF6600;height:4px;border-radius:2px;margin-top:15px;transition:margin-left 0.3s ease-out;"></div>
   </div>
   `;
   
@@ -358,7 +358,7 @@ container.addEventListener('scroll', function() {
 });
 
 container.innerHTML = related.map(([id, p]) => 
-    '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#fff;border:1px solid #ccc;border-radius:12px;padding:12px;text-decoration:none;color:inherit;box-shadow:0 2px 10px rgba(0,0,0,0.08);display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
+    '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#ffffff;border:1px solid #ccc;border-radius:12px;padding:12px;text-decoration:none;color:inherit;box-shadow:0 2px 10px rgba(0,0,0,0.08);display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
       '<div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;max-height:120px;object-fit:contain;"></div>' +
       '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
       '<div style="display:flex;flex-direction:column;gap:8px;">' +
