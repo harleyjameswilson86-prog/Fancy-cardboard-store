@@ -301,7 +301,7 @@ function loadProduct() {
   <!-- You might also like - separate box -->
   <div style="margin-top:1.5rem;padding:1.5rem;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
     <h2 style="font-size:1.3rem;margin-bottom:1rem;">You might also like</h2>
-    <div id="related-products" style="display:flex;gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;scrollbar-width:thin;-webkit-overflow-scrolling:touch;"></div><div style="display:flex;justify-content:center;gap:5px;margin-top:10px;padding:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>
+    <div id="related-products" style="display:flex;gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;scrollbar-width:thin;-webkit-overflow-scrolling:touch;"></div><div style="margin-top:10px;overflow:hidden;border-radius:3px;background:#eee;height:6px;position:relative;"><div id="scroll-indicator" style="width:30%;background:#FF6600;border-radius:3px;height:100%;"></div></div>
   </div>
   `;
   
@@ -325,7 +325,17 @@ function loadRelatedProducts(category, currentName) {
     return;
   }
   
-  container.innerHTML = related.map(([id, p]) => 
+  // Add scroll listener to update indicator
+container.addEventListener('scroll', function() {
+  const maxScroll = container.scrollWidth - container.clientWidth;
+  const scrolled = container.scrollLeft;
+  const indicator = document.getElementById('scroll-indicator');
+  if (indicator && maxScroll > 0) {
+    indicator.style.width = ((scrolled / maxScroll) * 100) + '%';
+  }
+});
+
+container.innerHTML = related.map(([id, p]) => 
     '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#fff;border-radius:12px;border:1px solid #ccc;padding:12px;text-decoration:none;color:inherit;box-shadow:0 2px 10px rgba(0,0,0,0.08);display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
       '<div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;max-height:120px;object-fit:contain;"></div>' +
       '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
