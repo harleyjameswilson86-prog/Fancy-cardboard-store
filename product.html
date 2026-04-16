@@ -268,7 +268,7 @@ function loadProduct() {
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
       </div>
       <div class="product-detail-info">
-        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:5px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
+        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:15px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
         
         <h1 class="product-detail-name">${product.name}</h1>
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
@@ -287,7 +287,7 @@ function loadProduct() {
           <div style="display:none;margin:10px 0;">
           <p>${product.description}</p>
           </div>
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:5px;">Item Details +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:15px;">Item Details +</h3>
           <div style="display:none;margin:10px 0;">
           <ul style="padding-left:20px;margin:10px 0;">
             ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
