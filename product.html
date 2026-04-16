@@ -24,7 +24,7 @@
 <header class="main-header">
 <div class="header-left">
 <span class="hamburger" onclick="toggleMenu()">☰</span>
-<a href="index.html"><img src="logo.png" alt="Fancy Cardboard" style="height:70px;margin-left:0px;margin-top:8px;"/></a>
+<a href="index.html"><img src="logo.png" alt="Fancy Cardboard" style="height:70px;margin-left:0px;margin-top:0px;"/></a>
 </div>
 <div class="header-right">
 <a href="#" class="search-icon" onclick="toggleSearch(event)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
@@ -268,12 +268,12 @@ function loadProduct() {
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
       </div>
       <div class="product-detail-info">
-        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
+        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:0px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
         
         <h1 class="product-detail-name">${product.name}</h1>
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
         <p style="color:#666;margin-bottom:10px;">Shipping calculated at checkout</p>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-top:0px;">
           <span style="font-weight:normal;">Quantity:</span>
           <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
             <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="color:#000;padding:8px 12px;border:none;background:#ffffff;cursor:pointer;">-</button>
@@ -281,13 +281,13 @@ function loadProduct() {
             <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="color:#000;padding:8px 12px;border:none;background:#ffffff;cursor:pointer;">+</button>
           </div>
         </div>
-        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:8px;margin-top:8px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
+        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:0px;margin-top:0px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
         <div class="product-detail-meta">
           <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;">Product Description +</h3>
           <div style="display:none;margin:10px 0;">
           <p>${product.description}</p>
           </div>
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:8px;">Item Details +</h3>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:0px;">Item Details +</h3>
           <div style="display:none;margin:10px 0;">
           <ul style="padding-left:20px;margin:10px 0;">
             ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
