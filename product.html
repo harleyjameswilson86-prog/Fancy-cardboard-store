@@ -268,7 +268,10 @@ function loadProduct() {
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
       </div>
       <div class="product-detail-info">
-        ${product.backImage ? '<div class="photo-indicator">Swipe to view</div>' : ''}
+        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:10px;">' +
+      '<span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span>' +
+      '<span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span>' +
+    '</div>' : ''}
         
         <h1 class="product-detail-name">${product.name}</h1>
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
@@ -479,10 +482,18 @@ document.addEventListener('DOMContentLoaded', function() {
       touchEndX = e.changedTouches[0].screenX;
       if (touchStartX - touchEndX > 50) {
         // Swipe left - show back
-        if (showingFront) { img.src = img.dataset.backImage; showingFront = false; }
+        if (showingFront) { 
+          img.src = img.dataset.backImage; 
+          showingFront = false; 
+          document.getElementById("photo-dots").children[0].style.background="#ccc"; document.getElementById("photo-dots").children[1].style.background="#FC4C02";
+        }
       } else if (touchEndX - touchStartX > 50) {
         // Swipe right - show front
-        if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; }
+        if (!showingFront) { 
+          img.src = img.dataset.backImage.replace('-back', '-front'); 
+          showingFront = true; 
+          document.getElementById("photo-dots").children[0].style.background="#FC4C02"; document.getElementById("photo-dots").children[1].style.background="#ccc";
+        }
       }
     });
   }
