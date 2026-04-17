@@ -268,7 +268,7 @@ function loadProduct() {
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
       </div>
       <div class="product-detail-info">
-        ${product.backImage ? '<div class="photo-indicator">Swipe To View</div>' : ''}
+        ${product.backImage ? '<div class="photo-indicator">Swipe to view</div>' : ''}
         
         <h1 class="product-detail-name">${product.name}</h1>
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
