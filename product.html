@@ -270,7 +270,7 @@ function loadProduct() {
       <div class="product-detail-info">
         ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:-20px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
         
-        <h1 class="product-detail-name">${product.name}</h1>
+        <h1 class="product-detail-name" style="margin-top:15px;">${product.name}</h1>
         <div class="product-detail-price">$${product.price.toFixed(2)}</div>
         <p style="color:#666;margin-bottom:10px;">Shipping calculated at checkout</p>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
