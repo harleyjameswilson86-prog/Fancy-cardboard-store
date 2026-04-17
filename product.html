@@ -14,7 +14,7 @@
 .product-detail-info { flex: 1; min-width: 100%; }
 .product-detail-badge { display: inline-block; background: #ff9f1c; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
 .product-detail-name { font-size: 1.4rem; text-align: left; margin-bottom: 0.5rem; color: var(--dark); }
-.product-detail-price { font-size: 1.5rem; text-align: left; color: #FC4C02; font-weight: bold; margin-bottom: 1rem; }
+.product-detail-price { font-size: 1.5rem; text-align: left; color: #ff9f1c; font-weight: bold; margin-bottom: 1rem; }
 .product-detail-meta { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
 .product-detail-meta p { margin: 0.5rem 0; color: #555; }
 .back-btn { display: inline-block; margin-bottom: 1rem; color: #666; text-decoration: none; }
@@ -276,9 +276,9 @@ function loadProduct() {
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
           <span style="font-weight:normal;">Quantity:</span>
           <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;color:#000;font-weight:bold;>-</button>
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;">-</button>
             <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;color:#000;font-weight:bold;>+</button>
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;">+</button>
           </div>
         </div>
         <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:3px;margin-bottom:15px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
