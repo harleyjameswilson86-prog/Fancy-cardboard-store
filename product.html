@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (img && img.dataset.backImage) {
     let touchStartX = 0;
     let touchEndX = 0;
-    let showingFront = true;
+    let showingFront = true; updateDots(0);
     
     // Click to zoom
     img.addEventListener('click', function(e) {
@@ -479,13 +479,13 @@ document.addEventListener('DOMContentLoaded', function() {
       touchEndX = e.changedTouches[0].screenX;
       if (touchStartX - touchEndX > 50) {
         // Swipe left - show back
-        if (showingFront) { img.src = img.dataset.backImage; showingFront = false; updateDots(1); }
+        if (showingFront) { img.src = img.dataset.backImage; showingFront = false; updateDots(1); updateDots(1); }
+      } else if (touchEndX - touchStartX > 50) {
+        // Swipe right - show front
+        if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; updateDots(0); updateDots(0); }
       } else if (touchEndX - touchStartX > 50) {
         // Swipe right - show front
         if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; updateDots(0); }
-      } else if (touchEndX - touchStartX > 50) {
-        // Swipe right - show front
-        if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; }
       }
     });
   }function updateDots(index) {
