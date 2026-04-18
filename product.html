@@ -323,7 +323,7 @@ function setupScrollLine() {
           const scrolled = container.scrollLeft;
           if (maxScroll > 0) {
             var pct = scrolled / maxScroll;
-scline.style.marginLeft = Math.round(pct * 70) + "%"; scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 30) + "%";
+scline.style.marginLeft = Math.round(pct * 70) + "%"; scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 10) + "%";
 scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 70) + "%";
           } else {
             scline.style.marginLeft = "0%";
