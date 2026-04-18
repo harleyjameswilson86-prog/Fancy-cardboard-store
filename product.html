@@ -400,8 +400,8 @@ container.addEventListener('scroll', function() {
 
 container.innerHTML = related.map(([id, p]) => 
     '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#ffffff;border:1px solid #ccc;border-radius:12px;padding:12px;text-decoration:none;color:inherit;box-shadow:none;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
-      '<div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;scrollbar-track-color:transparent;max-height:120px;object-fit:contain;"></div>' +
-      '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
+      '<a href="product.html?id=" + id + "><div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;scrollbar-track-color:transparent;max-height:120px;object-fit:contain;"></div>' +
+      '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div></a>' +
       '<div style="display:flex;flex-direction:column;gap:8px;">' +
         '<div style="color:#FF6600;font-weight:800;font-size:1.2rem;">$' + p.price.toFixed(2) + '</div>' +
         '<button id="relatedAddBtn" type="button" onclick="console.log("btn clicked"); addToCart(p.name, p.price, 1)" style="width:100%;background:#27ae60;color:#fff;border:none;padding:10px;border-radius:5px;cursor:pointer;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>' +
