@@ -301,7 +301,7 @@ function loadProduct() {
   <!-- You might also like - separate box -->
   <div style="margin-top:1.5rem;padding:1.5rem;background:#ffffff;border-radius:10px;">
     <h2 style="font-size:1.3rem;margin-bottom:1rem;">You might also like</h2>
-    <div id="related-products" style="display:flex;gap:16px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;"></div><div style="width:50px;background:#FF6600;height:4px;border-radius:2px;margin:10px auto 0;"></div>
+    <div id="related-products" style="display:flex;gap:16px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;"></div><div id="scroll-line" style="width:50px;background:#FF6600;height:4px;border-radius:2px;margin:10px 0 0 0;transition:margin-left 0.3s ease-out;"></div>
   </div>
   `;
   
@@ -311,8 +311,40 @@ function loadProduct() {
   loadRelatedProducts(product.category, product.name);
 }
 
+function setupScrollLine() {
+  const container = document.getElementById("related-products");
+  const scline = document.getElementById("scroll-line");
+  if (container && scline) {
+    const updscroll = () => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const scrolled = container.scrollLeft;
+      if (maxScroll > 0) {
+        scline.style.marginLeft = (scrolled / maxScroll * 80) + "%";
+      } else {
+        scline.style.marginLeft = "0%";
+      }
+    };
+    container.addEventListener("scroll", updscroll);
+    updscroll();
+  }
+}
+
 function loadRelatedProducts(category, currentName) {
   const container = document.getElementById('related-products');
+  const scline = document.getElementById('scroll-line');
+  if (container && scline) {
+    const updscroll = () => {
+      const mx = container.scrollWidth - container.clientWidth;
+      const sc = container.scrollLeft;
+      if (mx > 0) {
+        scline.style.marginLeft = (sc / mx * 80) + '%';
+      } else {
+        scline.style.marginLeft = '0%';
+      }
+    };
+    container.addEventListener('scroll', updscroll);
+    updscroll();
+  }
   if (!container) return;
   
   // Find products in same category (excluding current)
@@ -366,7 +398,7 @@ container.innerHTML = related.map(([id, p]) =>
         '<button style="width:100%;background:#27ae60;color:#fff;border:none;padding:10px;border-radius:5px;cursor:pointer;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>' +
       '</div>' +
     '</a>'
-  ).join('');
+  ).join(''); setupScrollLine();
 }
 
 function addToCart(name, price, qty) {
@@ -441,7 +473,7 @@ function searchProducts() {
   } else {
     results.innerHTML = matches.map(p => 
       '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
-    ).join('');
+    ).join(''); setupScrollLine();
   }
 }
 
