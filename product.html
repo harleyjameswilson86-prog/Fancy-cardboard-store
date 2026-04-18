@@ -322,7 +322,9 @@ function setupScrollLine() {
           const maxScroll = container.scrollWidth - container.clientWidth;
           const scrolled = container.scrollLeft;
           if (maxScroll > 0) {
-            scline.style.marginLeft = (scrolled / maxScroll * 80) + "%";
+            var pct = scrolled / maxScroll;
+scline.style.marginLeft = Math.round(pct * 70) + "%";
+scline.style.marginRight = Math.round((1 - pct) * 70) + "%";
           } else {
             scline.style.marginLeft = "0%";
           }
