@@ -398,7 +398,7 @@ container.addEventListener('scroll', function() {
   
 });
 
-window.rItems = {}; container.innerHTML = related.map(([id, p]) => { window.rItems[id] = {n:p.name, pr:p.price}; 
+container.innerHTML = related.map(([id, p]) => 
     '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#ffffff;border:1px solid #ccc;border-radius:12px;padding:12px;text-decoration:none;color:inherit;box-shadow:none;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
       '<div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;scrollbar-track-color:transparent;max-height:120px;object-fit:contain;"></div>' +
       '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
