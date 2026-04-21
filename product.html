@@ -404,7 +404,7 @@ container.innerHTML = related.map(([id, p]) =>
       '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
       '<div style="display:flex;flex-direction:column;gap:8px;">' +
         '<div style="color:#FF6600;font-weight:800;font-size:1.2rem;">$' + p.price.toFixed(2) + '</div>' +
-        '<button id="relatedAddBtn" type="button" data-name="'+p.name+'" data-price="'+p.price+'" onclick="var name=this.getAttribute("data-name"), price=parseFloat(this.getAttribute("data-price")); console.log("Adding: "+name, price); addToCart(name, price, 1);" style="width:100%;background:#27ae60;color:#fff;border:none;padding:10px;border-radius:5px;cursor:pointer;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>' +
+        '<button id="relatedAddBtn" type="button" data-name="'+p.name+'" data-price="'+p.price+'" onclick="addToCart(this.getAttribute("data-name"), parseFloat(this.getAttribute("data-price")), 1)" style="width:100%;background:#27ae60;color:#fff;border:none;padding:10px;border-radius:5px;cursor:pointer;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>' +
       '</div>' +
     '</a>'
   ).join(''); setupScrollLine();
