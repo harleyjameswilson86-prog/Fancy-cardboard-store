@@ -149,7 +149,8 @@
     "price": 4.49,
     "stock": 1,
     "image": "images/cavendish-memorial-eb01-012-front.jpg",
-    "description": "Cavendish from One Piece EB01 set. Super Rare (SR). Near Mint condition.",
-    "details": "Near Mint | Memorial Collection | EB01-012 | Super Rare"
+    "description": "Cavendish from One Piece Memorial Collection. Super Rare (SR). Near Mint condition.",
+    "details": "Near Mint | Memorial Collection | EB01-012 | Super Rare",
+    "backImage": "images/cavendish-memorial-eb01-012-back.jpg"
   }
 ]
