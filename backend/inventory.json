@@ -440,5 +440,57 @@
     "backImage": "images/gecko-moria-op04-104-back.jpg",
     "description": "Gecko Moria from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).",
     "details": "Near Mint | Kingdoms of Intrigue | OP04-104 | SP"
+  },
+  {
+    "id": "rosinante-law-eb04-038",
+    "name": "Rosinante & Law - Memorial Collection - EB04-038 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 5.39,
+    "stock": 6,
+    "quantity": 6,
+    "image": "images/rosinante-law-eb04-038-front.jpg",
+    "backImage": "images/rosinante-law-eb04-038-back.jpg",
+    "description": "Rosinante & Law from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Memorial Collection | EB04-038 | SR"
+  },
+  {
+    "id": "roronoa-zoro-st29-014",
+    "name": "Roronoa Zoro - Starter Deck 29 - ST29-014 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 5.39,
+    "stock": 4,
+    "quantity": 4,
+    "image": "images/roronoa-zoro-st29-014-front.jpg",
+    "backImage": "images/roronoa-zoro-st29-014-back.jpg",
+    "description": "Roronoa Zoro from One Piece ST29 Starter Deck 29 set. Super Rare (SR).",
+    "details": "Near Mint | Starter Deck 29 | ST29-014 | SR"
+  },
+  {
+    "id": "nami-op04-031",
+    "name": "Nami - Kingdoms of Intrigue - OP04-031 - SP",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 10.79,
+    "stock": 4,
+    "quantity": 4,
+    "image": "images/nami-op04-031-front.jpg",
+    "backImage": "images/nami-op04-031-back.jpg",
+    "description": "Nami from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).",
+    "details": "Near Mint | Kingdoms of Intrigue | OP04-031 | SP"
+  },
+  {
+    "id": "five-elders-op13-082",
+    "name": "Five Elders - OP13 - OP13-082 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 3,
+    "quantity": 3,
+    "image": "images/five-elders-op13-082-front.jpg",
+    "backImage": "images/five-elders-op13-082-back.jpg",
+    "description": "Five Elders from One Piece OP13 set. Super Rare (SR).",
+    "details": "Near Mint | OP13 | OP13-082 | SR"
   }
 ]
