@@ -388,5 +388,18 @@
     "backImage": "images/perona-op04-033-back.jpg",
     "description": "Perona from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).",
     "details": "Near Mint | Kingdoms of Intrigue | OP04-033 | SR"
+  },
+  {
+    "id": "nami-op11-054",
+    "name": "Nami - OP11 - OP11-054 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/nami-op11-054-front.jpg",
+    "backImage": "images/nami-op11-054-back.jpg",
+    "description": "Nami from One Piece OP11 set. Super Rare (SR).",
+    "details": "Near Mint | OP11 | OP11-054 | SR"
   }
 ]
