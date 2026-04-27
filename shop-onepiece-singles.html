@@ -59,9 +59,14 @@
 
 
 <section id="onepiece" class="products"></section>
+<div id="pagination" style="display:flex;justify-content:center;gap:10px;margin:20px 0;flex-wrap:wrap;"></div>
 
 </main>
 <script>
+const itemsPerPage = 20;
+let currentPage = 1;
+let allCards = [];
+
 const productStock = {
   'Disney Lorcana - Fabled Booster Box': 1,
   'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
@@ -71,23 +76,47 @@ const productStock = {
 fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
-    const onepieceSection = document.getElementById('onepiece');
-    inventory.filter(card => card.category === 'One Piece' && card.type === 'singles').forEach(card => {
-      const shipping = card.shipping || 0;
-      let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
-      onepieceSection.innerHTML += `
-        <div class="product-card">
-          <a href="product.html?id=${card.id}">
-            ${badge}
-            <div class="product-image"><img src="${card.image}" alt="${card.name}" style="max-width:100%;max-height:150px;"></div>
-            <div class="product-name">${card.name}</div>
-            <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
-          </a>
-          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity})">Add to Cart</button>
-        </div>
-      `;
-    });
+    allCards = inventory.filter(card => card.category === 'One Piece' && card.type === 'singles');
+    renderPage(1);
   });
+
+function renderPage(page) {
+  currentPage = page;
+  const onepieceSection = document.getElementById('onepiece');
+  const pagination = document.getElementById('pagination');
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const pageCards = allCards.slice(start, end);
+  
+  onepieceSection.innerHTML = '';
+  pageCards.forEach(card => {
+    let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
+    onepieceSection.innerHTML += `
+      <div class="product-card">
+        <a href="product.html?id=${card.id}">
+          ${badge}
+          <div class="product-image"><img src="${card.image}" alt="${card.name}" style="max-width:100%;max-height:150px;"></div>
+          <div class="product-name">${card.name}</div>
+          <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
+        </a>
+        <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity})">Add to Cart</button>
+      </div>
+    `;
+  });
+  
+  // Pagination buttons
+  const totalPages = Math.ceil(allCards.length / itemsPerPage);
+  pagination.innerHTML = '';
+  if (totalPages > 1) {
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      btn.style.cssText = 'padding:8px 16px;border:1px solid #FC4C02;background:' + (i === page ? '#FC4C02' : '#fff') + ';color:' + (i === page ? '#fff' : '#FC4C02') + ';cursor:pointer;border-radius:5px;';
+      btn.onclick = () => renderPage(i);
+      pagination.appendChild(btn);
+    }
+  }
+}
 
 function addToCart(name, price, maxStock) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -111,8 +140,6 @@ function addToCart(name, price, maxStock) {
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(name + ' added to cart!');
   updateCartCount();
-  updateCartCount();
-  
 }
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -192,3 +219,4 @@ function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el
 function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 updateCartCount();
 </script></footer>
+</html>
