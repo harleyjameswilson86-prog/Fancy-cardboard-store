@@ -583,5 +583,18 @@
     "backImage": "images/stussy-op07-110-back.jpg",
     "description": "Stussy from One Piece OP07 500 Years in the Future set. Super Rare (SR).",
     "details": "Near Mint | 500 Years in the Future | OP07-110 | SR"
+  },
+  {
+    "id": "uta-st17-008",
+    "name": "Uta - ST17 - ST17-008 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 14.39,
+    "stock": 3,
+    "quantity": 3,
+    "image": "images/uta-st17-008-front.jpg",
+    "backImage": "images/uta-st17-008-back.jpg",
+    "description": "Uta from One Piece ST17 set. Super Rare (SR).",
+    "details": "Near Mint | ST17 | ST17-008 | SR"
   }
 ]
