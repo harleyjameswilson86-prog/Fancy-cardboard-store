@@ -151,6 +151,7 @@
     "image": "images/cavendish-memorial-eb01-012-front.jpg",
     "description": "Cavendish from One Piece Memorial Collection. Super Rare (SR). Near Mint condition.",
     "details": "Near Mint | Memorial Collection | EB01-012 | Super Rare",
-    "backImage": "images/cavendish-memorial-eb01-012-back.jpg"
+    "backImage": "images/cavendish-memorial-eb01-012-back.jpg",
+    "showBadge": true
   }
 ]
