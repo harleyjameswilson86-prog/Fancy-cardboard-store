@@ -310,5 +310,18 @@
     "description": "Koala from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | Awakening of the New Era | OP05-006 | SR",
     "quantity": 1
+  },
+  {
+    "id": "trafalgar-law-prb01-002",
+    "name": "Trafalgar Law - Premium Booster One - PRB01-002 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/trafalgar-law-prb01-002-front.jpg",
+    "backImage": "images/trafalgar-law-prb01-002-back.jpg",
+    "description": "Trafalgar Law from One Piece PRB01 Premium Booster One set. Super Rare (SR).",
+    "details": "Near Mint | Premium Booster One | PRB01-002 | SR"
   }
 ]
