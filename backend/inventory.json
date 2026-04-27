@@ -596,5 +596,18 @@
     "backImage": "images/uta-st17-008-back.jpg",
     "description": "Uta from One Piece ST17 set. Super Rare (SR).",
     "details": "Near Mint | ST17 | ST17-008 | SR"
+  },
+  {
+    "id": "monkey-d-luffy-op02-062",
+    "name": "Monkey D. Luffy - Paramount War - OP02-062 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 5.39,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/monkey-d-luffy-op02-062-front.jpg",
+    "backImage": "images/monkey-d-luffy-op02-062-back.jpg",
+    "description": "Monkey D. Luffy from One Piece OP02 Paramount War set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Paramount War | OP02-062 | SR"
   }
 ]
