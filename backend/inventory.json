@@ -140,5 +140,16 @@
     "image": "../images/vivi-front.jpg",
     "backImage": "../images/vivi-back.jpg",
     "description": "Ships with protected packaging"
+  },
+  {
+    "id": "roronoa-zoro-op01-p001",
+    "name": "Roronoa Zoro - OP01 - P-001 - Parallel",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 1,
+    "image": "images/roronoa-zoro-op01-p001.jpg",
+    "description": "Roronoa Zoro from One Piece OP01 set. Parallel rarity. Near Mint condition.",
+    "details": "Near Mint | OP01 | P-001 | Parallel"
   }
 ]
