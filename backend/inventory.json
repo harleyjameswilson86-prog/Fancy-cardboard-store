@@ -531,5 +531,18 @@
     "backImage": "images/monkey-d-luffy-op07-109-back.jpg",
     "description": "Monkey D. Luffy from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | 500 Years in the Future | OP07-109 | SR"
+  },
+  {
+    "id": "nefeltari-vivi-eb04-025",
+    "name": "Nefeltari Vivi - Memorial Collection - EB04-025 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/nefeltari-vivi-eb04-025-front.jpg",
+    "backImage": "images/nefeltari-vivi-eb04-025-back.jpg",
+    "description": "Nefeltari Vivi from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Memorial Collection | EB04-025 | SR"
   }
 ]
