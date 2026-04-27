@@ -189,5 +189,17 @@
     "backImage": "images/carrot-eb04-013-back.jpg",
     "description": "Carrot from One Piece EB04 Memorial Collection set. Super Rare (SR) Parallel Art.",
     "details": "Near Mint | Memorial Collection | EB04-013 | SR"
+  },
+  {
+    "id": "marshall-d-teach-op09-093",
+    "name": "Marshall D. Teach - OP09 - The New Era - OP09-093 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.7,
+    "stock": 1,
+    "image": "images/marshall-d-teach-op09-093-front.jpg",
+    "backImage": "images/marshall-d-teach-op09-093-back.jpg",
+    "description": "Marshall D. Teach (Blackbeard) from One Piece OP09 set. Super Rare (SR).",
+    "details": "Near Mint | OP09 | OP09-093 | SR"
   }
 ]
