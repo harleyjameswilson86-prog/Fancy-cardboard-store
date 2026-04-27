@@ -375,5 +375,18 @@
     "backImage": "images/franky-op09-072-back.jpg",
     "description": "Franky from One Piece OP09 Emperors in the New World set. Rare (R).",
     "details": "Near Mint | Emperors in the New World | OP09-072 | R"
+  },
+  {
+    "id": "perona-op04-033",
+    "name": "Perona - Kingdoms of Intrigue - OP04-033 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 8.99,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/perona-op04-033-front.jpg",
+    "backImage": "images/perona-op04-033-back.jpg",
+    "description": "Perona from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).",
+    "details": "Near Mint | Kingdoms of Intrigue | OP04-033 | SR"
   }
 ]
