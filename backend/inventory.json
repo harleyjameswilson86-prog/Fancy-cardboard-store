@@ -201,5 +201,17 @@
     "backImage": "images/marshall-d-teach-op09-093-back.jpg",
     "description": "Marshall D. Teach (Blackbeard) from One Piece OP09 set. Super Rare (SR).",
     "details": "Near Mint | OP09 | OP09-093 | SR"
+  },
+  {
+    "id": "monkey-d-garp-op05-095",
+    "name": "Monkey D. Garp - Awakening of the New Era - OP05-095 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.69,
+    "stock": 1,
+    "image": "images/monkey-d-garp-op05-095-front.jpg",
+    "backImage": "images/monkey-d-garp-op05-095-back.jpg",
+    "description": "Monkey D. Garp from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Awakening of the New Era | OP05-095 | SR"
   }
 ]
