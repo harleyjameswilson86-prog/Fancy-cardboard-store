@@ -398,7 +398,6 @@ function loadProduct() {
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
       </div>
       <div class="product-detail-info">
-        ${product.stock <= 3 && product.stock > 0 ? '<div class="product-detail-badge" style="background:' + badgeColor + ';">' + badgeText + '</div>' : ''}
         ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:-20px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
         
         <h1 class="product-detail-name" style="margin-top:15px;">${product.name}</h1>
