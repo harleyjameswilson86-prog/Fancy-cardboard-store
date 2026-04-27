@@ -247,19 +247,6 @@
     "quantity": 1
   },
   {
-    "id": "boa-hancock-prb02-017",
-    "name": "Boa Hancock - Premium Booster Vol. 2 - PRB02-017 - SR",
-    "category": "One Piece",
-    "type": "singles",
-    "price": 11.69,
-    "stock": 1,
-    "image": "images/boa-hancock-prb02-017-front.jpg",
-    "backImage": "images/boa-hancock-prb02-017-back.jpg",
-    "description": "Boa Hancock from One Piece PRB02 Premium Booster Vol. 2 set. Super Rare (SR).",
-    "details": "Near Mint | Premium Booster Vol. 2 | PRB02-017 | SR",
-    "quantity": 1
-  },
-  {
     "id": "shanks-st16-004",
     "name": "Shanks - Starter Deck 16 - ST16-004 - SR",
     "category": "One Piece",
@@ -310,19 +297,6 @@
     "description": "Koala from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | Awakening of the New Era | OP05-006 | SR",
     "quantity": 1
-  },
-  {
-    "id": "trafalgar-law-prb01-002",
-    "name": "Trafalgar Law - Premium Booster One - PRB01-002 - SR",
-    "category": "One Piece",
-    "type": "singles",
-    "price": 4.49,
-    "stock": 1,
-    "quantity": 1,
-    "image": "images/trafalgar-law-prb01-002-front.jpg",
-    "backImage": "images/trafalgar-law-prb01-002-back.jpg",
-    "description": "Trafalgar Law from One Piece PRB01 Premium Booster One set. Super Rare (SR).",
-    "details": "Near Mint | Premium Booster One | PRB01-002 | SR"
   },
   {
     "id": "donquixote-doflamingo-op04-060",
