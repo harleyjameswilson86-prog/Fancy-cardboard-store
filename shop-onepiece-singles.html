@@ -81,6 +81,7 @@ fetch('backend/inventory.json')
   });
 
 function renderPage(page) {
+  window.scrollTo(0, 0);
   currentPage = page;
   const onepieceSection = document.getElementById('onepiece');
   const pagination = document.getElementById('pagination');
