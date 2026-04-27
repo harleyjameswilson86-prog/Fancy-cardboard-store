@@ -349,5 +349,18 @@
     "backImage": "images/monkey-d-dragon-op07-015-back.jpg",
     "description": "Monkey D. Dragon from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | 500 Years in the Future | OP07-015 | SR"
+  },
+  {
+    "id": "foxy-eb04-036",
+    "name": "Foxy - Memorial Collection - EB04-036 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.69,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/foxy-eb04-036-front.jpg",
+    "backImage": "images/foxy-eb04-036-back.jpg",
+    "description": "Foxy from One Piece EB04 Memorial Collection set. Super Rare (SR).",
+    "details": "Near Mint | Memorial Collection | EB04-036 | SR"
   }
 ]
