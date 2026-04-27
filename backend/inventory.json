@@ -285,5 +285,17 @@
     "backImage": "images/perona-op02-034-back.jpg",
     "description": "Perona from One Piece OP02 Paramount War set. Special Rare (SP).",
     "details": "Near Mint | Paramount War | OP02-034 | SP"
+  },
+  {
+    "id": "koala-op05-006",
+    "name": "Koala - Awakening of the New Era - OP05-006 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 1,
+    "image": "images/koala-op05-006-front.jpg",
+    "backImage": "images/koala-op05-006-back.jpg",
+    "description": "Koala from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Awakening of the New Era | OP05-006 | SR"
   }
 ]
