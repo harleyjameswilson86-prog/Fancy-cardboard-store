@@ -557,5 +557,18 @@
     "backImage": "images/silvers-rayleigh-op08-066-back.jpg",
     "description": "Silvers Rayleigh from One Piece OP08 Two Legends set. Super Rare (SR).",
     "details": "Near Mint | Two Legends | OP08-066 | SR"
+  },
+  {
+    "id": "brook-eb01-046",
+    "name": "Brook - Memorial Collection - EB01-046 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.59,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/brook-eb01-046-front.jpg",
+    "backImage": "images/brook-eb01-046-back.jpg",
+    "description": "Brook from One Piece EB01 Memorial Collection set. Super Rare (SR) Parallel Art.",
+    "details": "Near Mint | Memorial Collection | EB01-046 | SR"
   }
 ]
