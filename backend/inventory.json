@@ -362,5 +362,18 @@
     "backImage": "images/foxy-eb04-036-back.jpg",
     "description": "Foxy from One Piece EB04 Memorial Collection set. Super Rare (SR).",
     "details": "Near Mint | Memorial Collection | EB04-036 | SR"
+  },
+  {
+    "id": "franky-op09-072",
+    "name": "Franky - Emperors in the New World - OP09-072 - R",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.69,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/franky-op09-072-front.jpg",
+    "backImage": "images/franky-op09-072-back.jpg",
+    "description": "Franky from One Piece OP09 Emperors in the New World set. Rare (R).",
+    "details": "Near Mint | Emperors in the New World | OP09-072 | R"
   }
 ]
