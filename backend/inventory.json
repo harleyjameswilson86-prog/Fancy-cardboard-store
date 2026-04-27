@@ -492,5 +492,18 @@
     "backImage": "images/five-elders-op13-082-back.jpg",
     "description": "Five Elders from One Piece OP13 set. Super Rare (SR).",
     "details": "Near Mint | OP13 | OP13-082 | SR"
+  },
+  {
+    "id": "jinbe-op04-049",
+    "name": "Jinbe - Kingdoms of Intrigue - OP04-049 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.59,
+    "stock": 3,
+    "quantity": 3,
+    "image": "images/jinbe-op04-049-front.jpg",
+    "backImage": "images/jinbe-op04-049-back.jpg",
+    "description": "Jinbe from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).",
+    "details": "Near Mint | Kingdoms of Intrigue | OP04-049 | SR"
   }
 ]
