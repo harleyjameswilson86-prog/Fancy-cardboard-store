@@ -165,5 +165,17 @@
     "backImage": "images/kyros-op10-046-back.jpg",
     "description": "Kyros from One Piece OP10 Royal Bloodlines set. Super Rare (SR).",
     "details": "Near Mint | Royal Bloodlines | OP10-046 | SR"
+  },
+  {
+    "id": "carrot-op08-023",
+    "name": "Carrot - Two Legends - OP08-023 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.7,
+    "stock": 1,
+    "image": "images/carrot-op08-023-front.jpg",
+    "backImage": "images/carrot-op08-023-back.jpg",
+    "description": "Carrot from One Piece OP08 Two Legends set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Two Legends | OP08-023 | SR"
   }
 ]
