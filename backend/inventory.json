@@ -177,5 +177,17 @@
     "backImage": "images/carrot-op08-023-back.jpg",
     "description": "Carrot from One Piece OP08 Two Legends set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | Two Legends | OP08-023 | SR"
+  },
+  {
+    "id": "carrot-eb04-013",
+    "name": "Carrot - Memorial Collection - EB04-013 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 5.4,
+    "stock": 1,
+    "image": "images/carrot-eb04-013-front.jpg",
+    "backImage": "images/carrot-eb04-013-back.jpg",
+    "description": "Carrot from One Piece EB04 Memorial Collection set. Super Rare (SR) Parallel Art.",
+    "details": "Near Mint | Memorial Collection | EB04-013 | SR"
   }
 ]
