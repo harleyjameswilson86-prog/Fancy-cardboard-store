@@ -401,5 +401,18 @@
     "backImage": "images/nami-op11-054-back.jpg",
     "description": "Nami from One Piece OP11 set. Super Rare (SR).",
     "details": "Near Mint | OP11 | OP11-054 | SR"
+  },
+  {
+    "id": "edward-newgate-op13-042",
+    "name": "Edward Newgate - OP13 - OP13-042 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 5.39,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/edward-newgate-op13-042-front.jpg",
+    "backImage": "images/edward-newgate-op13-042-back.jpg",
+    "description": "Edward Newgate (Whitebeard) from One Piece OP13 set. Super Rare (SR).",
+    "details": "Near Mint | OP13 | OP13-042 | SR"
   }
 ]
