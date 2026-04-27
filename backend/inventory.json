@@ -518,5 +518,18 @@
     "backImage": "images/kikunojo-eb01-012-back.jpg",
     "description": "Kikunojo from One Piece EB01 Memorial Collection set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | Memorial Collection | EB01-012 | SR"
+  },
+  {
+    "id": "monkey-d-luffy-op07-109",
+    "name": "Monkey D. Luffy - 500 Years in the Future - OP07-109 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 7.19,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/monkey-d-luffy-op07-109-front.jpg",
+    "backImage": "images/monkey-d-luffy-op07-109-back.jpg",
+    "description": "Monkey D. Luffy from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | 500 Years in the Future | OP07-109 | SR"
   }
 ]
