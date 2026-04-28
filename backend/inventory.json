@@ -739,5 +739,18 @@
     "backImage": "images/kaido-st04-003-back.jpg",
     "description": "Kaido from One Piece ST04 Starter Deck 4 set. Super Rare (SR).",
     "details": "Near Mint | Starter Deck 4 | ST04-003 | SR"
+  },
+  {
+    "id": "vinsmoke-judge-op06-062",
+    "name": "Vinsmoke Judge - Wings of the Captain - OP06-062 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/vinsmoke-judge-op06-062-front.jpg",
+    "backImage": "images/vinsmoke-judge-op06-062-back.jpg",
+    "description": "Vinsmoke Judge from One Piece OP06 Wings of the Captain set. Super Rare (SR).",
+    "details": "Near Mint | Wings of the Captain | OP06-062 | SR"
   }
 ]
