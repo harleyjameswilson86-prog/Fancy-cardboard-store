@@ -596,5 +596,18 @@
     "backImage": "images/edward-newgate-op02-004-back.jpg",
     "description": "Edward Newgate (Whitebeard) from One Piece OP02 Paramount War set. Super Rare (SR).",
     "details": "Near Mint | Paramount War | OP02-004 | SR"
+  },
+  {
+    "id": "yamato-op03-054",
+    "name": "Yamato - Pillars of Strength - OP03-054 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.69,
+    "stock": 5,
+    "quantity": 5,
+    "image": "images/yamato-op03-054-front.jpg",
+    "backImage": "images/yamato-op03-054-back.jpg",
+    "description": "Yamato from One Piece OP03 Pillars of Strength set. Super Rare (SR).",
+    "details": "Near Mint | Pillars of Strength | OP03-054 | SR"
   }
 ]
