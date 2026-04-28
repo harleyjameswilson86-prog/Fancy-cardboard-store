@@ -664,7 +664,7 @@
   },
   {
     "id": "helmeppo-op11-092",
-    "name": "Helmeppo - OP11 - OP11-092 - SR",
+    "name": "Helmeppo - Emperors in the New World - OP11-092 - SR",
     "category": "One Piece",
     "type": "singles",
     "price": 2.69,
@@ -672,8 +672,8 @@
     "quantity": 1,
     "image": "images/helmeppo-op11-092-front.jpg",
     "backImage": "images/helmeppo-op11-092-back.jpg",
-    "description": "Helmeppo from One Piece OP11 set. Super Rare (SR).",
-    "details": "Near Mint | OP11 | OP11-092 | SR"
+    "description": "Helmeppo from One Piece OP11 Emperors in the New World set. Super Rare (SR).",
+    "details": "Near Mint | Emperors in the New World | OP11-092 | SR"
   },
   {
     "id": "pica-op05-032",
@@ -791,5 +791,31 @@
     "backImage": "images/kouzuki-oden-op02-030-back.jpg",
     "description": "Kouzuki Oden from One Piece OP02 Paramount War set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | Paramount War | OP02-030 | SR"
+  },
+  {
+    "id": "gol-d-roger-op13-064",
+    "name": "Gol D. Roger - OP13 - OP13-064 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.59,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/gol-d-roger-op13-064-front.jpg",
+    "backImage": "images/gol-d-roger-op13-064-back.jpg",
+    "description": "Gol D. Roger from One Piece OP13 set. Super Rare (SR).",
+    "details": "Near Mint | OP13 | OP13-064 | SR"
+  },
+  {
+    "id": "ace-sabo-luffy-op13-007",
+    "name": "Ace Sabo Luffy - OP13 - OP13-007 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 8.09,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/ace-sabo-luffy-op13-007-front.jpg",
+    "backImage": "images/ace-sabo-luffy-op13-007-back.jpg",
+    "description": "Ace & Sabo & Luffy from One Piece OP13 set. Super Rare (SR).",
+    "details": "Near Mint | OP13 | OP13-007 | SR"
   }
 ]
