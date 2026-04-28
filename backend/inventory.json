@@ -846,17 +846,17 @@
     "description": "Ships with protected packaging"
   },
   {
-    "id": "yamato-op03-054",
-    "name": "Yamato - Pillars of Strength - OP03-054 - SR",
+    "id": "yamato-op13-054",
+    "name": "Yamato - 500 Years in the Future - OP13-054 - SR",
     "category": "One Piece",
     "type": "singles",
     "price": 2.69,
     "stock": 5,
     "quantity": 5,
-    "image": "images/yamato-op03-054-front.jpg",
-    "backImage": "images/yamato-op03-054-back.jpg",
-    "description": "Yamato from One Piece OP03 Pillars of Strength set. Super Rare (SR).",
-    "details": "Near Mint | Pillars of Strength | OP03-054 | SR"
+    "image": "images/yamato-op13-054-front.jpg",
+    "backImage": "images/yamato-op13-054-back.jpg",
+    "description": "Yamato from One Piece OP13 500 Years in the Future set. Super Rare (SR).",
+    "details": "Near Mint | 500 Years in the Future | OP13-054 | SR"
   },
   {
     "id": "capone-gang-bege-op04-101",
