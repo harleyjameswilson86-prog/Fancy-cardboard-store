@@ -149,8 +149,8 @@
     "category": "Pokemon",
     "type": "singles",
     "price": 59.95,
-    "image": "images/images/clefairy-1-front.jpg",
-    "backImage": "images/images/clefairy-1-back.jpg",
+    "image": "images/clefairy-1-front.jpg",
+    "backImage": "images/clefairy-1-back.jpg",
     "description": "Ships with protected packaging",
     "quantity": 1
   },
@@ -175,8 +175,8 @@
     "price": 6.95,
     "quantity": 5,
     "shipping": 1.95,
-    "image": "images/images/rosinante-front.jpg",
-    "backImage": "images/images/rosinante-back.jpg",
+    "image": "images/rosinante-front.jpg",
+    "backImage": "images/rosinante-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -276,8 +276,8 @@
     "category": "Pokemon",
     "type": "singles",
     "price": 149.95,
-    "image": "images/images/gengar-1-front.jpg",
-    "backImage": "images/images/gengar-1-back.jpg",
+    "image": "images/gengar-1-front.jpg",
+    "backImage": "images/gengar-1-back.jpg",
     "description": "Ships with protected packaging",
     "quantity": 1
   },
@@ -497,8 +497,8 @@
     "price": 34.95,
     "quantity": 1,
     "shipping": 9.95,
-    "image": "images/images/mr2-front.jpg",
-    "backImage": "images/images/mr2-back.jpg",
+    "image": "images/mr2-front.jpg",
+    "backImage": "images/mr2-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -548,8 +548,8 @@
     "price": 19.95,
     "quantity": 1,
     "shipping": 1.95,
-    "image": "images/images/vivi-front.jpg",
-    "backImage": "images/images/vivi-back.jpg",
+    "image": "images/vivi-front.jpg",
+    "backImage": "images/vivi-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -612,8 +612,8 @@
     "price": 9.95,
     "quantity": 1,
     "shipping": 1.95,
-    "image": "images/images/ace-op13-front.jpg",
-    "backImage": "images/images/ace-op13-back.jpg",
+    "image": "images/ace-op13-front.jpg",
+    "backImage": "images/ace-op13-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -624,8 +624,8 @@
     "price": 9.95,
     "quantity": 3,
     "shipping": 1.95,
-    "image": "images/images/ace-st15-front.jpg",
-    "backImage": "images/images/ace-st15-back.jpg",
+    "image": "images/ace-st15-front.jpg",
+    "backImage": "images/ace-st15-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -688,8 +688,8 @@
     "price": 3.95,
     "quantity": 2,
     "shipping": 1.95,
-    "image": "images/images/sabo-front.jpg",
-    "backImage": "images/images/sabo-back.jpg",
+    "image": "images/sabo-front.jpg",
+    "backImage": "images/sabo-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -778,8 +778,8 @@
     "price": 9.95,
     "quantity": 2,
     "shipping": 1.95,
-    "image": "images/images/rayleigh-front.jpg",
-    "backImage": "images/images/rayleigh-back.jpg",
+    "image": "images/rayleigh-front.jpg",
+    "backImage": "images/rayleigh-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -842,8 +842,8 @@
     "price": 5.95,
     "quantity": 1,
     "shipping": 1.95,
-    "image": "images/images/uta-front.jpg",
-    "backImage": "images/images/uta-back.jpg",
+    "image": "images/uta-front.jpg",
+    "backImage": "images/uta-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
@@ -867,8 +867,8 @@
     "price": 17.95,
     "quantity": 1,
     "shipping": 1.95,
-    "image": "images/images/reiju-front.jpg",
-    "backImage": "images/images/reiju-back.jpg",
+    "image": "images/reiju-front.jpg",
+    "backImage": "images/reiju-back.jpg",
     "description": "Ships with protected packaging"
   },
   {
