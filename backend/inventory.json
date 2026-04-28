@@ -583,5 +583,18 @@
     "backImage": "images/monkey-d-luffy-op02-062-back.jpg",
     "description": "Monkey D. Luffy from One Piece OP02 Paramount War set. Super Rare (SR) Alternate Art.",
     "details": "Near Mint | Paramount War | OP02-062 | SR"
+  },
+  {
+    "id": "edward-newgate-op02-004",
+    "name": "Edward Newgate - Paramount War - OP02-004 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 6.29,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/edward-newgate-op02-004-front.jpg",
+    "backImage": "images/edward-newgate-op02-004-back.jpg",
+    "description": "Edward Newgate (Whitebeard) from One Piece OP02 Paramount War set. Super Rare (SR).",
+    "details": "Near Mint | Paramount War | OP02-004 | SR"
   }
 ]
