@@ -609,5 +609,18 @@
     "backImage": "images/yamato-op03-054-back.jpg",
     "description": "Yamato from One Piece OP03 Pillars of Strength set. Super Rare (SR).",
     "details": "Near Mint | Pillars of Strength | OP03-054 | SR"
+  },
+  {
+    "id": "uta-op06-023",
+    "name": "Uta - Wings of the Captain - OP06-023 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.49,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/uta-op06-023-front.jpg",
+    "backImage": "images/uta-op06-023-back.jpg",
+    "description": "Uta from One Piece OP06 Wings of the Captain set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Wings of the Captain | OP06-023 | SR"
   }
 ]
