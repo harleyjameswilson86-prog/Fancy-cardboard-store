@@ -648,5 +648,18 @@
     "backImage": "images/sanji-op11-051-back.jpg",
     "description": "Sanji from One Piece OP11 set. Super Rare (SR).",
     "details": "Near Mint | OP11 | OP11-051 | SR"
+  },
+  {
+    "id": "sabo-op05-007",
+    "name": "Sabo - Awakening of the New Era - OP05-007 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.59,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/sabo-op05-007-front.jpg",
+    "backImage": "images/sabo-op05-007-back.jpg",
+    "description": "Sabo from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Manga Rare.",
+    "details": "Near Mint | Awakening of the New Era | OP05-007 | SR"
   }
 ]
