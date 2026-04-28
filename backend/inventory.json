@@ -752,5 +752,18 @@
     "backImage": "images/vinsmoke-judge-op06-062-back.jpg",
     "description": "Vinsmoke Judge from One Piece OP06 Wings of the Captain set. Super Rare (SR).",
     "details": "Near Mint | Wings of the Captain | OP06-062 | SR"
+  },
+  {
+    "id": "shanks-op03-028",
+    "name": "Shanks - Pillars of Strength - OP03-028 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.59,
+    "stock": 2,
+    "quantity": 2,
+    "image": "images/shanks-op03-028-front.jpg",
+    "backImage": "images/shanks-op03-028-back.jpg",
+    "description": "Shanks from One Piece OP03 Pillars of Strength set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Pillars of Strength | OP03-028 | SR"
   }
 ]
