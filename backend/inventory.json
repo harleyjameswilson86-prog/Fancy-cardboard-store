@@ -100,17 +100,17 @@
     "details": "Near Mint | Memorial Collection | EB01-046 | SR"
   },
   {
-    "id": "carrot-eb03",
-    "name": "Carrot - EB01-013 - Heroines Edition - SR (Alternate Art)",
+    "id": "carrot-eb03-013",
+    "name": "Carrot - EB03-013 - Heroines Edition - Alternate Art",
     "category": "One Piece",
     "type": "singles",
     "price": 39.95,
     "quantity": 1,
     "shipping": 9.95,
-    "image": "../images/carrot-front.jpg",
-    "backImage": "../images/carrot-back.jpg",
-    "description": "Carrot from One Piece EB01 Memorial Collection set. Super Rare (SR) Alternate Art Heroines Edition.",
-    "details": "Near Mint | Memorial Collection | EB01-013 | SR"
+    "image": "images/carrot-eb03-013-front.jpg",
+    "backImage": "images/carrot-eb03-013-back.jpg",
+    "description": "Carrot from One Piece EB03 Memorial Collection set. Alternate Art Heroines Edition.",
+    "details": "Near Mint | EB03-013 | Alternate Art"
   },
   {
     "id": "carrot-eb04-013",
