@@ -808,17 +808,17 @@
     "description": "Ships with protected packaging"
   },
   {
-    "id": "uta-op05-023",
-    "name": "Uta - Awakening of the New Era - OP05-023 - SR",
+    "id": "uta-op13-023",
+    "name": "Uta - 500 Years in the Future - OP13-023 - SR",
     "category": "One Piece",
     "type": "singles",
     "price": 4.49,
     "stock": 1,
     "quantity": 1,
-    "image": "images/uta-op05-023-front.jpg",
-    "backImage": "images/uta-op05-023-back.jpg",
-    "description": "Uta from One Piece OP05 Wings of the Captain set. Super Rare (SR) Alternate Art.",
-    "details": "Near Mint | Wings of the Captain | OP05-023 | SR"
+    "image": "images/uta-op13-023-front.jpg",
+    "backImage": "images/uta-op13-023-back.jpg",
+    "description": "Uta from One Piece OP13 Wings of the Captain set. Super Rare (SR) Alternate Art.",
+    "details": "Near Mint | Wings of the Captain | OP13-023 | SR"
   },
   {
     "id": "vinsmoke-judge-op06-062",
