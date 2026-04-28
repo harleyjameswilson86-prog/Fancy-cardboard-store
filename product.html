@@ -97,170 +97,96 @@
 <p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
 </div>
 </footer>
-<script>
-const products = {
-  'lorcana-fabled-booster-unsealed': {
-    name: 'Disney Lorcana - Fabled Booster Box (Unsealed)',
-    stock: 2,
-    price: 399.95,
-    image: 'images/lorcana-fabled-booster.png',
-    category: 'Disney Lorcana',
-    description: 'Get the complete Fabled booster box experience at a reduced price. The outer wrap has been removed but all 24 packs inside remain factory sealed. Same great cards, better value.',
-    details: 'All packs still factory sealed | 24 packs per box | 12 cards per pack | 24 foil cards (1 per pack) | Chance for Enchanted cards'
-  },
-
-  // Pokemon
+<script>const products = {
   'gengar-001': {
     name: 'Gengar EB Games Promo - 050/088 - Perfect Order - Holo',
     stock: 1,
     price: 149.95,
-    image: 'images/gengar-1-front.jpg',
-    backImage: 'images/gengar-1-back.jpg',
+    image: '../images/gengar-1-front.jpg',
+    backImage: '../images/gengar-1-back.jpg',
     category: 'Pokemon',
     description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    details: 'Near Mint'
   },
   'clefairy-001': {
     name: 'Clefairy - 094/088 - Perfect Order - Illustration Rare',
     stock: 1,
     price: 59.95,
-    image: 'images/clefairy-1-front.jpg',
-    backImage: 'images/clefairy-1-back.jpg',
+    image: '../images/clefairy-1-front.jpg',
+    backImage: '../images/clefairy-1-back.jpg',
     category: 'Pokemon',
     description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    details: 'Near Mint'
   },
-
-  // One Piece
-  'sabo-op05': {
-    name: 'Sabo - OP-05-007 - Illustration Box - Promo',
-    stock: 2,
-    price: 3.95,
-    image: 'images/sabo-front.jpg',
-    backImage: 'images/sabo-back.jpg',
+  'ace-sabo-luffy-op13-007': {
+    name: 'Ace Sabo Luffy - OP13 - OP13-007 - SR',
+    stock: 1,
+    price: 8.09,
+    image: 'images/ace-sabo-luffy-op13-007-front.jpg',
+    backImage: 'images/ace-sabo-luffy-op13-007-back.jpg',
     category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    description: 'Ace & Sabo & Luffy from One Piece OP13 set. Super Rare (SR).',
+    details: 'Near Mint | OP13 | OP13-007 | SR'
   },
-  'ace-st15': {
-    name: 'Portgas D. Ace - ST15-005 - Illustration Box - Promo',
+  'basil-hawkins-op07-029': {
+    name: 'Basil Hawkins - 500 Years in the Future - OP07-029 - SR',
+    stock: 1,
+    price: 3.59,
+    image: 'images/basil-hawkins-op07-029-front.jpg',
+    backImage: 'images/basil-hawkins-op07-029-back.jpg',
+    category: 'One Piece',
+    description: 'Basil Hawkins from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | 500 Years in the Future | OP07-029 | SR'
+  },
+  'boa-hancock-op14-112': {
+    name: 'Boa Hancock - Kingdoms of Intrigue - OP14-112 - SR',
     stock: 3,
-    price: 9.95,
-    image: 'images/ace-st15-front.jpg',
-    backImage: 'images/ace-st15-back.jpg',
+    price: 14.39,
+    image: 'images/boa-hancock-op14-112-front.jpg',
+    backImage: 'images/boa-hancock-op14-112-back.jpg',
     category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    description: 'Boa Hancock from One Piece OP14 Kingdoms of Intrigue set. Super Rare (SP).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP14-112 | SR'
   },
-  'rosinante-op12': {
-    name: 'Donquixote Rosinante - OP11-108 - Illustration Box - Promo',
-    stock: 5,
-    price: 6.95,
-    image: 'images/rosinante-front.jpg',
-    backImage: 'images/rosinante-back.jpg',
-    category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
-  },
-  'ace-op13': {
-    name: 'Portgas D. Ace - OP13-119 - Carrying On His Will - SEC',
+  'boa-hancock-prb02-017': {
+    name: 'Boa Hancock - Premium Booster Vol. 2 - PRB02-017 - SR',
     stock: 1,
-    price: 9.95,
-    image: 'images/ace-op13-front.jpg',
-    backImage: 'images/ace-op13-back.jpg',
+    price: 11.69,
+    image: 'images/boa-hancock-prb02-017-front.jpg',
+    backImage: 'images/boa-hancock-prb02-017-back.jpg',
     category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    description: 'Boa Hancock - Premium Booster Vol. 2 - PRB02-017 - SR',
+    details: 'Near Mint'
   },
-  'mr2-eb01': {
-    name: 'Mr. 2 Bon Kurei - EB01-061 - Memorial Collection - SEC',
+  'borsalino-op05-051': {
+    name: 'Borsalino - Awakening of the New Era - OP05-051 - SR',
     stock: 1,
-    price: 34.95,
-    image: 'images/mr2-front.jpg',
-    backImage: 'images/mr2-back.jpg',
+    price: 3.59,
+    image: 'images/borsalino-op05-051-front.jpg',
+    backImage: 'images/borsalino-op05-051-back.jpg',
     category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    description: 'Borsalino from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Special Card.',
+    details: 'Near Mint | Awakening of the New Era | OP05-051 | SR'
   },
-  'reiju-eb03': {
-    name: 'Vinsmoke Reiju - EB03-031 - Heroines Edition - SR',
-    stock: 1,
-    price: 17.95,
-    image: 'images/reiju-front.jpg',
-    backImage: 'images/reiju-back.jpg',
+  'brook-eb01-046': {
+    name: 'Brook - Memorial Collection - EB01-046 - SR',
+    stock: 2,
+    price: 3.59,
+    image: 'images/brook-eb01-046-front.jpg',
+    backImage: 'images/brook-eb01-046-back.jpg',
     category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
-  },
-  'uta-eb03': {
-    name: 'Uta - EB03-003 - Heroines Edition - SR',
-    stock: 1,
-    price: 5.95,
-    image: 'images/uta-front.jpg',
-    backImage: 'images/uta-back.jpg',
-    category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    description: 'Brook from One Piece EB01 Memorial Collection set. Super Rare (SR) Parallel Art.',
+    details: 'Near Mint | Memorial Collection | EB01-046 | SR'
   },
   'carrot-eb03': {
     name: 'Carrot - EB01-013 - Heroines Edition - SR (Alternate Art)',
     stock: 1,
     price: 39.95,
-    image: 'images/carrot-front.jpg',
-    backImage: 'images/carrot-back.jpg',
+    image: '../images/carrot-front.jpg',
+    backImage: '../images/carrot-back.jpg',
     category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
-  },
-  'rayleigh-op08': {
-    name: 'Silvers Rayleigh - OP08-118 - Two Legends - SEC',
-    stock: 2,
-    price: 9.95,
-    image: 'images/rayleigh-front.jpg',
-    backImage: 'images/rayleigh-back.jpg',
-    category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
-  },
-  'vivi-eb03': {
-    name: 'Nefeltari Vivi - EB03-024 - Heroines Edition - SR',
-    stock: 1,
-    price: 19.95,
-    image: 'images/vivi-front.jpg',
-    backImage: 'images/vivi-back.jpg',
-    category: 'One Piece',
-    description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
-  },
-  'cavendish-memorial-eb01-012': {
-    name: 'Cavendish - Memorial Collection - EB04-012 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/cavendish-memorial-eb01-012-front.jpg',
-    backImage: 'images/cavendish-memorial-eb01-012-back.jpg',
-    category: 'One Piece',
-    description: 'Cavendish from One Piece Memorial Collection set. Super Rare (SR).',
-    details: 'Near Mint | Memorial Collection | EB04-012 | SR'
-  },
-  'kyros-op10-046': {
-    name: 'Kyros - Royal Bloodlines - OP10-046 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/kyros-op10-046-front.jpg',
-    backImage: 'images/kyros-op10-046-back.jpg',
-    category: 'One Piece',
-    description: 'Kyros from One Piece OP10 Royal Bloodlines set. Super Rare (SR).',
-    details: 'Near Mint | Royal Bloodlines | OP10-046 | SR'
-  },
-  'carrot-op08-023': {
-    name: 'Carrot - Two Legends - OP08-023 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/carrot-op08-023-front.jpg',
-    backImage: 'images/carrot-op08-023-back.jpg',
-    category: 'One Piece',
-    description: 'Carrot from One Piece OP08 Two Legends set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Two Legends | OP08-023 | SR'
+    description: 'Carrot from One Piece EB01 Memorial Collection set. Super Rare (SR) Alternate Art Heroines Edition.',
+    details: 'Near Mint | Memorial Collection | EB01-013 | SR'
   },
   'carrot-eb04-013': {
     name: 'Carrot - Memorial Collection - EB04-013 - SR',
@@ -272,95 +198,25 @@ const products = {
     description: 'Carrot from One Piece EB04 Memorial Collection set. Super Rare (SR) Parallel Art.',
     details: 'Near Mint | Memorial Collection | EB04-013 | SR'
   },
-  'marshall-d-teach-op09-093': {
-    name: 'Marshall D. Teach - OP09 - The New Era - OP09-093 - SR',
+  'carrot-op08-023': {
+    name: 'Carrot - Two Legends - OP08-023 - SR',
     stock: 1,
     price: 2.69,
-    image: 'images/marshall-d-teach-op09-093-front.jpg',
-    backImage: 'images/marshall-d-teach-op09-093-back.jpg',
+    image: 'images/carrot-op08-023-front.jpg',
+    backImage: 'images/carrot-op08-023-back.jpg',
     category: 'One Piece',
-    description: 'Marshall D. Teach (Blackbeard) from One Piece OP09 set. Super Rare (SR).',
-    details: 'Near Mint | OP09 | OP09-093 | SR'
+    description: 'Carrot from One Piece OP08 Two Legends set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Two Legends | OP08-023 | SR'
   },
-  'monkey-d-garp-op11-095': {
-    name: 'Monkey D. Garp - Awakening of the New Era - OP11-095 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/monkey-d-garp-op11-095-front.jpg',
-    backImage: 'images/monkey-d-garp-op11-095-back.jpg',
-    category: 'One Piece',
-    description: 'Monkey D. Garp from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Awakening of the New Era | OP11-095 | SR'
-  },
-  'shanks-op09-004': {
-    name: 'Shanks - The New Era - OP09-004 - SR',
+  'cavendish-memorial-eb01-012': {
+    name: 'Cavendish - Memorial Collection - EB01-012 - SR',
     stock: 1,
     price: 4.49,
-    image: 'images/shanks-op09-004-front.jpg',
-    backImage: 'images/shanks-op09-004-back.jpg',
+    image: 'images/cavendish-memorial-eb01-012-front.jpg',
+    backImage: 'images/cavendish-memorial-eb01-012-back.jpg',
     category: 'One Piece',
-    description: 'Shanks from One Piece OP09 The New Era set. Super Rare (SR).',
-    details: 'Near Mint | The New Era | OP09-004 | SR'
-  },
-  'rebecca-op05-091': {
-    name: 'Rebecca - Awakening of the New Era - OP05-091 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/rebecca-op05-091-front.jpg',
-    backImage: 'images/rebecca-op05-091-back.jpg',
-    category: 'One Piece',
-    description: 'Rebecca from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Awakening of the New Era | OP05-091 | SR'
-  },
-  'boa-hancock-prb02-017': {
-    name: 'Boa Hancock - Premium Booster Vol. 2 - PRB02-017 - SR',
-    stock: 1,
-    price: 11.69,
-    image: 'images/boa-hancock-prb02-017-front.jpg',
-    backImage: 'images/boa-hancock-prb02-017-back.jpg',
-    category: 'One Piece',
-    description: 'Boa Hancock from One Piece PRB02 Premium Booster Vol. 2 set. Super Rare (SR).',
-    details: 'Near Mint | Premium Booster Vol. 2 | PRB02-017 | SR'
-  },
-  'shanks-st16-004': {
-    name: 'Shanks - Starter Deck 16 - ST16-004 - SR',
-    stock: 1,
-    price: 5.39,
-    image: 'images/shanks-st16-004-front.jpg',
-    backImage: 'images/shanks-st16-004-back.jpg',
-    category: 'One Piece',
-    description: 'Shanks from One Piece ST16 Starter Deck 16 set. Super Rare (SR).',
-    details: 'Near Mint | Starter Deck 16 | ST16-004 | SR'
-  },
-  'jewelry-bonney-op07-026': {
-    name: 'Jewelry Bonney - 500 Years in the Future - OP07-026 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/jewelry-bonney-op07-026-front.jpg',
-    backImage: 'images/jewelry-bonney-op07-026-back.jpg',
-    category: 'One Piece',
-    description: 'Jewelry Bonney from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | 500 Years in the Future | OP07-026 | SR'
-  },
-  'koala-op05-006': {
-    name: 'Koala - Awakening of the New Era - OP05-006 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/koala-op05-006-front.jpg',
-    backImage: 'images/koala-op05-006-back.jpg',
-    category: 'One Piece',
-    description: 'Koala from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Awakening of the New Era | OP05-006 | SR'
-  },
-  'trafalgar-law-prb01-002': {
-    name: 'Trafalgar Law - Premium Booster One - PRB01-002 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/trafalgar-law-prb01-002-front.jpg',
-    backImage: 'images/trafalgar-law-prb01-002-back.jpg',
-    category: 'One Piece',
-    description: 'Trafalgar Law from One Piece PRB01 Premium Booster One set. Super Rare (SR).',
-    details: 'Near Mint | Premium Booster One | PRB01-002 | SR'
+    description: 'Cavendish from One Piece Memorial Collection. Super Rare (SR). Near Mint condition.',
+    details: 'Near Mint | Memorial Collection | EB01-012 | Super Rare'
   },
   'donquixote-doflamingo-op14-060': {
     name: 'Donquixote Doflamingo - Kingdoms of Intrigue - OP14-060 - SR',
@@ -369,18 +225,58 @@ const products = {
     image: 'images/donquixote-doflamingo-op14-060-front.jpg',
     backImage: 'images/donquixote-doflamingo-op14-060-back.jpg',
     category: 'One Piece',
-    description: 'Donquixote Doflamingo from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR) Alternate Art.',
+    description: 'Donquixote Doflamingo from One Piece OP14 Kingdoms of Intrigue set. Super Rare (SR) Alternate Art.',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-060 | SR'
   },
-  'monkey-d-dragon-op07-015': {
-    name: 'Monkey D. Dragon - 500 Years in the Future - OP07-015 - SR',
-    stock: 3,
-    price: 2.69,
-    image: 'images/monkey-d-dragon-op07-015-front.jpg',
-    backImage: 'images/monkey-d-dragon-op07-015-back.jpg',
+  'rosinante-op12': {
+    name: 'Donquixote Rosinante - OP12-108 - Illustration Box - Promo',
+    stock: 1,
+    price: 6.95,
+    image: '../images/rosinante-front.jpg',
+    backImage: '../images/rosinante-back.jpg',
     category: 'One Piece',
-    description: 'Monkey D. Dragon from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | 500 Years in the Future | OP07-015 | SR'
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'dracule-mihawk-op01-070': {
+    name: 'Dracule Mihawk - Romance Dawn - OP01-070 - SR',
+    stock: 1,
+    price: 6.29,
+    image: 'images/dracule-mihawk-op01-070-front.jpg',
+    backImage: 'images/dracule-mihawk-op01-070-back.jpg',
+    category: 'One Piece',
+    description: 'Dracule Mihawk from One Piece OP01 Romance Dawn set. Super Rare (SR).',
+    details: 'Near Mint | Romance Dawn | OP01-070 | SR'
+  },
+  'edward-newgate-op13-042': {
+    name: 'Edward Newgate - OP13 - OP13-042 - SR',
+    stock: 2,
+    price: 5.39,
+    image: 'images/edward-newgate-op13-042-front.jpg',
+    backImage: 'images/edward-newgate-op13-042-back.jpg',
+    category: 'One Piece',
+    description: 'Edward Newgate (Whitebeard) from One Piece OP13 set. Super Rare (SR).',
+    details: 'Near Mint | OP13 | OP13-042 | SR'
+  },
+  'edward-newgate-op02-004': {
+    name: 'Edward Newgate - Paramount War - OP02-004 - SR',
+    stock: 1,
+    price: 6.29,
+    image: 'images/edward-newgate-op02-004-front.jpg',
+    backImage: 'images/edward-newgate-op02-004-back.jpg',
+    category: 'One Piece',
+    description: 'Edward Newgate (Whitebeard) from One Piece OP02 Paramount War set. Super Rare (SR).',
+    details: 'Near Mint | Paramount War | OP02-004 | SR'
+  },
+  'five-elders-op13-082': {
+    name: 'Five Elders - OP13 - OP13-082 - SR',
+    stock: 3,
+    price: 4.49,
+    image: 'images/five-elders-op13-082-front.jpg',
+    backImage: 'images/five-elders-op13-082-back.jpg',
+    category: 'One Piece',
+    description: 'Five Elders from One Piece OP13 set. Super Rare (SR).',
+    details: 'Near Mint | OP13 | OP13-082 | SR'
   },
   'foxy-eb04-036': {
     name: 'Foxy - Memorial Collection - EB04-036 - SR',
@@ -399,58 +295,8 @@ const products = {
     image: 'images/franky-op09-072-front.jpg',
     backImage: 'images/franky-op09-072-back.jpg',
     category: 'One Piece',
-    description: 'Franky from One Piece OP09 Emperors in the New World set. Rare (R).',
-    details: 'Near Mint | Emperors in the New World | OP09-072 | R'
-  },
-      'perona-op12-034': {
-    name: 'Perona - Awakening of the New Era - OP12-034 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/perona-op12-034-new-front.jpg',
-    backImage: 'images/perona-op12-034-new-back.jpg',
-    category: 'One Piece',
-    description: 'Perona from One Piece OP12 Awakening of the New Era set. Super Rare (SR).',
-    details: 'Near Mint | Awakening of the New Era | OP12-034 | SR'
-  },
-  'perona-op04-033': {
-    name: 'Perona - Kingdoms of Intrigue - OP04-033 - SR',
-    stock: 2,
-    price: 8.99,
-    image: 'images/perona-op04-033-front.jpg',
-    backImage: 'images/perona-op04-033-back.jpg',
-    category: 'One Piece',
-    description: 'Perona from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
-    details: 'Near Mint | Kingdoms of Intrigue | OP04-033 | SR'
-  },
-  'nami-op11-054': {
-    name: 'Nami - OP11 - OP11-054 - SR',
-    stock: 2,
-    price: 4.49,
-    image: 'images/nami-op11-054-front.jpg',
-    backImage: 'images/nami-op11-054-back.jpg',
-    category: 'One Piece',
-    description: 'Nami from One Piece OP11 set. Super Rare (SR).',
-    details: 'Near Mint | OP11 | OP11-054 | SR'
-  },
-  'edward-newgate-op13-042': {
-    name: 'Edward Newgate - OP13 - OP13-042 - SR',
-    stock: 2,
-    price: 5.39,
-    image: 'images/edward-newgate-op13-042-front.jpg',
-    backImage: 'images/edward-newgate-op13-042-back.jpg',
-    category: 'One Piece',
-    description: 'Edward Newgate (Whitebeard) from One Piece OP13 set. Super Rare (SR).',
-    details: 'Near Mint | OP13 | OP13-042 | SR'
-  },
-  'ms-all-sunday-op14-084': {
-    name: 'Ms. All Sunday - Kingdoms of Intrigue - OP14-084 - SR',
-    stock: 3,
-    price: 6.29,
-    image: 'images/ms-all-sunday-op14-084-front.jpg',
-    backImage: 'images/ms-all-sunday-op14-084-back.jpg',
-    category: 'One Piece',
-    description: 'Ms. All Sunday from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Kingdoms of Intrigue | OP14-084 | SR'
+    description: 'Franky from One Piece OP09 Emperors in the New World set. Super Rare (SR).',
+    details: 'Near Mint | Emperors in the New World | OP09-072 | SR'
   },
   'gecko-moria-op14-104': {
     name: 'Gecko Moria - Kingdoms of Intrigue - OP14-104 - SR',
@@ -459,208 +305,18 @@ const products = {
     image: 'images/gecko-moria-op14-104-front.jpg',
     backImage: 'images/gecko-moria-op14-104-back.jpg',
     category: 'One Piece',
-    description: 'Gecko Moria from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
-    details: 'Near Mint | Kingdoms of Intrigue | OP14-104 | SP'
+    description: 'Gecko Moria from One Piece OP14 Kingdoms of Intrigue set. Super Rare (SP).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP14-104 | SR'
   },
-  'rosinante-law-eb04-038': {
-    name: 'Rosinante & Law - Memorial Collection - EB04-038 - SR',
-    stock: 6,
-    price: 5.39,
-    image: 'images/rosinante-law-eb04-038-front.jpg',
-    backImage: 'images/rosinante-law-eb04-038-back.jpg',
-    category: 'One Piece',
-    description: 'Rosinante & Law from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Memorial Collection | EB04-038 | SR'
-  },
-  'roronoa-zoro-st29-014': {
-    name: 'Roronoa Zoro - Starter Deck 29 - ST29-014 - SR',
-    stock: 4,
-    price: 5.39,
-    image: 'images/roronoa-zoro-st29-014-front.jpg',
-    backImage: 'images/roronoa-zoro-st29-014-back.jpg',
-    category: 'One Piece',
-    description: 'Roronoa Zoro from One Piece ST29 Starter Deck 29 set. Super Rare (SR).',
-    details: 'Near Mint | Starter Deck 29 | ST29-014 | SR'
-  },
-  'nami-op04-031': {
-    name: 'Nami - Kingdoms of Intrigue - OP04-031 - SR',
-    stock: 4,
-    price: 10.79,
-    image: 'images/nami-op04-031-front.jpg',
-    backImage: 'images/nami-op04-031-back.jpg',
-    category: 'One Piece',
-    description: 'Nami from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
-    details: 'Near Mint | Kingdoms of Intrigue | OP04-031 | SP'
-  },
-  'five-elders-op13-082': {
-    name: 'Five Elders - OP13 - OP13-082 - SR',
-    stock: 3,
-    price: 4.49,
-    image: 'images/five-elders-op13-082-front.jpg',
-    backImage: 'images/five-elders-op13-082-back.jpg',
-    category: 'One Piece',
-    description: 'Five Elders from One Piece OP13 set. Super Rare (SR).',
-    details: 'Near Mint | OP13 | OP13-082 | SR'
-  },
-  'jinbe-op14-049': {
-    name: 'Jinbe - Kingdoms of Intrigue - OP14-049 - SR',
-    stock: 3,
-    price: 3.59,
-    image: 'images/jinbe-op14-049-front.jpg',
-    backImage: 'images/jinbe-op14-049-back.jpg',
-    category: 'One Piece',
-    description: 'Jinbe from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
-    details: 'Near Mint | Kingdoms of Intrigue | OP14-049 | SR'
-  },
-  'kikunojo-eb04-012': {
-    name: 'Kikunojo - Memorial Collection - EB04-012 - SR',
-    stock: 4,
-    price: 2.69,
-    image: 'images/kikunojo-eb04-012-front.jpg',
-    backImage: 'images/kikunojo-eb04-012-back.jpg',
-    category: 'One Piece',
-    description: 'Kikunojo from One Piece EB01 Memorial Collection set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Memorial Collection | EB04-012 | SR'
-  },
-  'monkey-d-luffy-op07-109': {
-    name: 'Monkey D. Luffy - 500 Years in the Future - OP07-109 - SR',
-    stock: 2,
-    price: 7.19,
-    image: 'images/monkey-d-luffy-op07-109-front.jpg',
-    backImage: 'images/monkey-d-luffy-op07-109-back.jpg',
-    category: 'One Piece',
-    description: 'Monkey D. Luffy from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | 500 Years in the Future | OP07-109 | SR'
-  },
-  'nefeltari-vivi-eb04-025': {
-    name: 'Nefeltari Vivi - Memorial Collection - EB04-025 - SR',
-    stock: 2,
-    price: 4.49,
-    image: 'images/nefeltari-vivi-eb04-025-front.jpg',
-    backImage: 'images/nefeltari-vivi-eb04-025-back.jpg',
-    category: 'One Piece',
-    description: 'Nefeltari Vivi from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Memorial Collection | EB04-025 | SR'
-  },
-  'silvers-rayleigh-op13-066': {
-    name: 'Silvers Rayleigh - Two Legends - OP13-066 - SR',
-    stock: 4,
-    price: 2.69,
-    image: 'images/silvers-rayleigh-op13-066-front.jpg',
-    backImage: 'images/silvers-rayleigh-op13-066-back.jpg',
-    category: 'One Piece',
-    description: 'Silvers Rayleigh from One Piece OP08 Two Legends set. Super Rare (SR).',
-    details: 'Near Mint | Two Legends | OP13-066 | SR'
-  },
-  'brook-eb01-046': {
-    name: 'Brook - Memorial Collection - EB01-046 - SR',
-    stock: 2,
-    price: 3.59,
-    image: 'images/brook-eb01-046-front.jpg',
-    backImage: 'images/brook-eb01-046-back.jpg',
-    category: 'One Piece',
-    description: 'Brook from One Piece EB01 Memorial Collection set. Super Rare (SR) Parallel Art.',
-    details: 'Near Mint | Memorial Collection | EB01-046 | SR'
-  },
-  'stussy-op13-110': {
-    name: 'Stussy - 500 Years in the Future - OP13-110 - SR',
-    stock: 3,
-    price: 2.69,
-    image: 'images/stussy-op13-110-front.jpg',
-    backImage: 'images/stussy-op13-110-back.jpg',
-    category: 'One Piece',
-    description: 'Stussy from One Piece OP07 500 Years in the Future set. Super Rare (SR).',
-    details: 'Near Mint | 500 Years in the Future | OP13-110 | SR'
-  },
-  'boa-hancock-op14-112': {
-    name: 'Boa Hancock - Kingdoms of Intrigue - OP14-112 - SR',
-    stock: 3,
-    price: 14.39,
-    image: 'images/boa-hancock-op14-112-front.jpg',
-    backImage: 'images/boa-hancock-op14-112-back.jpg',
-    category: 'One Piece',
-    description: 'Boa Hancock from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
-    details: 'Near Mint | Kingdoms of Intrigue | OP14-112 | SP'
-  },
-  'monkey-d-luffy-op02-062': {
-    name: 'Monkey D. Luffy - Paramount War - OP02-062 - SR',
-    stock: 1,
-    price: 5.39,
-    image: 'images/monkey-d-luffy-op02-062-front.jpg',
-    backImage: 'images/monkey-d-luffy-op02-062-back.jpg',
-    category: 'One Piece',
-    description: 'Monkey D. Luffy from One Piece OP12 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Paramount War | OP02-062 | SR'
-  },
-  'edward-newgate-op02-004': {
-    name: 'Edward Newgate - Paramount War - OP02-004 - SR',
-    stock: 1,
-    price: 6.29,
-    image: 'images/edward-newgate-op02-004-front.jpg',
-    backImage: 'images/edward-newgate-op02-004-back.jpg',
-    category: 'One Piece',
-    description: 'Edward Newgate (Whitebeard) from One Piece OP12 Awakening of the New Era set. Super Rare (SR).',
-    details: 'Near Mint | Paramount War | OP02-004 | SR'
-  },
-  'yamato-op03-054': {
-    name: 'Yamato - Pillars of Strength - OP03-054 - SR',
-    stock: 5,
-    price: 2.69,
-    image: 'images/yamato-op03-054-front.jpg',
-    backImage: 'images/yamato-op03-054-back.jpg',
-    category: 'One Piece',
-    description: 'Yamato from One Piece OP03 Pillars of Strength set. Super Rare (SR).',
-    details: 'Near Mint | Pillars of Strength | OP03-054 | SR'
-  },
-  'uta-op05-023': {
-    name: 'Uta - Wings of the Captain - OP05-023 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/uta-op05-023-front.jpg',
-    backImage: 'images/uta-op05-023-back.jpg',
-    category: 'One Piece',
-    description: 'Uta from One Piece OP06 Wings of the Captain set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Wings of the Captain | OP05-023 | SR'
-  },
-  'shanks-op06-007': {
-    name: 'Shanks - Wings of the Captain - OP06-007 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/shanks-op06-007-front.jpg',
-    backImage: 'images/shanks-op06-007-back.jpg',
-    category: 'One Piece',
-    description: 'Shanks from One Piece OP06 Wings of the Captain set. Super Rare (SR).',
-    details: 'Near Mint | Wings of the Captain | OP06-007 | SR'
-  },
-  'trafalgar-law-op04-009': {
-    name: 'Trafalgar Law - Kingdoms of Intrigue - OP04-009 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/trafalgar-law-op04-009-front.jpg',
-    backImage: 'images/trafalgar-law-op04-009-back.jpg',
-    category: 'One Piece',
-    description: 'Trafalgar Law from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Kingdoms of Intrigue | OP04-009 | SR'
-  },
-  'sanji-op11-051': {
-    name: 'Sanji - Emperors in the New World - OP11-051 - SR',
+  'gol-d-roger-op13-064': {
+    name: 'Gol D. Roger - OP13 - OP13-064 - SR',
     stock: 1,
     price: 3.59,
-    image: 'images/sanji-op11-051-front.jpg',
-    backImage: 'images/sanji-op11-051-back.jpg',
+    image: 'images/gol-d-roger-op13-064-front.jpg',
+    backImage: 'images/gol-d-roger-op13-064-back.jpg',
     category: 'One Piece',
-    description: 'Sanji from One Piece OP11 set. Super Rare (SR).',
-    details: 'Near Mint | OP11 | OP11-051 | SR'
-  },
-  'sabo-op05-007': {
-    name: 'Sabo - Awakening of the New Era - OP05-007 - SR',
-    stock: 1,
-    price: 3.59,
-    image: 'images/sabo-op05-007-front.jpg',
-    backImage: 'images/sabo-op05-007-back.jpg',
-    category: 'One Piece',
-    description: 'Sabo from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Manga Rare.',
-    details: 'Near Mint | Awakening of the New Era | OP05-007 | SR'
+    description: 'Gol D. Roger from One Piece OP13 set. Super Rare (SR).',
+    details: 'Near Mint | OP13 | OP13-064 | SR'
   },
   'helmeppo-op11-092': {
     name: 'Helmeppo - Emperors in the New World - OP11-092 - SR',
@@ -669,48 +325,28 @@ const products = {
     image: 'images/helmeppo-op11-092-front.jpg',
     backImage: 'images/helmeppo-op11-092-back.jpg',
     category: 'One Piece',
-    description: 'Helmeppo from One Piece OP11 set. Super Rare (SR).',
-    details: 'Near Mint | OP11 | OP11-092 | SR'
+    description: 'Helmeppo from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
+    details: 'Near Mint | Emperors in the New World | OP11-092 | SR'
   },
-  'pica-op05-032': {
-    name: 'Pica - Awakening of the New Era - OP05-032 - SR',
+  'jewelry-bonney-op07-026': {
+    name: 'Jewelry Bonney - 500 Years in the Future - OP07-026 - SR',
     stock: 1,
     price: 2.69,
-    image: 'images/pica-op05-032-front.jpg',
-    backImage: 'images/pica-op05-032-back.jpg',
+    image: 'images/jewelry-bonney-op07-026-front.jpg',
+    backImage: 'images/jewelry-bonney-op07-026-back.jpg',
     category: 'One Piece',
-    description: 'Pica from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Awakening of the New Era | OP05-032 | SR'
+    description: 'Jewelry Bonney from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | 500 Years in the Future | OP07-026 | SR'
   },
-  'kaido-op08-079': {
-    name: 'Kaido - Two Legends - OP08-079 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/kaido-op08-079-front.jpg',
-    backImage: 'images/kaido-op08-079-back.jpg',
-    category: 'One Piece',
-    description: 'Kaido from One Piece OP08 Two Legends set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Two Legends | OP08-079 | SR'
-  },
-  'borsalino-op05-051': {
-    name: 'Borsalino - Awakening of the New Era - OP05-051 - SR',
-    stock: 1,
+  'jinbe-op14-049': {
+    name: 'Jinbe - Kingdoms of Intrigue - OP14-049 - SR',
+    stock: 3,
     price: 3.59,
-    image: 'images/borsalino-op05-051-front.jpg',
-    backImage: 'images/borsalino-op05-051-back.jpg',
+    image: 'images/jinbe-op14-049-front.jpg',
+    backImage: 'images/jinbe-op14-049-back.jpg',
     category: 'One Piece',
-    description: 'Borsalino from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Special Card.',
-    details: 'Near Mint | Awakening of the New Era | OP05-051 | SR'
-  },
-  'basil-hawkins-op07-029': {
-    name: 'Basil Hawkins - 500 Years in the Future - OP07-029 - SR',
-    stock: 1,
-    price: 3.59,
-    image: 'images/basil-hawkins-op07-029-front.jpg',
-    backImage: 'images/basil-hawkins-op07-029-back.jpg',
-    category: 'One Piece',
-    description: 'Basil Hawkins from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | 500 Years in the Future | OP07-029 | SR'
+    description: 'Jinbe from One Piece OP14 Kingdoms of Intrigue set. Special Rare (SP).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP14-049 | SR'
   },
   'kaido-st04-003': {
     name: 'Kaido - Starter Deck 4 - ST04-003 - SR',
@@ -722,6 +358,386 @@ const products = {
     description: 'Kaido from One Piece ST04 Starter Deck 4 set. Super Rare (SR).',
     details: 'Near Mint | Starter Deck 4 | ST04-003 | SR'
   },
+  'kaido-op08-079': {
+    name: 'Kaido - Two Legends - OP08-079 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/kaido-op08-079-front.jpg',
+    backImage: 'images/kaido-op08-079-back.jpg',
+    category: 'One Piece',
+    description: 'Kaido from One Piece OP08 Two Legends set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Two Legends | OP08-079 | SR'
+  },
+  'kikunojo-eb04-012': {
+    name: 'Kikunojo - Memorial Collection - EB04-012 - SR',
+    stock: 4,
+    price: 2.69,
+    image: 'images/kikunojo-eb04-012-front.jpg',
+    backImage: 'images/kikunojo-eb04-012-back.jpg',
+    category: 'One Piece',
+    description: 'Kikunojo from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Memorial Collection | EB04-012 | SR'
+  },
+  'koala-op05-006': {
+    name: 'Koala - Awakening of the New Era - OP05-006 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/koala-op05-006-front.jpg',
+    backImage: 'images/koala-op05-006-back.jpg',
+    category: 'One Piece',
+    description: 'Koala from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Awakening of the New Era | OP05-006 | SR'
+  },
+  'kouzuki-oden-op02-030': {
+    name: 'Kouzuki Oden - Paramount War - OP02-030 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/kouzuki-oden-op02-030-front.jpg',
+    backImage: 'images/kouzuki-oden-op02-030-back.jpg',
+    category: 'One Piece',
+    description: 'Kouzuki Oden from One Piece OP02 Paramount War set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Paramount War | OP02-030 | SR'
+  },
+  'kyros-op10-046': {
+    name: 'Kyros - Royal Bloodlines - OP10-046 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/kyros-op10-046-front.jpg',
+    backImage: 'images/kyros-op10-046-back.jpg',
+    category: 'One Piece',
+    description: 'Kyros from One Piece OP10 Royal Bloodlines set. Super Rare (SR).',
+    details: 'Near Mint | Royal Bloodlines | OP10-046 | SR'
+  },
+  'marshall-d-teach-op09-093': {
+    name: 'Marshall D. Teach - OP09 - The New Era - OP09-093 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/marshall-d-teach-op09-093-front.jpg',
+    backImage: 'images/marshall-d-teach-op09-093-back.jpg',
+    category: 'One Piece',
+    description: 'Marshall D. Teach (Blackbeard) from One Piece OP09 set. Super Rare (SR).',
+    details: 'Near Mint | OP09 | OP09-093 | SR'
+  },
+  'monkey-d-dragon-op07-015': {
+    name: 'Monkey D. Dragon - 500 Years in the Future - OP07-015 - SR',
+    stock: 3,
+    price: 2.69,
+    image: 'images/monkey-d-dragon-op07-015-front.jpg',
+    backImage: 'images/monkey-d-dragon-op07-015-back.jpg',
+    category: 'One Piece',
+    description: 'Monkey D. Dragon from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | 500 Years in the Future | OP07-015 | SR'
+  },
+  'monkey-d-garp-op11-095': {
+    name: 'Monkey D. Garp - Awakening of the New Era - OP11-095 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/monkey-d-garp-op11-095-front.jpg',
+    backImage: 'images/monkey-d-garp-op11-095-back.jpg',
+    category: 'One Piece',
+    description: 'Monkey D. Garp from One Piece OP11 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Awakening of the New Era | OP11-095 | SR'
+  },
+  'monkey-d-garp-op11-056': {
+    name: 'Monkey D. Garp - Emperors in the New World - OP11-056 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/monkey-d-garp-op11-056-front.jpg',
+    backImage: 'images/monkey-d-garp-op11-056-back.jpg',
+    category: 'One Piece',
+    description: 'Monkey D. Garp from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
+    details: 'Near Mint | Emperors in the New World | OP11-056 | SR'
+  },
+  'monkey-d-luffy-op07-109': {
+    name: 'Monkey D. Luffy - 500 Years in the Future - OP07-109 - SR',
+    stock: 2,
+    price: 7.19,
+    image: 'images/monkey-d-luffy-op07-109-front.jpg',
+    backImage: 'images/monkey-d-luffy-op07-109-back.jpg',
+    category: 'One Piece',
+    description: 'Monkey D. Luffy from One Piece OP07 500 Years in the Future set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | 500 Years in the Future | OP07-109 | SR'
+  },
+  'monkey-d-luffy-op02-062': {
+    name: 'Monkey D. Luffy - Paramount War - OP02-062 - SR',
+    stock: 1,
+    price: 5.39,
+    image: 'images/monkey-d-luffy-op02-062-front.jpg',
+    backImage: 'images/monkey-d-luffy-op02-062-back.jpg',
+    category: 'One Piece',
+    description: 'Monkey D. Luffy from One Piece OP02 Paramount War set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Paramount War | OP02-062 | SR'
+  },
+  'mr2-eb01': {
+    name: 'Mr. 2 Bon Kurei - EB01-061 - Memorial Collection - SEC',
+    stock: 1,
+    price: 34.95,
+    image: '../images/mr2-front.jpg',
+    backImage: '../images/mr2-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'ms-all-sunday-op14-084': {
+    name: 'Ms. All Sunday - Kingdoms of Intrigue - OP14-084 - SR',
+    stock: 3,
+    price: 6.29,
+    image: 'images/ms-all-sunday-op14-084-front.jpg',
+    backImage: 'images/ms-all-sunday-op14-084-back.jpg',
+    category: 'One Piece',
+    description: 'Ms. All Sunday from One Piece OP14 Kingdoms of Intrigue set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Kingdoms of Intrigue | OP14-084 | SR'
+  },
+  'nami-op04-031': {
+    name: 'Nami - Kingdoms of Intrigue - OP04-031 - SP',
+    stock: 4,
+    price: 10.79,
+    image: 'images/nami-op04-031-front.jpg',
+    backImage: 'images/nami-op04-031-back.jpg',
+    category: 'One Piece',
+    description: 'Nami from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP04-031 | SP'
+  },
+  'nami-op11-054': {
+    name: 'Nami - OP11 - OP11-054 - SR',
+    stock: 2,
+    price: 4.49,
+    image: 'images/nami-op11-054-front.jpg',
+    backImage: 'images/nami-op11-054-back.jpg',
+    category: 'One Piece',
+    description: 'Nami from One Piece OP11 set. Super Rare (SR).',
+    details: 'Near Mint | OP11 | OP11-054 | SR'
+  },
+  'vivi-eb03': {
+    name: 'Nefeltari Vivi - EB03-024 - Heroines Edition - SR',
+    stock: 1,
+    price: 19.95,
+    image: '../images/vivi-front.jpg',
+    backImage: '../images/vivi-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'nefeltari-vivi-eb04-025': {
+    name: 'Nefeltari Vivi - Memorial Collection - EB04-025 - SR',
+    stock: 2,
+    price: 4.49,
+    image: 'images/nefeltari-vivi-eb04-025-front.jpg',
+    backImage: 'images/nefeltari-vivi-eb04-025-back.jpg',
+    category: 'One Piece',
+    description: 'Nefeltari Vivi from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Memorial Collection | EB04-025 | SR'
+  },
+  'perona-op04-033': {
+    name: 'Perona - Kingdoms of Intrigue - OP04-033 - SR',
+    stock: 2,
+    price: 8.99,
+    image: 'images/perona-op04-033-front.jpg',
+    backImage: 'images/perona-op04-033-back.jpg',
+    category: 'One Piece',
+    description: 'Perona from One Piece OP04 Kingdoms of Intrigue set. Special Rare (SP).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP04-033 | SR'
+  },
+  'pica-op05-032': {
+    name: 'Pica - Awakening of the New Era - OP05-032 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/pica-op05-032-front.jpg',
+    backImage: 'images/pica-op05-032-back.jpg',
+    category: 'One Piece',
+    description: 'Pica from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Awakening of the New Era | OP05-032 | SR'
+  },
+  'ace-op13': {
+    name: 'Portgas D. Ace - OP13-119 - Carrying On His Will - SEC',
+    stock: 1,
+    price: 9.95,
+    image: '../images/ace-op13-front.jpg',
+    backImage: '../images/ace-op13-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'ace-st15': {
+    name: 'Portgas D. Ace - ST15-005 - Illustration Box - Promo',
+    stock: 1,
+    price: 9.95,
+    image: '../images/ace-st15-front.jpg',
+    backImage: '../images/ace-st15-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'rebecca-op05-091': {
+    name: 'Rebecca - Awakening of the New Era - OP05-091 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/rebecca-op05-091-front.jpg',
+    backImage: 'images/rebecca-op05-091-back.jpg',
+    category: 'One Piece',
+    description: 'Rebecca from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Awakening of the New Era | OP05-091 | SR'
+  },
+  'roronoa-zoro-st29-014': {
+    name: 'Roronoa Zoro - Starter Deck 29 - ST29-014 - SR',
+    stock: 4,
+    price: 5.39,
+    image: 'images/roronoa-zoro-st29-014-front.jpg',
+    backImage: 'images/roronoa-zoro-st29-014-back.jpg',
+    category: 'One Piece',
+    description: 'Roronoa Zoro from One Piece ST29 Starter Deck 29 set. Super Rare (SR).',
+    details: 'Near Mint | Starter Deck 29 | ST29-014 | SR'
+  },
+  'rosinante-law-eb04-038': {
+    name: 'Rosinante & Law - Memorial Collection - EB04-038 - SR',
+    stock: 6,
+    price: 5.39,
+    image: 'images/rosinante-law-eb04-038-front.jpg',
+    backImage: 'images/rosinante-law-eb04-038-back.jpg',
+    category: 'One Piece',
+    description: 'Rosinante & Law from One Piece EB04 Memorial Collection set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Memorial Collection | EB04-038 | SR'
+  },
+  'sabo-op05-007': {
+    name: 'Sabo - Awakening of the New Era - OP05-007 - SR',
+    stock: 1,
+    price: 3.59,
+    image: 'images/sabo-op05-007-front.jpg',
+    backImage: 'images/sabo-op05-007-back.jpg',
+    category: 'One Piece',
+    description: 'Sabo from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Manga Rare.',
+    details: 'Near Mint | Awakening of the New Era | OP05-007 | SR'
+  },
+  'sabo-op05': {
+    name: 'Sabo - OP-05-007 - Illustration Box - Promo',
+    stock: 1,
+    price: 3.95,
+    image: '../images/sabo-front.jpg',
+    backImage: '../images/sabo-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'sanji-op11-051': {
+    name: 'Sanji - Emperors in the New World - OP11-051 - SR',
+    stock: 1,
+    price: 3.59,
+    image: 'images/sanji-op11-051-front.jpg',
+    backImage: 'images/sanji-op11-051-back.jpg',
+    category: 'One Piece',
+    description: 'Sanji from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
+    details: 'Near Mint | Emperors in the New World | OP11-051 | SR'
+  },
+  'shanks-op13-028': {
+    name: 'Shanks - 500 Years in the Future - OP13-028 - SR',
+    stock: 2,
+    price: 3.59,
+    image: 'images/shanks-op13-028-front.jpg',
+    backImage: 'images/shanks-op13-028-back.jpg',
+    category: 'One Piece',
+    description: 'Shanks from One Piece OP13 500 Years in the Future set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | 500 Years in the Future | OP13-028 | SR'
+  },
+  'shanks-st16-004': {
+    name: 'Shanks - Starter Deck 16 - ST16-004 - SR',
+    stock: 1,
+    price: 5.39,
+    image: 'images/shanks-st16-004-front.jpg',
+    backImage: 'images/shanks-st16-004-back.jpg',
+    category: 'One Piece',
+    description: 'Shanks from One Piece ST16 Starter Deck 16 set. Super Rare (SR).',
+    details: 'Near Mint | Starter Deck 16 | ST16-004 | SR'
+  },
+  'shanks-op09-004': {
+    name: 'Shanks - The New Era - OP09-004 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/shanks-op09-004-front.jpg',
+    backImage: 'images/shanks-op09-004-back.jpg',
+    category: 'One Piece',
+    description: 'Shanks from One Piece OP09 The New Era set. Super Rare (SR).',
+    details: 'Near Mint | The New Era | OP09-004 | SR'
+  },
+  'shanks-op06-007': {
+    name: 'Shanks - Wings of the Captain - OP06-007 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/shanks-op06-007-front.jpg',
+    backImage: 'images/shanks-op06-007-back.jpg',
+    category: 'One Piece',
+    description: 'Shanks - Wings of the Captain - OP06-007 - SR',
+    details: 'Near Mint'
+  },
+  'rayleigh-op08': {
+    name: 'Silvers Rayleigh - OP08-118 - Two Legends - SEC',
+    stock: 1,
+    price: 9.95,
+    image: '../images/rayleigh-front.jpg',
+    backImage: '../images/rayleigh-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'silvers-rayleigh-op13-066': {
+    name: 'Silvers Rayleigh - 500 Years in the Future - OP13-066 - SR',
+    stock: 4,
+    price: 2.69,
+    image: 'images/silvers-rayleigh-op13-066-front.jpg',
+    backImage: 'images/silvers-rayleigh-op13-066-back.jpg',
+    category: 'One Piece',
+    description: 'Silvers Rayleigh from One Piece OP13 500 Years in the Future set. Super Rare (SR).',
+    details: 'Near Mint | 500 Years in the Future | OP13-066 | SR'
+  },
+  'stussy-op13-110': {
+    name: 'Stussy - 500 Years in the Future - OP13-110 - SR',
+    stock: 3,
+    price: 2.69,
+    image: 'images/stussy-op13-110-front.jpg',
+    backImage: 'images/stussy-op13-110-back.jpg',
+    category: 'One Piece',
+    description: 'Stussy from One Piece OP13 500 Years in the Future set. Super Rare (SR).',
+    details: 'Near Mint | 500 Years in the Future | OP13-110 | SR'
+  },
+  'trafalgar-law-op04-009': {
+    name: 'Trafalgar Law - Kingdoms of Intrigue - OP04-009 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/trafalgar-law-op04-009-front.jpg',
+    backImage: 'images/trafalgar-law-op04-009-back.jpg',
+    category: 'One Piece',
+    description: 'Trafalgar Law from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Kingdoms of Intrigue | OP04-009 | SR'
+  },
+  'trafalgar-law-prb01-002': {
+    name: 'Trafalgar Law - Premium Booster One - PRB01-002 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/trafalgar-law-prb01-002-front.jpg',
+    backImage: 'images/trafalgar-law-prb01-002-back.jpg',
+    category: 'One Piece',
+    description: 'Trafalgar Law from One Piece PRB01 Premium Booster One set. Super Rare (SR).',
+    details: 'Near Mint | Premium Booster One | PRB01-002 | SR'
+  },
+  'uta-eb03': {
+    name: 'Uta - EB03-003 - Heroines Edition - SR',
+    stock: 1,
+    price: 5.95,
+    image: '../images/uta-front.jpg',
+    backImage: '../images/uta-back.jpg',
+    category: 'One Piece',
+    description: 'Ships with protected packaging',
+    details: 'Near Mint'
+  },
+  'uta-op05-023': {
+    name: 'Uta - Wings of the Captain - OP05-023 - SR',
+    stock: 1,
+    price: 4.49,
+    image: 'images/uta-op05-023-front.jpg',
+    backImage: 'images/uta-op05-023-back.jpg',
+    category: 'One Piece',
+    description: 'Uta from One Piece OP05 Wings of the Captain set. Super Rare (SR) Alternate Art.',
+    details: 'Near Mint | Wings of the Captain | OP05-023 | SR'
+  },
   'vinsmoke-judge-op06-062': {
     name: 'Vinsmoke Judge - Wings of the Captain - OP06-062 - SR',
     stock: 1,
@@ -732,45 +748,45 @@ const products = {
     description: 'Vinsmoke Judge from One Piece OP06 Wings of the Captain set. Super Rare (SR).',
     details: 'Near Mint | Wings of the Captain | OP06-062 | SR'
   },
-  'shanks-op13-028': {
-    name: 'Shanks - Pillars of Strength - OP13-028 - SR',
-    stock: 2,
-    price: 3.59,
-    image: 'images/shanks-op13-028-front.jpg',
-    backImage: 'images/shanks-op13-028-back.jpg',
-    category: 'One Piece',
-    description: 'Shanks from One Piece OP03 Pillars of Strength set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Pillars of Strength | OP13-028 | SR'
-  },
-  'dracule-mihawk-op01-070': {
-    name: 'Dracule Mihawk - Romance Dawn - OP01-070 - SR',
+  'reiju-eb03': {
+    name: 'Vinsmoke Reiju - EB03-031 - Heroines Edition - SR',
     stock: 1,
-    price: 6.29,
-    image: 'images/dracule-mihawk-op01-070-front.jpg',
-    backImage: 'images/dracule-mihawk-op01-070-back.jpg',
-    category: 'One Piece',
-    description: 'Dracule Mihawk from One Piece OP01 Romance Dawn set. Super Rare (SR).',
-    details: 'Near Mint | Romance Dawn | OP01-070 | SR'
-  },
-  'kouzuki-oden-op02-030': {
-    name: 'Kouzuki Oden - Paramount War - OP02-030 - SR',
-    stock: 1,
-    price: 4.49,
-    image: 'images/kouzuki-oden-op02-030-front.jpg',
-    backImage: 'images/kouzuki-oden-op02-030-back.jpg',
-    category: 'One Piece',
-    description: 'Kouzuki Oden from One Piece OP12 Awakening of the New Era set. Super Rare (SR) Alternate Art.',
-    details: 'Near Mint | Paramount War | OP02-030 | SR'
-  },
-  'mihawk-op14': {
-    name: 'Dracule Mihawk - OP14-119 - The Azure Sea Seven - SR',
-    stock: 2,
-    price: 12.95,
-    image: 'images/mihawk-front.jpg',
-    backImage: 'images/mihawk-back.jpg',
+    price: 17.95,
+    image: '../images/reiju-front.jpg',
+    backImage: '../images/reiju-back.jpg',
     category: 'One Piece',
     description: 'Ships with protected packaging',
-    details: 'Ungraded - Near Mint or Better'
+    details: 'Near Mint'
+  },
+  'yamato-op03-054': {
+    name: 'Yamato - Pillars of Strength - OP03-054 - SR',
+    stock: 5,
+    price: 2.69,
+    image: 'images/yamato-op03-054-front.jpg',
+    backImage: 'images/yamato-op03-054-back.jpg',
+    category: 'One Piece',
+    description: 'Yamato from One Piece OP03 Pillars of Strength set. Super Rare (SR).',
+    details: 'Near Mint | Pillars of Strength | OP03-054 | SR'
+  },
+  'capone-gang-bege-op04-101': {
+    name: 'Capone Gang Bege - Kingdoms of Intrigue - OP04-101 - SR',
+    stock: 3,
+    price: 2.69,
+    image: 'images/capone-gang-bege-op04-101-front.jpg',
+    backImage: 'images/capone-gang-bege-op04-101-back.jpg',
+    category: 'One Piece',
+    description: 'Capone Gang Bege from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP04-101 | SR'
+  },
+  'perona-op12-034': {
+    name: 'Perona - Awakening of the New Era - OP12-034 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/perona-op12-034-new-front.jpg',
+    backImage: 'images/perona-op12-034-new-back.jpg',
+    category: 'One Piece',
+    description: 'Perona from One Piece OP12 Awakening of the New Era set. Super Rare (SR).',
+    details: 'Near Mint | Awakening of the New Era | OP12-034 | SR'
   }
 };
 
@@ -798,318 +814,122 @@ function loadProduct() {
         <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
       </div>
       <div class="product-detail-info">
-        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:-20px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
-        
-        <h1 class="product-detail-name" style="margin-top:15px;">${product.name}</h1>
-        <div class="product-detail-price">$${product.price.toFixed(2)}</div>
-        <p style="color:#666;margin-bottom:10px;">Shipping calculated at checkout</p>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
-          <span style="font-weight:normal;">Quantity:</span>
-          <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;color:#000;">-</button>
-            <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
-            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;color:#000;">+</button>
-          </div>
-        </div>
-        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:3px;margin-bottom:15px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
+        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:-20px;margin-bottom:15px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
+        <h1 class="product-detail-name">${product.name}</h1>
+        <p class="product-detail-price">$${product.price.toFixed(2)}</p>
         <div class="product-detail-meta">
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;">Product Description +</h3>
-          <div style="display:none;margin:10px 0;">
-          <p>${product.description}</p>
-          </div>
-          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:10px;">Item Details +</h3>
-          <div style="display:none;margin:10px 0;">
-          <ul style="padding-left:20px;margin:10px 0;">
-            ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
-          </ul>
-          </div>
+          <p><strong>Condition:</strong> ${product.details || 'Near Mint'}</p>
+          ${product.category ? '<p><strong>Category:</strong> ' + product.category + '</p>' : ''}
         </div>
+        <div style="margin-bottom:1rem;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+            <input type="checkbox" id="want-back" onchange="updateImage()"> <span style="font-size:0.9rem;">I want the back image</span>
+          </label>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:1rem;">
+          <button onclick="updateQty(-1)" style="width:30px;height:30px;font-size:1.2rem;background:#000;color:#fff;border:none;border-radius:5px;cursor:pointer;">-</button>
+          <span id="qty-display" style="font-size:1.1rem;">1</span>
+          <button onclick="updateQty(1)" style="width:30px;height:30px;font-size:1.2rem;background:#000;color:#fff;border:none;border-radius:5px;cursor:pointer;">+</button>
+        </div>
+        <button onclick="addToCart('${product.id}', '${product.name.replace(/'/g, "\'")}', ${product.price}, product.stock)" style="width:100%;padding:15px;background:#FC4C02;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:bold;">Add to Cart</button>
       </div>
     </div>
-  </div>
-  
-  <!-- You might also like - separate box -->
-  <div style="margin-top:1.5rem;padding:1.5rem;background:#ffffff;border-radius:10px;">
-    <h2 style="font-size:1.3rem;margin-bottom:1rem;">You might also like</h2>
-    <div id="related-products" style="display:flex;gap:16px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;"></div><div id="scroll-line" style="width:50px;background:#27ae60;height:4px;border-radius:2px;margin:15px 0 0 0;transition:none;"></div>
-  </div>
+    ${product.description ? '<div style="margin-top:2rem;padding:1rem;background:#f9f9f9;border-radius:8px;"><h3>Description</h3><p>' + product.description + '</p></div>' : ''}
   `;
   
-  document.title = product.name + ' - Fancy Cardboard Store';
-  
-  // Load related products
-  loadRelatedProducts(product.category, product.name);
+  window.currentQty = 1;
+  window.maxQty = product.stock || 1;
 }
 
-function setupScrollLine() {
-  const container = document.getElementById("related-products");
-  const scline = document.getElementById("scroll-line");
-  if (container && scline) {
-    let scrolling = false;
-    const updscroll = () => {
-      if (!scrolling) {
-        requestAnimationFrame(() => {
-          const maxScroll = container.scrollWidth - container.clientWidth;
-          const scrolled = container.scrollLeft;
-          if (maxScroll > 0) {
-            var pct = scrolled / maxScroll;
-scline.style.marginLeft = Math.round(pct * 70) + "%"; scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 10) + "%";
-scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 70) + "%";
-          } else {
-            scline.style.marginLeft = "0%";
-          }
-          scrolling = false;
-        });
-        scrolling = true;
-      }
-    };
-    container.addEventListener("scroll", updscroll, { passive: true });
-    setTimeout(updscroll, 100);
+function updateQty(delta) {
+  window.currentQty = Math.max(1, Math.min(window.maxQty, window.currentQty + delta));
+  document.getElementById('qty-display').textContent = window.currentQty;
+}
+
+function updateImage() {
+  const img = document.getElementById('product-img');
+  const checkbox = document.getElementById('want-back');
+  if (img && checkbox) {
+    if (checkbox.checked && img.dataset.backImage) {
+      img.src = img.dataset.backImage;
+    } else {
+      img.src = img.src.replace('-back', '-front');
+    }
   }
 }
 
-function loadRelatedProducts(category, currentName) {
-  const container = document.getElementById('related-products');
-  const scline = document.getElementById('scroll-line');
-  if (container && scline) {
-    const updscroll = () => {
-      const mx = container.scrollWidth - container.clientWidth;
-      const sc = container.scrollLeft;
-      if (mx > 0) {
-        scline.style.marginLeft = (sc / mx * 80) + '%';
-      } else {
-        scline.style.marginLeft = '0%';
-      }
-    };
-    container.addEventListener('scroll', updscroll);
-    updscroll();
-  }
-  if (!container) return;
+// Photo dots functionality
+function updateDots(index) {
+  const dots = document.querySelectorAll('#photo-dots span');
+  dots.forEach((dot, i) => {
+    dot.style.background = i === index ? '#FC4C02' : '#ccc';
+  });
+}
+
+// Simple swipe detection
+document.addEventListener('DOMContentLoaded', function() {
+  const img = document.getElementById('product-img');
+  if (!img) return;
   
-  // Find products in same category (excluding current)
-  const related = Object.entries(products)
-    .filter(([id, p]) => p.category === category && p.name !== currentName)
-    .slice(0, 4);
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let showingFront = true;
   
-  if (related.length === 0) {
-    container.innerHTML = '<p>No related products found.</p>';
-    return;
-  }
+  img.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
   
-  // Add scroll listener to update indicator
-  const indicator = document.getElementById('scroll-indicator');
-  if (indicator) {
-    const updateIndicator = () => {
+  img.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      // Swipe left - show back
+      if (img.dataset.backImage && showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); img.src = img.dataset.backImage; showingFront = false; updateDots(1); }
+    } else if (touchEndX - touchStartX > 50) {
+      // Swipe right - show front
+      if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; updateDots(0); }
+    }
+  });
+  
+  // Click to toggle
+  img.addEventListener('click', function() {
+    if (img.dataset.backImage) {
+      if (showingFront) { img.src = img.dataset.backImage; showingFront = false; updateDots(1); }
+      else { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; updateDots(0); }
+    }
+  });
+});
+
+// Scroll indicator for related products
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.related-products-scroll');
+  const indicator = document.querySelector('.scroll-indicator');
+  
+  if (container && indicator) {
+    function updateIndicator() {
       const maxScroll = container.scrollWidth - container.clientWidth;
       const scrolled = container.scrollLeft;
       if (maxScroll > 0) {
         const pct = scrolled / maxScroll;
-        // Move from left (0%) to right (calc(100% - indicator width))
         indicator.style.marginLeft = (pct * 80) + '%';
       } else {
         indicator.style.marginLeft = '0%';
       }
-    };
+    }
     let ticking = false;
-  container.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateIndicator();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-    updateIndicator();
-  }
-container.addEventListener('scroll', function() {
-  const maxScroll = container.scrollWidth - container.clientWidth;
-  const scrolled = container.scrollLeft;
-  
-});
-
-container.innerHTML = related.map(([id, p]) => 
-    '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#ffffff;border:1px solid #ccc;border-radius:12px;padding:12px;text-decoration:none;color:inherit;box-shadow:none;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
-      '<div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;scrollbar-track-color:transparent;max-height:120px;object-fit:contain;"></div>' +
-      '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
-      '<div style="display:flex;flex-direction:column;gap:8px;">' +
-        '<div style="color:#FC4C02;font-weight:800;font-size:1.2rem;">$' + p.price.toFixed(2) + '</div>' +
-        
-      '</div>' +
-    '</a>'
-  ).join(''); setupScrollLine();
-}
-
-function addToCart(name, price, qty) {
-  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  let quantity = qty || 1;
-  
-  // Check stock limit
-  let currentQty = 0;
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].name === name) {
-      currentQty = cart[i].quantity || 0;
-    }
-  }
-  
-  // Find product stock
-  let maxStock = 0;
-  for (let [id, p] of Object.entries(products)) {
-    if (p.name === name) {
-      maxStock = p.stock;
-      break;
-    }
-  }
-  
-  if (currentQty + quantity > maxStock) {
-    alert('Only ' + maxStock + ' available! You already have ' + currentQty + ' in your cart.');return;
-    return;
-  }
-  
-  let found = false;
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].name === name) {
-      cart[i].quantity = (cart[i].quantity || 1) + quantity;
-      found = true;
-      break;
-    }
-  }
-  if (!found) {
-    cart.push({name: name, price: price, quantity: quantity});
-  }
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert(name + ' added to cart!');
-  updateCartCount();
-  updateCartCount();
-  
-}
-
-function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
-function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
-
-function togglePokemonSubs(e) { e.preventDefault(); var el = document.getElementById('nav-pokemon-subs'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
-function toggleOnePieceSubs(e) { e.preventDefault(); var el = document.getElementById('nav-op-subs'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
-function toggleLorcanaSubs(e) { e.preventDefault(); var el = document.getElementById('nav-lorcana-subs'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
-function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
-function searchProducts() {
-  let query = document.getElementById('search-input').value.toLowerCase();
-  let results = document.getElementById('search-results');
-  
-  const products = [
-    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
-    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
-  ];
-  
-  if (query.length < 2) {
-    results.innerHTML = '';
-    return;
-  }
-  
-  let matches = products.filter(p => p.name.toLowerCase().includes(query));
-  
-  if (matches.length === 0) {
-    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
-  } else {
-    results.innerHTML = matches.map(p => 
-      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
-    ).join(''); setupScrollLine();
-  }
-}
-
-function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElementById('searchDropdown'); dropdown.style.display = dropdown.style.display === 'none' || !dropdown.style.display ? 'block' : 'none'; }
-function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
-
-loadProduct();
-updateCartCount();
-
-// Add zoom and swipe functionality to product image
-document.addEventListener('DOMContentLoaded', function() {
-  const img = document.getElementById('product-img');
-  if (img && img.dataset.backImage) {
-    let touchStartX = 0;
-    let touchEndX = 0;
-    function updateDots(idx) {
-  var d = document.getElementById("photo-dots");
-  if (d && d.children) {
-    d.children[0].style.background = idx === 0 ? "#FC4C02" : "#ccc";
-    d.children[1].style.background = idx === 1 ? "#FC4C02" : "#ccc";
-  }
-}
-updateDots(0);
-
-let showingFront = true; updateDots(0);
-    
-    // Click to zoom
-    img.addEventListener('click', function(e) {
-      const overlay = document.createElement('div');
-      overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;cursor:zoom-out;';
-      const zoomImg = document.createElement('img');
-      zoomImg.src = img.src;
-      zoomImg.style.cssText = 'max-width:90%;max-height:90%;object-fit:contain;';
-      overlay.appendChild(zoomImg);
-      document.body.appendChild(overlay);
-      overlay.addEventListener('click', function() { overlay.remove(); });
-    });
-    
-    // Swipe to swap images
-    img.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-    img.addEventListener('touchend', function(e) {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) {
-        // Swipe left - show back
-        if (showingFront) { img.src = img.dataset.backImage; showingFront = false; updateDots(1); }
-      } else if (touchEndX - touchStartX > 50) {
-        // Swipe right - show front
-        if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; updateDots(0); }
+    container.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateIndicator();
+          ticking = false;
+        });
+        ticking = true;
       }
     });
-  },
-  'capone-gang-bege-op04-101': {
-    name: 'Capone Gang Bege - Kingdoms of Intrigue - OP04-101 - SR',
-    stock: 3,
-    price: 2.69,
-    image: 'images/capone-gang-bege-op04-101-front.jpg',
-    backImage: 'images/capone-gang-bege-op04-101-back.jpg',
-    category: 'One Piece',
-    description: 'Capone Gang Bege from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
-    details: 'Near Mint | Kingdoms of Intrigue | OP04-101 | SR'
-  },
+    updateIndicator();
+  }
+});
 
-  'monkey-d-garp-op11-056': {
-    name: 'Monkey D. Garp - Emperors in the New World - OP11-056 - SR',
-    stock: 1,
-    price: 2.69,
-    image: 'images/monkey-d-garp-op11-056-front.jpg',
-    backImage: 'images/monkey-d-garp-op11-056-back.jpg',
-    category: 'One Piece',
-    description: 'Monkey D. Garp from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
-    details: 'Near Mint | Emperors in the New World | OP11-056 | SR'
-  },
-
-  'gol-d-roger-op13-064': {
-    name: 'Gol D. Roger - OP13 - OP13-064 - SR',
-    stock: 1,
-    price: 3.59,
-    image: 'images/gol-d-roger-op13-064-front.jpg',
-    backImage: 'images/gol-d-roger-op13-064-back.jpg',
-    category: 'One Piece',
-    description: 'Gol D. Roger from One Piece OP13 set. Super Rare (SR).',
-    details: 'Near Mint | OP13 | OP13-064 | SR'
-  },
-
-  'ace-sabo-luffy-op13-007': {
-    name: 'Ace Sabo Luffy - OP13 - OP13-007 - SR',
-    stock: 1,
-    price: 8.09,
-    image: 'images/ace-sabo-luffy-op13-007-front.jpg',
-    backImage: 'images/ace-sabo-luffy-op13-007-back.jpg',
-    category: 'One Piece',
-    description: 'Ace & Sabo & Luffy from One Piece OP13 set. Super Rare (SR).',
-    details: 'Near Mint | OP13 | OP13-007 | SR'
-  },
-
+loadProduct();
 </script>
 </body>
 </html>
