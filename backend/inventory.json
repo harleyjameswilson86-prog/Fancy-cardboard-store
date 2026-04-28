@@ -883,5 +883,18 @@
     "backImage": "images/capone-gang-bege-op04-101-back.jpg",
     "description": "Capone Gang Bege from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).",
     "details": "Near Mint | Kingdoms of Intrigue | OP04-101 | SR"
+  },
+  {
+    "id": "perona-op12-034",
+    "name": "Perona - Awakening of the New Era - OP12-034 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 2.69,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/perona-op12-034-new-front.jpg",
+    "backImage": "images/perona-op12-034-new-back.jpg",
+    "description": "Perona from One Piece OP12 Awakening of the New Era set. Super Rare (SR).",
+    "details": "Near Mint | Awakening of the New Era | OP12-034 | SR"
   }
 ]
