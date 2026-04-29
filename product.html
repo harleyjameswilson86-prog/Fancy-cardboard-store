@@ -98,8 +98,30 @@
 </div>
 </footer>
 <script>
-window.onload = function() {
-  document.getElementById("product-content").innerHTML = "<h1>JavaScript IS running!</h1><p>If you see this, the script executed.</p>";
+const products = {
+  'ace-sabo-luffy-op13-007': {
+    name: 'Ace Sabo Luffy - OP13-007 - SR',
+    price: 8.09,
+    image: 'images/ace-sabo-luffy-op13-007-front.jpg'
+  }
 };
+
+function getUrlParam(name) {
+  const params = new URLSearchParams(location.search);
+  return params.get(name);
+}
+
+function loadProduct() {
+  const id = getUrlParam('id');
+  const product = products[id];
+  const el = document.getElementById('product-content');
+  if (!product) {
+    el.innerHTML = '<p>Product not found</p>';
+    return;
+  }
+  el.innerHTML = '<h2>' + product.name + '</h2><p>$' + product.price.toFixed(2) + '</p>';
+}
+
+loadProduct();
 </script></body>
 </html>
