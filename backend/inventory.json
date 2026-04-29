@@ -26,6 +26,19 @@
     "details": "Near Mint | 500 Years in the Future | OP07-029 | SR"
   },
   {
+    "id": "black-maria-op08-074",
+    "name": "Black Maria - Two Legends - OP08-074 - Alternate Art",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 7.0,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/black-maria-op08-074-front.jpg",
+    "backImage": "images/black-maria-op08-074-back.jpg",
+    "description": "Black Maria from One Piece OP08 Two Legends set. Alternate Art.",
+    "details": "Near Mint | Two Legends | OP08-074 | Alternate Art"
+  },
+  {
     "id": "boa-hancock-op14-112",
     "name": "Boa Hancock - The Azure Sea's Seven - OP14-112 - SR",
     "category": "One Piece",
@@ -155,6 +168,19 @@
     "backImage": "images/cavendish-memorial-eb01-012-back.jpg",
     "showBadge": true,
     "quantity": 1
+  },
+  {
+    "id": "charlotte-cracker-op03-108",
+    "name": "Charlotte Cracker - Pillars of Strength - OP03-108 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.0,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/charlotte-cracker-op03-108-front.jpg",
+    "backImage": "images/charlette-cracker-op03-108-back.jpg",
+    "description": "Charlotte Cracker from One Piece OP03 Pillars of Strength set. Super Rare (SR).",
+    "details": "Near Mint | Pillars of Strength | OP03-108 | SR"
   },
   {
     "id": "clefairy-001",
@@ -808,6 +834,19 @@
     "backImage": "images/sanji-op11-051-back.jpg",
     "description": "Sanji from One Piece OP11 Emperors in the New World set. Super Rare (SR).",
     "details": "Near Mint | Emperors in the New World | OP11-051 | SR"
+  },
+  {
+    "id": "sanji-op04-104",
+    "name": "Sanji - Kingdoms of Intrigue - OP04-104 - SR",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 4.0,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/sanji-op04-104-front.jpg",
+    "backImage": "images/sanji-op04-104-back.jpg",
+    "description": "Sanji from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).",
+    "details": "Near Mint | Kingdoms of Intrigue | OP04-104 | SR"
   },
   {
     "id": "shanks-op13-028",
