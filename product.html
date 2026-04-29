@@ -98,7 +98,7 @@
 </div>
 </footer>
 <script>
-const products = {
+console.log("products loaded:", Object.keys(products).length); const products = {
   'ace-sabo-luffy-op13-007': {
     name: 'Ace Sabo Luffy - Carrying On His Will - OP13-007 - SR',
     stock: 1,
@@ -916,7 +916,7 @@ function getUrlParam(name) {
   return params.get(name);
 }
 
-function loadProduct() {
+function loadProduct() { console.log("loadProduct called, id:", getUrlParam("id"));
   const productId = getUrlParam('id');
   const product = products[productId] || Object.values(products).find(p => p.name === decodeURIComponent(productId));
   const content = document.getElementById('product-content');
