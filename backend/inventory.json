@@ -706,6 +706,19 @@
     "description": "Ships with protected packaging"
   },
   {
+    "id": "sakazuki-op02-099",
+    "name": "Sakazuki - Paramount War - OP02-099 - Alternate Art",
+    "category": "One Piece",
+    "type": "singles",
+    "price": 3.0,
+    "stock": 1,
+    "quantity": 1,
+    "image": "images/sakazuki-op02-099-front.jpg",
+    "backImage": "images/sakazuki-op02-099-back.jpg",
+    "description": "Sakazuki (Akainu) from One Piece OP02 Paramount War set. Alternate Art.",
+    "details": "Near Mint | Paramount War | OP02-099 | Alternate Art"
+  },
+  {
     "id": "sanji-op11-051",
     "name": "Sanji - A Fist of Divine Speed - OP11-051 - SR",
     "category": "One Piece",
