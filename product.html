@@ -911,6 +911,13 @@ const products = {
     details: 'Near Mint | 500 Years in the Future | OP13-054 | SR'
   }
 };
+
+// Debug: Check products
+console.log("Products loaded:", Object.keys(products).length);
+var testProd = products['ace-sabo-luffy-op13-007'];
+console.log("Test product:", testProd ? "Found " + testProd.name : "Not found");
+document.getElementById("product-content").innerHTML = "<p>Found " + Object.keys(products).length + " products in memory</p>";
+
 function getUrlParam(name) {
   const params = new URLSearchParams(location.search);
   return params.get(name);
