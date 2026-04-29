@@ -3,42 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/harleyjameswilson86-prog/Fancy-cardboard-store/main/favicon.png"">
 <title>Product - Fancy Cardboard Store</title>
+<link rel="stylesheet" href="style.css">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #fff; color: #000; line-height: 1.5; }
-.header { background: #000; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-.header a { color: #fff; text-decoration: none; margin-left: 15px; font-size: 0.95rem; }
-.logo { font-size: 1.2rem; font-weight: bold; letter-spacing: 0.5px; }
-.max-width { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-.product-page { display: flex; gap: 40px; padding: 30px 20px; flex-wrap: wrap; }
-.product-image { flex: 1; min-width: 300px; }
-.product-image img { width: 100%; max-width: 400px; border-radius: 12px; display: block; }
-.product-details { flex: 1; min-width: 300px; padding-top: 10px; }
-.product-title { font-size: 1.4rem; line-height: 1.3; margin-bottom: 10px; font-weight: 600; }
-.product-price { font-size: 1.5rem; color: #FC4C02; font-weight: bold; margin-bottom: 15px; }
-.meta-info { font-size: 0.9rem; color: #555; margin-bottom: 20px; }
-.meta-info p { margin: 4px 0; }
-.cta-btn { width: 100%; padding: 16px; background: #FC4C02; color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; }
-.cta-btn:hover { background: #e04400; }
-.loading { text-align: center; padding: 60px 20px; font-size: 1.2rem; color: #666; }
-.error { text-align: center; padding: 60px 20px; color: #d00; }
-.error a { color: #FC4C02; }
-.photo-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
-.photo-dots span { width: 8px; height: 8px; border-radius: 50%; }
-@media (max-width: 768px) { .product-page { flex-direction: column; gap: 25px; padding: 20px; } }
+.product-detail { max-width: 800px; margin: 2rem auto; padding: 0 5%; }
+.product-detail-container { display: flex; flex-wrap: wrap; gap: 2rem; background: #fff; padding: 2rem; border-radius: 10px; }
+.product-detail-image { flex: 1; min-width: 100%; }
+.product-detail-image img { width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px; }
+.product-detail-info { flex: 1; min-width: 100%; }
+.product-detail-badge { display: inline-block; background: #ff9f1c; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
+.product-detail-name { font-size: 1.4rem; text-align: left; margin-bottom: 20px; color: var(--dark); }
+.product-detail-price { font-size: 1.5rem; text-align: left; color: #FC4C02; font-weight: bold; margin-bottom: 1rem; }
+.product-detail-meta { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+.product-detail-meta p { margin: 0.5rem 0; color: #555; }
+.back-btn { display: inline-block; margin-bottom: 1rem; color: #666; text-decoration: none; }
 </style>
 </head>
 <body>
-<div class="header">
-<div class="max-width" style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-<div class="logo"><a href="index.html">Fancy Cardboard Store</a></div>
-<nav><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="cart.html">Cart</a></nav>
+<header class="main-header">
+<div class="header-left">
+<span class="hamburger" onclick="toggleMenu()">☰</span>
+<a href="index.html"><img src="logo.png" alt="Fancy Cardboard" style="height:70px;margin-left:0px;margin-top:8px;"/></a>
 </div>
+<div class="header-right">
+<a href="#" class="search-icon" onclick="toggleSearch(event)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
+<a href="cart.html" class="cart-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <span id="cart-count" style="display:none;">0</span>
+</a>
 </div>
-<div class="max-width">
-<div id="content"><p class="loading">Loading...</p></div>
+<div class="search-dropdown" id="searchDropdown">
+<input type="text" id="search-input" placeholder="Search products..." onkeyup="searchProducts()" style="width:100%;padding:12px 20px;border:2px solid #000;border-radius:50px;font-size:1rem;box-sizing:border-box;">
+<div id="search-results"></div>
 </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+<a href="index.html">Home</a>
+<a href="#" onclick="toggleNavCategories(event)">Categories</a>
+<div id="nav-categories" style="display:none;">
+<a href="shop-pokemon-singles.html" style="padding-left:20px;" onclick="togglePokemonSubs(event)">Pokémon TCG</a>
+<div id="nav-pokemon-subs" style="display:none;padding-left:40px;">
+<a href="shop-pokemon-sealed.html">Sealed Products</a>
+<a href="shop-pokemon-singles.html">Single Cards</a>
+<a href="shop-pokemon-graded.html">Graded Cards</a>
+</div>
+<a href="shop-onepiece-singles.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">One Piece</a>
+<div id="nav-op-subs" style="display:none;padding-left:40px;">
+<a href="shop-onepiece-sealed.html">Sealed Products</a>
+<a href="shop-onepiece-singles.html">Single Cards</a>
+<a href="shop-onepiece-graded.html">Graded Cards</a>
+</div>
+<a href="shop-lorcana-singles.html" style="padding-left:20px;" onclick="toggleLorcanaSubs(event)">Disney Lorcana</a>
+<div id="nav-lorcana-subs" style="display:none;padding-left:40px;">
+<a href="shop-lorcana-sealed.html">Sealed Products</a>
+<a href="shop-lorcana-singles.html">Single Cards</a>
+<a href="shop-lorcana-graded.html">Graded Cards</a>
+</div>
+
+</div>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+<main class="product-detail">
+<div id="product-content">Loading...</div>
+</main>
+<footer class="main-footer">
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Useful Links +</h3>
+<ul>
+<li><a href="shipping.html">Shipping Policy</a></li>
+<li><a href="pickup.html">Pickup Policy</a></li>
+<li><a href="refund.html">Refund Policy</a></li>
+<li><a href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Must Read +</h3>
+<ul>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="cancellation.html">Cancellation Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 onclick="toggleFooter(this)">Contact Us +</h3>
+<ul>
+<li><a href="mailto:hello@fancycardboardstore.com">hello@fancycardboardstore.com</a></li>
+</ul>
+</div>
+<div class="footer-bottom">
+<p>Australia | AUD $</p>
+<p>&copy; 2026 Fancy Cardboard Store</p>
+<p style="color:#666;font-size:0.85rem">ABN: 72 461 291 719</p>
+</div>
+</footer>
 <script>
 const products = {
   'ace-sabo-luffy-op13-007': {
@@ -48,7 +106,7 @@ const products = {
     image: 'images/ace-sabo-luffy-op13-007-front.jpg',
     backImage: 'images/ace-sabo-luffy-op13-007-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ace & Sabo & Luffy from One Piece OP13 set. Super Rare (SR).',
     details: 'Near Mint | OP13 | OP13-007 | SR'
   },
   'basil-hawkins-op07-029': {
@@ -58,7 +116,7 @@ const products = {
     image: 'images/basil-hawkins-op07-029-front.jpg',
     backImage: 'images/basil-hawkins-op07-029-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Basil Hawkins from One Piece OP07 500 Years in the Future set..',
     details: 'Near Mint | 500 Years in the Future | OP07-029 | SR'
   },
   'black-maria-op08-074': {
@@ -68,7 +126,7 @@ const products = {
     image: 'images/black-maria-op08-074-front.jpg',
     backImage: 'images/black-maria-op08-074-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Black Maria from One Piece OP08 Two Legends set. Super Rare (SR).',
     details: 'Near Mint | Two Legends | OP08-074 | SR'
   },
   'boa-hancock-op14-112': {
@@ -78,7 +136,7 @@ const products = {
     image: 'images/boa-hancock-op14-112-front.jpg',
     backImage: 'images/boa-hancock-op14-112-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Boa Hancock from One Piece OP14 Kingdoms of Intrigue set. Super Rare (SP).',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-112 | SR'
   },
   'boa-hancock-prb02-017': {
@@ -88,7 +146,7 @@ const products = {
     image: 'images/boa-hancock-prb02-017-front.jpg',
     backImage: 'images/boa-hancock-prb02-017-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Boa Hancock - Premium Booster Vol. 2 - PRB02-017 - SR',
     details: 'Near Mint'
   },
   'borsalino-op05-051': {
@@ -98,7 +156,7 @@ const products = {
     image: 'images/borsalino-op05-051-front.jpg',
     backImage: 'images/borsalino-op05-051-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Borsalino from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Special Card.',
     details: 'Near Mint | Awakening of the New Era | OP05-051 | SR'
   },
   'borsalino-op02-114': {
@@ -108,7 +166,7 @@ const products = {
     image: 'images/borsalino-op02-114-front.jpg',
     backImage: 'images/borsalino-op02-114-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Borsalino (Kizaru) from One Piece OP02 Paramount War set. Super Rare (SR).',
     details: 'Near Mint | Paramount War | OP02-114 | SR'
   },
   'brook-eb01-046': {
@@ -118,7 +176,7 @@ const products = {
     image: 'images/brook-eb01-046-front.jpg',
     backImage: 'images/brook-eb01-046-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Brook from One Piece EB01 Memorial Collection set. Super Rare (SR) Parallel Art.',
     details: 'Near Mint | Memorial Collection | EB01-046 | SR'
   },
   'capone-gang-bege-op11-101': {
@@ -128,7 +186,7 @@ const products = {
     image: 'images/capone-gang-bege-op11-101-front.jpg',
     backImage: 'images/capone-gang-bege-op11-101-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Capone Gang Bege from One Piece OP11 Awakening of the New Era set. Super Rare (SR).',
     details: 'Near Mint | Awakening of the New Era | OP11-101 | SR'
   },
   'carrot-eb03-013': {
@@ -138,7 +196,7 @@ const products = {
     image: 'images/carrot-eb03-013-front.jpg',
     backImage: 'images/carrot-eb03-013-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Carrot from One Piece EB03 Memorial Collection set. Super Rare (Alternate Art) Heroines Edition.',
     details: 'Near Mint | EB03-013 | Alternate Art'
   },
   'carrot-eb04-013': {
@@ -148,7 +206,7 @@ const products = {
     image: 'images/carrot-eb04-013-front.jpg',
     backImage: 'images/carrot-eb04-013-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Carrot from One Piece EB04 Memorial Collection set. Super Rare (SR) Parallel Art.',
     details: 'Near Mint | Memorial Collection | EB04-013 | SR'
   },
   'carrot-op08-023': {
@@ -158,7 +216,7 @@ const products = {
     image: 'images/carrot-op08-023-front.jpg',
     backImage: 'images/carrot-op08-023-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Carrot from One Piece OP08 Two Legends set..',
     details: 'Near Mint | Two Legends | OP08-023 | SR'
   },
   'cavendish-memorial-eb01-012': {
@@ -168,7 +226,7 @@ const products = {
     image: 'images/cavendish-memorial-eb01-012-front.jpg',
     backImage: 'images/cavendish-memorial-eb01-012-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Cavendish from One Piece Memorial Collection. Super Rare (SR). Near Mint condition.',
     details: 'Near Mint | Memorial Collection | EB01-012 | Super Rare'
   },
   'charlotte-cracker-op03-108': {
@@ -178,7 +236,7 @@ const products = {
     image: 'images/charlotte-cracker-op03-108-front.jpg',
     backImage: 'images/charlette-cracker-op03-108-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Charlotte Cracker from One Piece OP03 Pillars of Strength set. Super Rare (SR).',
     details: 'Near Mint | Pillars of Strength | OP03-108 | SR'
   },
   'clefairy-001': {
@@ -187,8 +245,8 @@ const products = {
     price: 59.95,
     image: 'images/clefairy-1-front.jpg',
     backImage: 'images/clefairy-1-back.jpg',
-    category: 'One Piece',
-    description: '',
+    category: 'Pokemon',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'donquixote-doflamingo-op14-060': {
@@ -198,7 +256,7 @@ const products = {
     image: 'images/donquixote-doflamingo-op14-060-front.jpg',
     backImage: 'images/donquixote-doflamingo-op14-060-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Donquixote Doflamingo from One Piece OP14 Kingdoms of Intrigue set..',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-060 | SR'
   },
   'rosinante-op12': {
@@ -208,7 +266,7 @@ const products = {
     image: 'images/rosinante-front.jpg',
     backImage: 'images/rosinante-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Donquixote Rosinante from One Piece. Illustration Box Promo.',
     details: 'Near Mint | Illustration Box | Promo'
   },
   'dracule-mihawk-op01-070': {
@@ -218,7 +276,7 @@ const products = {
     image: 'images/dracule-mihawk-op01-070-front.jpg',
     backImage: 'images/dracule-mihawk-op01-070-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Dracule Mihawk from One Piece OP01 Romance Dawn set. Super Rare (SR).',
     details: 'Near Mint | Romance Dawn | OP01-070 | SR'
   },
   'edward-newgate-op13-042': {
@@ -228,7 +286,7 @@ const products = {
     image: 'images/edward-newgate-op13-042-front.jpg',
     backImage: 'images/edward-newgate-op13-042-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Edward Newgate (Whitebeard) from One Piece OP13 set. Super Rare (SR).',
     details: 'Near Mint | OP13 | OP13-042 | SR'
   },
   'edward-newgate-op02-004': {
@@ -238,7 +296,7 @@ const products = {
     image: 'images/edward-newgate-op02-004-front.jpg',
     backImage: 'images/edward-newgate-op02-004-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Edward Newgate (Whitebeard) from One Piece OP02 Paramount War set. Super Rare (SR).',
     details: 'Near Mint | Paramount War | OP02-004 | SR'
   },
   'five-elders-op13-082': {
@@ -248,7 +306,7 @@ const products = {
     image: 'images/five-elders-op13-082-front.jpg',
     backImage: 'images/five-elders-op13-082-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Five Elders from One Piece OP13 set. Super Rare (SR).',
     details: 'Near Mint | OP13 | OP13-082 | SR'
   },
   'foxy-eb04-036': {
@@ -258,7 +316,7 @@ const products = {
     image: 'images/foxy-eb04-036-front.jpg',
     backImage: 'images/foxy-eb04-036-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Foxy from One Piece EB04 Memorial Collection set. Super Rare (SR).',
     details: 'Near Mint | Memorial Collection | EB04-036 | SR'
   },
   'franky-op09-072': {
@@ -268,7 +326,7 @@ const products = {
     image: 'images/franky-op09-072-front.jpg',
     backImage: 'images/franky-op09-072-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Franky from One Piece OP09 Emperors in the New World set. Super Rare (SR).',
     details: 'Near Mint | Emperors in the New World | OP09-072 | SR'
   },
   'gecko-moria-op14-104': {
@@ -278,7 +336,7 @@ const products = {
     image: 'images/gecko-moria-op14-104-front.jpg',
     backImage: 'images/gecko-moria-op14-104-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Gecko Moria from One Piece OP14 Kingdoms of Intrigue set. Super Rare (SP).',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-104 | SR'
   },
   'gengar-001': {
@@ -287,8 +345,8 @@ const products = {
     price: 149.95,
     image: 'images/gengar-1-front.jpg',
     backImage: 'images/gengar-1-back.jpg',
-    category: 'One Piece',
-    description: '',
+    category: 'Pokemon',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'gol-d-roger-op13-064': {
@@ -298,7 +356,7 @@ const products = {
     image: 'images/gol-d-roger-op13-064-front.jpg',
     backImage: 'images/gol-d-roger-op13-064-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Gol D. Roger from One Piece OP13 set. Super Rare (SR).',
     details: 'Near Mint | OP13 | OP13-064 | SR'
   },
   'helmeppo-op11-092': {
@@ -308,7 +366,7 @@ const products = {
     image: 'images/helmeppo-op11-092-front.jpg',
     backImage: 'images/helmeppo-op11-092-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Helmeppo from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
     details: 'Near Mint | Emperors in the New World | OP11-092 | SR'
   },
   'ivankov-op02-051': {
@@ -318,7 +376,7 @@ const products = {
     image: 'images/ivankov-op02-051-front.jpg',
     backImage: 'images/ivankov-op02-051-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Emporio Ivankov from One Piece OP02 Paramount War set. Super Rare (SR).',
     details: 'Near Mint | Paramount War | OP02-051 | SR'
   },
   'jewelry-bonney-op07-026': {
@@ -328,7 +386,7 @@ const products = {
     image: 'images/jewelry-bonney-op07-026-front.jpg',
     backImage: 'images/jewelry-bonney-op07-026-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Jewelry Bonney from One Piece OP07 500 Years in the Future set. Super Rare (SR).',
     details: 'Near Mint | 500 Years in the Future | OP07-026 | SR'
   },
   'jinbe-op11-031': {
@@ -338,7 +396,7 @@ const products = {
     image: 'images/jinbe-op11-031-front.jpg',
     backImage: 'images/jinbe-op11-031-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Jinbe from One Piece OP11 A Fist of Divine Speed set. Super Rare (SR).',
     details: 'Near Mint | A Fist of Divine Speed | OP11-031 | SR'
   },
   'jinbe-op14-049': {
@@ -348,7 +406,7 @@ const products = {
     image: 'images/jinbe-op14-049-front.jpg',
     backImage: 'images/jinbe-op14-049-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Jinbe from One Piece OP14 Kingdoms of Intrigue set. Special Rare (SP).',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-049 | SR'
   },
   'kaido-st04-003': {
@@ -358,7 +416,7 @@ const products = {
     image: 'images/kaido-st04-003-front.jpg',
     backImage: 'images/kaido-st04-003-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Kaido from One Piece ST04 Starter Deck 4 set. Super Rare (SR).',
     details: 'Near Mint | Starter Deck 4 | ST04-003 | SR'
   },
   'kaido-op08-079': {
@@ -368,7 +426,7 @@ const products = {
     image: 'images/kaido-op08-079-front.jpg',
     backImage: 'images/kaido-op08-079-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Kaido from One Piece OP08 Two Legends set..',
     details: 'Near Mint | Two Legends | OP08-079 | SR'
   },
   'kikunojo-eb04-012': {
@@ -378,7 +436,7 @@ const products = {
     image: 'images/kikunojo-eb04-012-front.jpg',
     backImage: 'images/kikunojo-eb04-012-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Kikunojo from One Piece EB04 Memorial Collection set..',
     details: 'Near Mint | Memorial Collection | EB04-012 | SR'
   },
   'kinemon-op01-040': {
@@ -388,7 +446,7 @@ const products = {
     image: 'images/kinemon-op01-040-front.jpg',
     backImage: 'images/kinemon-op01-040-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Kin'emon from One Piece OP01 Romance Dawn set. Super Rare (SR).',
     details: 'Near Mint | Romance Dawn | OP01-040 | SR'
   },
   'koala-op05-006': {
@@ -398,7 +456,7 @@ const products = {
     image: 'images/koala-op05-006-front.jpg',
     backImage: 'images/koala-op05-006-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Koala from One Piece OP05 Awakening of the New Era set..',
     details: 'Near Mint | Awakening of the New Era | OP05-006 | SR'
   },
   'kouzuki-oden-op02-030': {
@@ -408,7 +466,7 @@ const products = {
     image: 'images/kouzuki-oden-op02-030-front.jpg',
     backImage: 'images/kouzuki-oden-op02-030-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Kouzuki Oden from One Piece OP02 Paramount War set..',
     details: 'Near Mint | Paramount War | OP02-030 | SR'
   },
   'kyros-op10-046': {
@@ -418,7 +476,7 @@ const products = {
     image: 'images/kyros-op10-046-front.jpg',
     backImage: 'images/kyros-op10-046-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Kyros from One Piece OP10 Royal Bloodlines set. Super Rare (SR).',
     details: 'Near Mint | Royal Bloodlines | OP10-046 | SR'
   },
   'marshall-d-teach-op09-093': {
@@ -428,7 +486,7 @@ const products = {
     image: 'images/marshall-d-teach-op09-093-front.jpg',
     backImage: 'images/marshall-d-teach-op09-093-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Marshall D. Teach (Blackbeard) from One Piece OP09 set. Super Rare (SR).',
     details: 'Near Mint | OP09 | OP09-093 | SR'
   },
   'monkey-d-dragon-op07-015': {
@@ -438,7 +496,7 @@ const products = {
     image: 'images/monkey-d-dragon-op07-015-front.jpg',
     backImage: 'images/monkey-d-dragon-op07-015-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Monkey D. Dragon from One Piece OP07 500 Years in the Future set..',
     details: 'Near Mint | 500 Years in the Future | OP07-015 | SR'
   },
   'monkey-d-garp-op11-095': {
@@ -448,7 +506,7 @@ const products = {
     image: 'images/monkey-d-garp-op11-095-front.jpg',
     backImage: 'images/monkey-d-garp-op11-095-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Monkey D. Garp from One Piece OP11 Awakening of the New Era set..',
     details: 'Near Mint | Awakening of the New Era | OP11-095 | SR'
   },
   'monkey-d-garp-op12-056': {
@@ -458,7 +516,7 @@ const products = {
     image: 'images/monkey-d-garp-op12-056-front.jpg',
     backImage: 'images/monkey-d-garp-op12-056-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Monkey D. Garp from One Piece OP12 Awakening of the New Era set. Super Rare (SR).',
     details: 'Near Mint | Awakening of the New Era | OP12-056 | SR'
   },
   'monkey-d-luffy-op07-109': {
@@ -468,7 +526,7 @@ const products = {
     image: 'images/monkey-d-luffy-op07-109-front.jpg',
     backImage: 'images/monkey-d-luffy-op07-109-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Monkey D. Luffy from One Piece OP07 500 Years in the Future set..',
     details: 'Near Mint | 500 Years in the Future | OP07-109 | SR'
   },
   'monkey-d-luffy-op02-062': {
@@ -478,7 +536,7 @@ const products = {
     image: 'images/monkey-d-luffy-op02-062-front.jpg',
     backImage: 'images/monkey-d-luffy-op02-062-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Monkey D. Luffy from One Piece OP02 Paramount War set..',
     details: 'Near Mint | Paramount War | OP02-062 | SR'
   },
   'mr2-eb01': {
@@ -488,7 +546,7 @@ const products = {
     image: 'images/mr2-front.jpg',
     backImage: 'images/mr2-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'mr2-bon-kurei-op14-091': {
@@ -498,7 +556,7 @@ const products = {
     image: 'images/mr2-bon-kurei-op14-091-front.jpg',
     backImage: 'images/mr2-bon-kurei-op14-091-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Mr. 2 Bon Kurei (Bentham) from One Piece OP14 The Azure Sea's Seven set. Super Rare (SR).',
     details: 'Near Mint | The Azure Sea's Seven | OP14-091 | SR'
   },
   'ms-all-sunday-op14-084': {
@@ -508,7 +566,7 @@ const products = {
     image: 'images/ms-all-sunday-op14-084-front.jpg',
     backImage: 'images/ms-all-sunday-op14-084-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ms. All Sunday from One Piece OP14 Kingdoms of Intrigue set..',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-084 | SR'
   },
   'nami-op11-054': {
@@ -518,7 +576,7 @@ const products = {
     image: 'images/nami-op11-054-front.jpg',
     backImage: 'images/nami-op11-054-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Nami from One Piece OP11 set. Super Rare (SR).',
     details: 'Near Mint | OP11 | OP11-054 | SR'
   },
   'nami-op14-031': {
@@ -528,7 +586,7 @@ const products = {
     image: 'images/nami-op14-031-front.jpg',
     backImage: 'images/nami-op14-031-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Nami from One Piece OP14 Kingdoms of Intrigue set. Special Rare (SP).',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-031 | SP'
   },
   'vivi-eb03': {
@@ -538,7 +596,7 @@ const products = {
     image: 'images/vivi-front.jpg',
     backImage: 'images/vivi-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'nefeltari-vivi-eb04-025': {
@@ -548,7 +606,7 @@ const products = {
     image: 'images/nefeltari-vivi-eb04-025-front.jpg',
     backImage: 'images/nefeltari-vivi-eb04-025-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Nefeltari Vivi from One Piece EB04 Memorial Collection set..',
     details: 'Near Mint | Memorial Collection | EB04-025 | SR'
   },
   'perona-op12-034': {
@@ -558,7 +616,7 @@ const products = {
     image: 'images/perona-op12-034-new-front.jpg',
     backImage: 'images/perona-op12-034-new-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Perona from One Piece OP12 Awakening of the New Era set. Super Rare (SR).',
     details: 'Near Mint | Awakening of the New Era | OP12-034 | SR'
   },
   'perona-op14-033': {
@@ -568,7 +626,7 @@ const products = {
     image: 'images/perona-op14-033-front.jpg',
     backImage: 'images/perona-op14-033-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Perona from One Piece OP14 Kingdoms of Intrigue set. Special Rare (SP).',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-033 | SR'
   },
   'pica-op05-032': {
@@ -578,7 +636,7 @@ const products = {
     image: 'images/pica-op05-032-front.jpg',
     backImage: 'images/pica-op05-032-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Pica from One Piece OP05 Awakening of the New Era set..',
     details: 'Near Mint | Awakening of the New Era | OP05-032 | SR'
   },
   'ace-op13': {
@@ -588,7 +646,7 @@ const products = {
     image: 'images/ace-op13-front.jpg',
     backImage: 'images/ace-op13-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'ace-st15': {
@@ -598,7 +656,7 @@ const products = {
     image: 'images/ace-st15-front.jpg',
     backImage: 'images/ace-st15-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'rebecca-op05-091': {
@@ -608,7 +666,7 @@ const products = {
     image: 'images/rebecca-op05-091-front.jpg',
     backImage: 'images/rebecca-op05-091-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Rebecca from One Piece OP05 Awakening of the New Era set..',
     details: 'Near Mint | Awakening of the New Era | OP05-091 | SR'
   },
   'reiju-op06-069': {
@@ -618,7 +676,7 @@ const products = {
     image: 'images/reiju-op06-069-front.jpg',
     backImage: 'images/reiju-op06-069-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Reiju from One Piece OP06 Wings of the Captain set. Super Rare (SR).',
     details: 'Near Mint | Wings of the Captain | OP06-069 | SR'
   },
   'roronoa-zoro-st29-014': {
@@ -628,7 +686,7 @@ const products = {
     image: 'images/roronoa-zoro-st29-014-front.jpg',
     backImage: 'images/roronoa-zoro-st29-014-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Roronoa Zoro from One Piece ST29 Starter Deck 29 set. Super Rare (SR).',
     details: 'Near Mint | Starter Deck 29 | ST29-014 | SR'
   },
   'rosinante-law-eb04-038': {
@@ -638,7 +696,7 @@ const products = {
     image: 'images/rosinante-law-eb04-038-front.jpg',
     backImage: 'images/rosinante-law-eb04-038-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Rosinante & Law from One Piece EB04 Memorial Collection set..',
     details: 'Near Mint | Memorial Collection | EB04-038 | SR'
   },
   's-snake-op08-112': {
@@ -648,7 +706,7 @@ const products = {
     image: 'images/s-snake-op08-112-front.jpg',
     backImage: 'images/s-snake-op08-112-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'S-Snake from One Piece OP08 Two Legends set. Super Rare (SR).',
     details: 'Near Mint | Two Legends | OP08-112 | SR'
   },
   'sabo-op05-007': {
@@ -658,7 +716,7 @@ const products = {
     image: 'images/sabo-op05-007-front.jpg',
     backImage: 'images/sabo-op05-007-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Sabo from One Piece OP05 Awakening of the New Era set. Super Rare (SR) Manga Rare.',
     details: 'Near Mint | Awakening of the New Era | OP05-007 | SR'
   },
   'sabo-op05': {
@@ -668,7 +726,7 @@ const products = {
     image: 'images/sabo-front.jpg',
     backImage: 'images/sabo-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'sakazuki-op02-099': {
@@ -678,7 +736,7 @@ const products = {
     image: 'images/sakazuki-op02-099-front.jpg',
     backImage: 'images/sakazuki-op02-099-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Sakazuki (Akainu) from One Piece OP02 Paramount War set. Super Rare (SR).',
     details: 'Near Mint | Paramount War | OP02-099 | SR'
   },
   'sanji-op11-051': {
@@ -688,7 +746,7 @@ const products = {
     image: 'images/sanji-op11-051-front.jpg',
     backImage: 'images/sanji-op11-051-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Sanji from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
     details: 'Near Mint | Emperors in the New World | OP11-051 | SR'
   },
   'sanji-op04-104': {
@@ -698,7 +756,7 @@ const products = {
     image: 'images/sanji-op04-104-front.jpg',
     backImage: 'images/sanji-op04-104-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Sanji from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
     details: 'Near Mint | Kingdoms of Intrigue | OP04-104 | SR'
   },
   'shanks-op13-028': {
@@ -708,7 +766,7 @@ const products = {
     image: 'images/shanks-op13-028-front.jpg',
     backImage: 'images/shanks-op13-028-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Shanks from One Piece OP13 500 Years in the Future set..',
     details: 'Near Mint | 500 Years in the Future | OP13-028 | SR'
   },
   'shanks-op09-004': {
@@ -718,7 +776,7 @@ const products = {
     image: 'images/shanks-op09-004-front.jpg',
     backImage: 'images/shanks-op09-004-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Shanks from One Piece OP09 The New Era set. Super Rare (SR).',
     details: 'Near Mint | The New Era | OP09-004 | SR'
   },
   'shanks-st16-004': {
@@ -728,7 +786,7 @@ const products = {
     image: 'images/shanks-st16-004-front.jpg',
     backImage: 'images/shanks-st16-004-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Shanks from One Piece ST16 Starter Deck 16 set. Super Rare (SR).',
     details: 'Near Mint | Starter Deck 16 | ST16-004 | SR'
   },
   'shanks-op06-007': {
@@ -738,7 +796,7 @@ const products = {
     image: 'images/shanks-op06-007-front.jpg',
     backImage: 'images/shanks-op06-007-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Shanks - Wings of the Captain - OP06-007 - SR',
     details: 'Near Mint'
   },
   'silvers-rayleigh-op13-066': {
@@ -748,7 +806,7 @@ const products = {
     image: 'images/silvers-rayleigh-op13-066-front.jpg',
     backImage: 'images/silvers-rayleigh-op13-066-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Silvers Rayleigh from One Piece OP13 500 Years in the Future set. Super Rare (SR).',
     details: 'Near Mint | 500 Years in the Future | OP13-066 | SR'
   },
   'rayleigh-op08': {
@@ -758,7 +816,7 @@ const products = {
     image: 'images/rayleigh-front.jpg',
     backImage: 'images/rayleigh-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'stussy-op13-110': {
@@ -768,7 +826,7 @@ const products = {
     image: 'images/stussy-op13-110-front.jpg',
     backImage: 'images/stussy-op13-110-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Stussy from One Piece OP13 500 Years in the Future set. Super Rare (SR).',
     details: 'Near Mint | 500 Years in the Future | OP13-110 | SR'
   },
   'trafalgar-law-op14-009': {
@@ -778,7 +836,7 @@ const products = {
     image: 'images/trafalgar-law-op14-009-front.jpg',
     backImage: 'images/trafalgar-law-op14-009-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Trafalgar Law from One Piece OP14 Kingdoms of Intrigue set..',
     details: 'Near Mint | Kingdoms of Intrigue | OP14-009 | SR'
   },
   'trafalgar-law-prb02-002': {
@@ -788,7 +846,7 @@ const products = {
     image: 'images/trafalgar-law-prb02-002-front.jpg',
     backImage: 'images/trafalgar-law-prb02-002-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Trafalgar Law from One Piece PRB02 Premium Booster Vol. 2 set. Super Rare (SR).',
     details: 'Near Mint | Premium Booster One | PRB02-002 | SR'
   },
   'ulti-op05-043': {
@@ -798,7 +856,7 @@ const products = {
     image: 'images/ulti-op05-043-front.jpg',
     backImage: 'images/ulti-op05-043-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ulti from One Piece OP05 Awakening of the New Era set. Super Rare (SR).',
     details: 'Near Mint | Awakening of the New Era | OP05-043 | SR'
   },
   'uta-op13-023': {
@@ -808,7 +866,7 @@ const products = {
     image: 'images/uta-op13-023-front.jpg',
     backImage: 'images/uta-op13-023-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Uta from One Piece OP13 Wings of the Captain set..',
     details: 'Near Mint | Wings of the Captain | OP13-023 | SR'
   },
   'uta-eb03': {
@@ -818,7 +876,7 @@ const products = {
     image: 'images/uta-front.jpg',
     backImage: 'images/uta-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'vinsmoke-judge-op06-062': {
@@ -828,7 +886,7 @@ const products = {
     image: 'images/vinsmoke-judge-op06-062-front.jpg',
     backImage: 'images/vinsmoke-judge-op06-062-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Vinsmoke Judge from One Piece OP06 Wings of the Captain set. Super Rare (SR).',
     details: 'Near Mint | Wings of the Captain | OP06-062 | SR'
   },
   'reiju-eb03': {
@@ -838,7 +896,7 @@ const products = {
     image: 'images/reiju-front.jpg',
     backImage: 'images/reiju-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Ships with protected packaging',
     details: 'Near Mint'
   },
   'yamato-op13-054': {
@@ -848,28 +906,344 @@ const products = {
     image: 'images/yamato-op13-054-front.jpg',
     backImage: 'images/yamato-op13-054-back.jpg',
     category: 'One Piece',
-    description: '',
+    description: 'Yamato from One Piece OP13 500 Years in the Future set. Super Rare (SR).',
     details: 'Near Mint | 500 Years in the Future | OP13-054 | SR'
   }
 };
 
-function getParam(n){const u=new URLSearchParams(location.search);return u.get(n);}
-
-function load(){
-var id=getParam('id');
-var p=products[id];
-var c=document.getElementById('content');
-if(!p){c.innerHTML='<p class="error">Product not found. <a href="shop.html">Back to shop</a></p>';return;}
-var imgUrl=p.image;
-var hasBack=p.backImage?'<div class="photo-dots"><span style="background:#FC4C02"></span><span style="background:#ccc"></span></div>':'';
-c.innerHTML='<div class="product-page"><div class="product-image"><img id="pi" src="'+imgUrl+'" alt="'+p.name+'" data-back="'+p.backImage+'" style="cursor:pointer;max-width:100%;border-radius:12px;">'+hasBack+'</div><div class="product-details"><h1 class="product-title">'+p.name+'</h1><p class="product-price">$'+p.price.toFixed(2)+'</p><div class="meta-info"><p><strong>Condition:</strong> '+(p.details||'Near Mint')+'</p></div><button class="cta-btn" onclick="addToCart()">Add to Cart</button></div></div>';
-var img=document.getElementById('pi'),showFront=true;
-if(img&&img.dataset.back)img.onclick=function(){showFront?img.src=img.dataset.back:img.src=img.dataset.back.replace('-back','-front');showFront=!showFront;};
+function getUrlParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
 }
 
-function addToCart(){var p=products[getParam('id')],c=JSON.parse(localStorage.getItem('cart')||'[]'),e=c.find(x=>x.id===p.id);e?e.qty++:c.push({id:p.id,name:p.name,price:p.price,qty:1});localStorage.setItem('cart',JSON.stringify(c));alert(p.name+' added to cart!');}
+function loadProduct() {
+  const productId = getUrlParam('id');
+  const product = products[productId] || Object.values(products).find(p => p.name === decodeURIComponent(productId));
+  const content = document.getElementById('product-content');
+  
+  if (!product) {
+    content.innerHTML = '<p>Product not found. <a href="shop.html">Back to shop</a></p>';
+    return;
+  }
+  
+  let badgeText = product.stock > 0 ? (product.stock === 1 ? "Only 1 Left" : product.stock === 2 ? "Only 2 Left" : "In Stock") : "Sold Out";
+  let badgeColor = product.stock > 0 ? '#ff9f1c' : '#666';
+  
+  content.innerHTML = `
+    <div class="product-detail-container">
+      <div class="product-detail-image">
+        <img id="product-img" src="${product.image}" alt="${product.name}" ${product.backImage ? 'data-back-image="' + product.backImage + '"' : ''} style="cursor:pointer;max-width:100%;scrollbar-track-color:transparent;">
+      </div>
+      <div class="product-detail-info">
+        ${product.backImage ? '<div id="photo-dots" style="display:flex;justify-content:center;gap:8px;margin-top:-20px;"><span style="width:8px;height:8px;border-radius:50%;background:#FC4C02;"></span><span style="width:8px;height:8px;border-radius:50%;background:#ccc;"></span></div>' : ''}
+        
+        <h1 class="product-detail-name" style="margin-top:15px;">${product.name}</h1>
+        <div class="product-detail-price">$${product.price.toFixed(2)}</div>
+        <p style="color:#666;margin-bottom:10px;">Shipping calculated at checkout</p>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+          <span style="font-weight:normal;">Quantity:</span>
+          <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:5px;overflow:hidden;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.max(1,parseInt(q.value)-1)" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;color:#000;">-</button>
+            <input type="number" id="detail-qty" value="1" min="1" max="${product.stock}" style="width:50px;text-align:center;border:none;padding:8px;">
+            <button onclick="let q=document.getElementById('detail-qty');q.value=Math.min(parseInt(q.value)+1, ${product.stock})" style="padding:8px 12px;border:none;background:#ffffff;cursor:pointer;color:#000;">+</button>
+          </div>
+        </div>
+        <button class="btn" onclick="let qty=parseInt(document.getElementById('detail-qty').value)||1;addToCart('${product.name}', ${product.price},qty);" style="margin-top:3px;margin-bottom:15px;font-weight:bold;text-transform:uppercase;">ADD TO CART</button>
+        <div class="product-detail-meta">
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;">Product Description +</h3>
+          <div style="display:none;margin:10px 0;">
+          <p>${product.description}</p>
+          </div>
+          <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:10px;">Item Details +</h3>
+          <div style="display:none;margin:10px 0;">
+          <ul style="padding-left:20px;margin:10px 0;">
+            ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- You might also like - separate box -->
+  <div style="margin-top:1.5rem;padding:1.5rem;background:#ffffff;border-radius:10px;">
+    <h2 style="font-size:1.3rem;margin-bottom:1rem;">You might also like</h2>
+    <div id="related-products" style="display:flex;gap:16px;margin-left:0px;background:#ffffff;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;"></div><div id="scroll-line" style="width:50px;background:#27ae60;height:4px;border-radius:2px;margin:15px 0 0 0;transition:none;"></div>
+  </div>
+  `;
+  
+  document.title = product.name + ' - Fancy Cardboard Store';
+  
+  // Load related products
+  loadRelatedProducts(product.category, product.name);
+}
 
-load();
+function setupScrollLine() {
+  const container = document.getElementById("related-products");
+  const scline = document.getElementById("scroll-line");
+  if (container && scline) {
+    let scrolling = false;
+    const updscroll = () => {
+      if (!scrolling) {
+        requestAnimationFrame(() => {
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          const scrolled = container.scrollLeft;
+          if (maxScroll > 0) {
+            var pct = scrolled / maxScroll;
+scline.style.marginLeft = Math.round(pct * 70) + "%"; scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 10) + "%";
+scline.style.marginRight = scrolled >= maxScroll ? "0%" : Math.round((1 - pct) * 70) + "%";
+          } else {
+            scline.style.marginLeft = "0%";
+          }
+          scrolling = false;
+        });
+        scrolling = true;
+      }
+    };
+    container.addEventListener("scroll", updscroll, { passive: true });
+    setTimeout(updscroll, 100);
+  }
+}
+
+function loadRelatedProducts(category, currentName) {
+  const container = document.getElementById('related-products');
+  const scline = document.getElementById('scroll-line');
+  if (container && scline) {
+    const updscroll = () => {
+      const mx = container.scrollWidth - container.clientWidth;
+      const sc = container.scrollLeft;
+      if (mx > 0) {
+        scline.style.marginLeft = (sc / mx * 80) + '%';
+      } else {
+        scline.style.marginLeft = '0%';
+      }
+    };
+    container.addEventListener('scroll', updscroll);
+    updscroll();
+  }
+  if (!container) return;
+  
+  // Find products in same category (excluding current)
+  const related = Object.entries(products)
+    .filter(([id, p]) => p.category === category && p.name !== currentName)
+    .slice(0, 4);
+  
+  if (related.length === 0) {
+    container.innerHTML = '<p>No related products found.</p>';
+    return;
+  }
+  
+  // Add scroll listener to update indicator
+  const indicator = document.getElementById('scroll-indicator');
+  if (indicator) {
+    const updateIndicator = () => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const scrolled = container.scrollLeft;
+      if (maxScroll > 0) {
+        const pct = scrolled / maxScroll;
+        // Move from left (0%) to right (calc(100% - indicator width))
+        indicator.style.marginLeft = (pct * 80) + '%';
+      } else {
+        indicator.style.marginLeft = '0%';
+      }
+    };
+    let ticking = false;
+  container.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateIndicator();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+    updateIndicator();
+  }
+container.addEventListener('scroll', function() {
+  const maxScroll = container.scrollWidth - container.clientWidth;
+  const scrolled = container.scrollLeft;
+  
+});
+
+container.innerHTML = related.map(([id, p]) => 
+    '<a href="product.html?id=' + id + '" style="min-width:45%;max-width:45%;flex:0 0 45%;background:#ffffff;border:1px solid #ccc;border-radius:12px;padding:12px;text-decoration:none;color:inherit;box-shadow:none;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;">' +
+      '<div style="text-align:center;margin-bottom:10px;"><img src="' + p.image + '" alt="" style="max-width:100%;scrollbar-track-color:transparent;max-height:120px;object-fit:contain;"></div>' +
+      '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;margin-bottom:8px;">' + p.name.substring(0, 40) + (p.name.length > 40 ? '...' : '') + '</div>' +
+      '<div style="display:flex;flex-direction:column;gap:8px;">' +
+        '<div style="color:#FC4C02;font-weight:800;font-size:1.2rem;">$' + p.price.toFixed(2) + '</div>' +
+        
+      '</div>' +
+    '</a>'
+  ).join(''); setupScrollLine();
+}
+
+function addToCart(name, price, qty) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let quantity = qty || 1;
+  
+  // Check stock limit
+  let currentQty = 0;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      currentQty = cart[i].quantity || 0;
+    }
+  }
+  
+  // Find product stock
+  let maxStock = 0;
+  for (let [id, p] of Object.entries(products)) {
+    if (p.name === name) {
+      maxStock = p.stock;
+      break;
+    }
+  }
+  
+  if (currentQty + quantity > maxStock) {
+    alert('Only ' + maxStock + ' available! You already have ' + currentQty + ' in your cart.');return;
+    return;
+  }
+  
+  let found = false;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].name === name) {
+      cart[i].quantity = (cart[i].quantity || 1) + quantity;
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    cart.push({name: name, price: price, quantity: quantity});
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + ' added to cart!');
+  updateCartCount();
+  updateCartCount();
+  
+}
+
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
+function toggleNavCategories(e) { e.preventDefault(); var el = document.getElementById('nav-categories'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+
+function togglePokemonSubs(e) { e.preventDefault(); var el = document.getElementById('nav-pokemon-subs'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+function toggleOnePieceSubs(e) { e.preventDefault(); var el = document.getElementById('nav-op-subs'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+function toggleLorcanaSubs(e) { e.preventDefault(); var el = document.getElementById('nav-lorcana-subs'); el.style.display = el.style.display === 'none' ? 'block' : 'none'; }
+function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
+function searchProducts() {
+  let query = document.getElementById('search-input').value.toLowerCase();
+  let results = document.getElementById('search-results');
+  
+  const products = [
+    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
+    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
+  ];
+  
+  if (query.length < 2) {
+    results.innerHTML = '';
+    return;
+  }
+  
+  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  
+  if (matches.length === 0) {
+    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+  } else {
+    results.innerHTML = matches.map(p => 
+      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
+    ).join(''); setupScrollLine();
+  }
+}
+
+function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElementById('searchDropdown'); dropdown.style.display = dropdown.style.display === 'none' || !dropdown.style.display ? 'block' : 'none'; }
+function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
+
+loadProduct();
+updateCartCount();
+
+// Add zoom and swipe functionality to product image
+document.addEventListener('DOMContentLoaded', function() {
+  const img = document.getElementById('product-img');
+  if (img && img.dataset.backImage) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    function updateDots(idx) {
+  var d = document.getElementById("photo-dots");
+  if (d && d.children) {
+    d.children[0].style.background = idx === 0 ? "#FC4C02" : "#ccc";
+    d.children[1].style.background = idx === 1 ? "#FC4C02" : "#ccc";
+  }
+}
+updateDots(0);
+
+let showingFront = true; updateDots(0);
+    
+    // Click to zoom
+    img.addEventListener('click', function(e) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:9999;cursor:zoom-out;';
+      const zoomImg = document.createElement('img');
+      zoomImg.src = img.src;
+      zoomImg.style.cssText = 'max-width:90%;max-height:90%;object-fit:contain;';
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function() { overlay.remove(); });
+    });
+    
+    // Swipe to swap images
+    img.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    img.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        // Swipe left - show back
+        if (showingFront) { img.src = img.dataset.backImage; showingFront = false; updateDots(1); }
+      } else if (touchEndX - touchStartX > 50) {
+        // Swipe right - show front
+        if (!showingFront) { img.src = img.dataset.backImage.replace('-back', '-front'); showingFront = true; updateDots(0); }
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>
+  'ace-sabo-luffy-op13-007': {
+    name: 'Ace Sabo Luffy - 500 Years in the Future - OP13-OP13-007 - SR',
+    stock: 1,
+    price: 8.09,
+    image: 'images/ace-sabo-luffy-op13-007-front.jpg',
+    backImage: 'images/ace-sabo-luffy-op13-007-back.jpg',
+    category: 'One Piece',
+    description: 'Ace & Sabo & Luffy from One Piece OP13 set. Super Rare (SR).',
+    details: 'Near Mint | OP13 | OP13-007 | SR'
+  },
+  'gol-d-roger-op13-064': {
+    name: 'Gol D. Roger - 500 Years in the Future - OP13-OP13-064 - SR',
+    stock: 1,
+    price: 3.59,
+    image: 'images/gol-d-roger-op13-064-front.jpg',
+    backImage: 'images/gol-d-roger-op13-064-back.jpg',
+    category: 'One Piece',
+    description: 'Gol D. Roger from One Piece OP13 set. Super Rare (SR).',
+    details: 'Near Mint | OP13 | OP13-064 | SR'
+  },
+  'monkey-d-garp-op12-056': {
+    name: 'Monkey D. Garp - Emperors in the New World - OP12-056 - SR',
+    stock: 1,
+    price: 2.69,
+    image: 'images/monkey-d-garp-op11-056-front.jpg',
+    backImage: 'images/monkey-d-garp-op11-056-back.jpg',
+    category: 'One Piece',
+    description: 'Monkey D. Garp from One Piece OP11 Emperors in the New World set. Super Rare (SR).',
+    details: 'Near Mint | Emperors in the New World | OP12-056 | SR'
+  },
+  'capone-gang-bege-op11-101': {
+    name: 'Capone Gang Bege - Kingdoms of Intrigue - OP11-101 - SR',
+    stock: 3,
+    price: 2.69,
+    image: 'images/capone-gang-bege-op04-101-front.jpg',
+    backImage: 'images/capone-gang-bege-op04-101-back.jpg',
+    category: 'One Piece',
+    description: 'Capone Gang Bege from One Piece OP04 Kingdoms of Intrigue set. Super Rare (SR).',
+    details: 'Near Mint | Kingdoms of Intrigue | OP11-101 | SR'
+  },
