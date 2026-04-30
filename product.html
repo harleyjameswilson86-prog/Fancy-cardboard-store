@@ -952,11 +952,11 @@ function loadProduct() {
         <div class="product-detail-meta">
           <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;">Product Description +</h3>
           <div style="display:none;margin:10px 0;">
-          <p style="color:#000000;">${product.description}</p>
+          <p>${product.description}</p>
           </div>
           <h3 onclick="let d=this.nextElementSibling;d.style.display=d.style.display=='none'?'block':'none';this.textContent=this.textContent.includes('+')?this.textContent.replace('+','-'):this.textContent.replace('-','+')" style="cursor:pointer;padding:8px;background:#ffffff;border-radius:5px;margin-top:10px;">Item Details +</h3>
           <div style="display:none;margin:10px 0;">
-          <ul style="padding-left:20px;margin:10px 0;">
+          <ul style="padding-left:20px;margin:10px 0;color:#666666;">
             ${product.details.split('|').map(d => '<li>' + d.trim() + '</li>').join('')}
           </ul>
           </div>
