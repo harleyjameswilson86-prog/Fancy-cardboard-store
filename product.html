@@ -1137,17 +1137,19 @@ function searchProducts() {
   let query = document.getElementById('search-input').value.toLowerCase();
   let results = document.getElementById('search-results');
   
-  const products = [
-    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
-    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
-  ];
+  // Use all products from main products object
+  const allProducts = Object.entries(products).map(([id, p]) => ({
+    name: p.name,
+    price: p.price,
+    url: 'product.html?id=' + id
+  }));
   
   if (query.length < 2) {
     results.innerHTML = '';
     return;
   }
   
-  let matches = products.filter(p => p.name.toLowerCase().includes(query));
+  let matches = allProducts.filter(p => p.name.toLowerCase().includes(query));
   
   if (matches.length === 0) {
     results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
