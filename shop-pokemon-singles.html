@@ -164,25 +164,30 @@ function searchProducts() {
   let query = document.getElementById('search-input').value.toLowerCase();
   let results = document.getElementById('search-results');
   
-  const products = [
-    {name: 'Disney Lorcana - Fabled Booster Box', price: 519.95, url: 'product.html?id=lorcana-fabled-booster'},
-    {name: 'Disney Lorcana - Fabled Booster Box (Unsealed)', price: 399.95, url: 'product.html?id=lorcana-fabled-booster-unsealed'}
-  ];
-  
   if (query.length < 2) {
     results.innerHTML = '';
     return;
   }
   
-  let matches = products.filter(p => p.name.toLowerCase().includes(query));
-  
-  if (matches.length === 0) {
-    results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
-  } else {
-    results.innerHTML = matches.map(p => 
-      '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
-    ).join('');
-  }
+  fetch('backend/inventory.json')
+    .then(r => r.json())
+    .then(inventory => {
+      const products = inventory.filter(c => c.category === 'Pokemon' && c.type === 'singles').map(c => ({
+        name: c.name,
+        price: c.price,
+        url: 'product.html?id=' + c.id
+      }));
+      
+      let matches = products.filter(p => p.name.toLowerCase().includes(query));
+      
+      if (matches.length === 0) {
+        results.innerHTML = '<p style="color:#666;padding:10px;">No products found</p>';
+      } else {
+        results.innerHTML = matches.map(p => 
+          '<a href="' + p.url + '" style="display:block;padding:12px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;"><strong>' + p.name + '</strong><br><span style="color:#27ae60;">$' + p.price.toFixed(2) + '</span></a>'
+        ).join('');
+      }
+    });
 }
 
 function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElementById("searchDropdown"); dropdown.style.display = dropdown.style.display === "none" || !dropdown.style.display ? "block" : "none"; }
