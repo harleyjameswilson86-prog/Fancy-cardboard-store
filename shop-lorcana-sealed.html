@@ -200,6 +200,12 @@ function renderPage(page) {
   if (!lorcanaSection) return;
   
   lorcanaSection.innerHTML = '';
+  
+  if (allCards.length === 0) {{
+    lorcanaSection.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">Coming soon!</p>';
+    return;
+  }}
+  
   pageCards.forEach(card => {
     const cardHtml = `
       <div class="product-card">
