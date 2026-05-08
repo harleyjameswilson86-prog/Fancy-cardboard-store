@@ -62,10 +62,6 @@
 
 </main>
 <script>
-const productStock = {
-  'Disney Lorcana - Fabled Booster Box': 1,
-  'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
-};
 
 // Fetch One Piece cards from inventory
 fetch('backend/inventory.json')
@@ -173,7 +169,7 @@ function searchProducts() {
   fetch('backend/inventory.json')
     .then(r => r.json())
     .then(inventory => {
-      const products = inventory.filter(c => c.category === 'One Piece' && c.type === 'sealed').map(c => ({
+      const products = inventory.filter(c => c.category === 'Lorcana' && c.type === 'sealed').map(c => ({
         name: c.name,
         price: c.price,
         url: 'product.html?id=' + c.id
