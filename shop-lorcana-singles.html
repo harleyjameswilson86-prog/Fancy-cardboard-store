@@ -80,12 +80,60 @@
 </div>
 </div>
 </section>
-<script>
-const productStock = {
-  'Disney Lorcana - Fabled Booster Box': 1,
-  'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
-};
 
+<script>
+const itemsPerPage = 20;
+let currentPage = 1;
+let allCards = [];
+
+fetch('backend/inventory.json')
+  .then(response => response.json())
+  .then(inventory => {
+    allCards = inventory.filter(card => card.category === 'Lorcana' && card.type === 'singles');
+    renderPage(1);
+  });
+
+function renderPage(page) {
+  window.scrollTo(0, 0);
+  currentPage = page;
+  const lorcanaSection = document.getElementById('lorcana');
+  const pagination = document.getElementById('pagination');
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const pageCards = allCards.slice(start, end);
+  
+  lorcanaSection.innerHTML = '';
+  pageCards.forEach(card => {
+    const cardHtml = `
+      <div class="product-card">
+        <a href="product.html?id=${card.id}">
+          ${card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : ''}
+          <div class="product-image"><img src="${card.image}" alt="${card.name}" style="max-width:100%;max-height:150px;"></div>
+          <div class="product-name">${card.name}</div>
+          <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
+        </a>
+        <button class="btn" onclick="addToCart('${card.name}', ${card.price})">Add to Cart</button>
+      </div>
+    `;
+    lorcanaSection.innerHTML += cardHtml;
+  });
+  
+  const totalPages = Math.ceil(allCards.length / itemsPerPage);
+  pagination.innerHTML = '';
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    btn.style.padding = '8px 12px';
+    btn.style.margin = '0 5px';
+    btn.style.background = currentPage === i ? '#FC4C02' : '#fff';
+    btn.style.color = currentPage === i ? '#fff' : '#000';
+    btn.style.border = '1px solid #ddd';
+    btn.onclick = () => renderPage(i);
+    pagination.appendChild(btn);
+  }
+}
+</script>
+<script>
 function addToCart(name, price) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   
