@@ -72,7 +72,7 @@ fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
     const lorcanaSection = document.getElementById('lorcana');
-    inventory.filter(card => card.category === 'Disney Lorcana' && card.type === 'graded').forEach(card => {
+    inventory.filter(card => card.category === 'Lorcana' && card.type === 'graded').forEach(card => {
       const shipping = card.shipping || 0;
       let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
       lorcanaSection.innerHTML += `
@@ -173,7 +173,7 @@ function searchProducts() {
   fetch('backend/inventory.json')
     .then(r => r.json())
     .then(inventory => {
-      const products = inventory.filter(c => c.category === 'Disney Lorcana' && c.type === 'graded').map(c => ({
+      const products = inventory.filter(c => c.category === 'Lorcana' && c.type === 'graded').map(c => ({
         name: c.name,
         price: c.price,
         url: 'product.html?id=' + c.id

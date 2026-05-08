@@ -76,7 +76,7 @@ const productStock = {
 fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
-    allCards = inventory.filter(card => card.category === 'Disney Lorcana' && card.type === 'singles');
+    allCards = inventory.filter(card => card.category === 'Lorcana' && card.type === 'singles');
     renderPage(1);
   });
 
@@ -198,7 +198,7 @@ function searchProducts() {
   fetch('backend/inventory.json')
     .then(r => r.json())
     .then(inventory => {
-      const products = inventory.filter(c => c.category === 'Disney Lorcana' && c.type === 'singles').map(c => ({
+      const products = inventory.filter(c => c.category === 'Lorcana' && c.type === 'singles').map(c => ({
         name: c.name,
         price: c.price,
         url: 'product.html?id=' + c.id
