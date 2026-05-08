@@ -36,11 +36,11 @@
 <a href="shop-pokemon-singles.html">Single Cards</a>
 <a href="shop-pokemon-graded.html">Graded Cards</a>
 </div>
-<a href="shop-lorcana-singles.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">Disney Lorcana</a>
+<a href="shop-onepiece-singles.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">One Piece</a>
 <div id="nav-op-subs" style="display:none;padding-left:40px;">
-<a href="shop-lorcana-sealed.html">Sealed Products</a>
-<a href="shop-lorcana-singles.html">Single Cards</a>
-<a href="shop-lorcana-graded.html">Graded Cards</a>
+<a href="shop-onepiece-sealed.html">Sealed Products</a>
+<a href="shop-onepiece-singles.html">Single Cards</a>
+<a href="shop-onepiece-graded.html">Graded Cards</a>
 </div>
 <a href="shop-lorcana-singles.html" style="padding-left:20px;" onclick="toggleLorcanaSubs(event)">Disney Lorcana</a>
 <div id="nav-lorcana-subs" style="display:none;padding-left:40px;">
@@ -67,15 +67,15 @@ const productStock = {
   'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
 };
 
-// Fetch Disney Lorcana cards from inventory
+// Fetch One Piece cards from inventory
 fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
-    const lorcanaSection = document.getElementById('lorcana');
+    const onepieceSection = document.getElementById('onepiece');
     inventory.filter(card => card.category === 'Lorcana' && card.type === 'sealed').forEach(card => {
       const shipping = card.shipping || 0;
       let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
-      lorcanaSection.innerHTML += `
+      onepieceSection.innerHTML += `
         <div class="product-card">
           <a href="product.html?id=${card.id}">
             ${badge}
@@ -173,7 +173,7 @@ function searchProducts() {
   fetch('backend/inventory.json')
     .then(r => r.json())
     .then(inventory => {
-      const products = inventory.filter(c => c.category === 'Lorcana' && c.type === 'sealed').map(c => ({
+      const products = inventory.filter(c => c.category === 'One Piece' && c.type === 'sealed').map(c => ({
         name: c.name,
         price: c.price,
         url: 'product.html?id=' + c.id
