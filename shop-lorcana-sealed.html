@@ -36,11 +36,11 @@
 <a href="shop-pokemon-singles.html">Single Cards</a>
 <a href="shop-pokemon-graded.html">Graded Cards</a>
 </div>
-<a href="shop-onepiece-singles.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">One Piece</a>
+<a href="shop-lorcana-singles.html" style="padding-left:20px;" onclick="toggleOnePieceSubs(event)">Disney Lorcana</a>
 <div id="nav-op-subs" style="display:none;padding-left:40px;">
-<a href="shop-onepiece-sealed.html">Sealed Products</a>
-<a href="shop-onepiece-singles.html">Single Cards</a>
-<a href="shop-onepiece-graded.html">Graded Cards</a>
+<a href="shop-lorcana-sealed.html">Sealed Products</a>
+<a href="shop-lorcana-singles.html">Single Cards</a>
+<a href="shop-lorcana-graded.html">Graded Cards</a>
 </div>
 <a href="shop-lorcana-singles.html" style="padding-left:20px;" onclick="toggleLorcanaSubs(event)">Disney Lorcana</a>
 <div id="nav-lorcana-subs" style="display:none;padding-left:40px;">
@@ -58,22 +58,45 @@
 <p class="subtitle">Browse our authentic Disney Lorcana sealed products</p>
 
 
-<section id="lorcana" class="products"></section>
+<section id="lorcana" class="products"><p style="text-align:center;font-size:1.5rem;color:#666;padding:2rem;">Coming Soon</p></section>
+
+</main>
 <script>
-function addToCart(name, price) {
+const productStock = {
+  'Disney Lorcana - Fabled Booster Box': 1,
+  'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
+};
+
+// Fetch Disney Lorcana cards from inventory
+fetch('backend/inventory.json')
+  .then(response => response.json())
+  .then(inventory => {
+    const lorcanaSection = document.getElementById('lorcana');
+    inventory.filter(card => card.category === 'Disney Lorcana' && card.type === 'sealed').forEach(card => {
+      const shipping = card.shipping || 0;
+      let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
+      lorcanaSection.innerHTML += `
+        <div class="product-card">
+          <a href="product.html?id=${card.id}">
+            ${badge}
+            <div class="product-image"><img src="${card.image}" alt="${card.name}" style="max-width:100%;max-height:150px;"></div>
+            <div class="product-name">${card.name}</div>
+            <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
+          </a>
+          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity})">Add to Cart</button>
+        </div>
+      `;
+    });
+  });
+
+function addToCart(name, price, maxStock) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  
-  // Check stock
-  let currentQty = 0;
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].name === name) currentQty = cart[i].quantity || 0;
-  }
-  let maxStock = productStock[name];
-  if (maxStock && currentQty >= maxStock) {
-    alert('Only ' + maxStock + ' available!');
+  let currentQty = cart.find(i => i.name === name)?.quantity || 0;
+  let max = maxStock || 99;
+  if (currentQty >= max) {
+    alert('Maximum ' + max + ' available!');
     return;
   }
-  
   let found = false;
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].name === name) {
@@ -88,9 +111,7 @@ function addToCart(name, price) {
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(name + ' added to cart!');
   updateCartCount();
-  updateCartCount();
   
-  updateCartCount();
 }
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -152,7 +173,7 @@ function searchProducts() {
   fetch('backend/inventory.json')
     .then(r => r.json())
     .then(inventory => {
-      const products = inventory.filter(c => c.category === 'Lorcana' && c.type === 'sealed').map(c => ({
+      const products = inventory.filter(c => c.category === 'Disney Lorcana' && c.type === 'sealed').map(c => ({
         name: c.name,
         price: c.price,
         url: 'product.html?id=' + c.id
@@ -174,66 +195,4 @@ function toggleSearch(e) { e.preventDefault(); var dropdown = document.getElemen
 function toggleFooter(el) { el.nextElementSibling.classList.toggle('active'); el.textContent = el.textContent.includes('+') ? el.textContent.replace('+', '-') : el.textContent.replace('-', '+'); }
 function updateCartCount() { var cart = JSON.parse(localStorage.getItem('cart') || '[]'); var totalItems = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0); var countEl = document.getElementById('cart-count'); if (countEl) { countEl.textContent = totalItems; countEl.style.display = totalItems > 0 ? 'flex' : 'none'; } }
 updateCartCount();
-
-<script>
-const itemsPerPage = 20;
-let currentPage = 1;
-let allCards = [];
-
-// Fetch Lorcana sealed products from inventory
-fetch('backend/inventory.json')
-  .then(response => response.json())
-  .then(inventory => {
-    allCards = inventory.filter(card => card.category === 'Lorcana' && card.type === 'sealed');
-    renderPage(1);
-  });
-
-function renderPage(page) {
-  window.scrollTo(0, 0);
-  currentPage = page;
-  const lorcanaSection = document.getElementById('lorcana');
-  const pagination = document.getElementById('pagination');
-  const start = (page - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  const pageCards = allCards.slice(start, end);
-  
-  if (!lorcanaSection) return;
-  
-  lorcanaSection.innerHTML = '';
-  
-  if (allCards.length === 0) {{
-    lorcanaSection.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">Coming soon!</p>';
-    return;
-  }}
-  
-  pageCards.forEach(card => {
-    const cardHtml = `
-      <div class="product-card">
-        <a href="product.html?id=\${card.id}">
-          \${card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : ''}
-          <div class="product-image"><img src="\${card.image}" alt="\${card.name}" style="max-width:100%;max-height:150px;"></div>
-          <div class="product-name">\${card.name}</div>
-          <div class="product-price" style="color:#FC4C02 !important;">$\${card.price.toFixed(2)}</div>
-        </a>
-        <button class="btn" onclick="addToCart('\${card.name}', \${card.price})">Add to Cart</button>
-      </div>
-    `;
-    lorcanaSection.innerHTML += cardHtml;
-  });
-  
-  // Pagination
-  const totalPages = Math.ceil(allCards.length / itemsPerPage);
-  pagination.innerHTML = '';
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    btn.style.padding = '8px 12px';
-    btn.style.margin = '0 5px';
-    btn.style.background = currentPage === i ? '#FC4C02' : '#fff';
-    btn.style.color = currentPage === i ? '#fff' : '#000';
-    btn.style.border = '1px solid #ddd';
-    btn.onclick = () => renderPage(i);
-    pagination.appendChild(btn);
-  }
-}
 </script></footer>
