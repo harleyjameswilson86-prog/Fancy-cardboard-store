@@ -83,16 +83,21 @@ fetch('backend/inventory.json')
 function renderPage(page) {
   window.scrollTo(0, 0);
   currentPage = page;
-  const onepieceSection = document.getElementById('onepiece');
+  const lorcanaSection = document.getElementById('onepiece');
   const pagination = document.getElementById('pagination');
   const start = (page - 1) * itemsPerPage;
   const end = start + itemsPerPage;
   const pageCards = allCards.slice(start, end);
   
-  onepieceSection.innerHTML = '';
+  lorcanaSection.innerHTML = '';
+  
+  if (allCards.length === 0) {
+    lorcanaSection.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">Coming soon!</p>';
+    return;
+  }
   pageCards.forEach(card => {
     let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
-    onepieceSection.innerHTML += `
+    lorcanaSection.innerHTML += `
       <div class="product-card">
         <a href="product.html?id=${card.id}">
           ${badge}
