@@ -1040,5 +1040,14 @@
     "backImage": "images/yamato-op13-054-back.jpg",
     "description": "Yamato from One Piece OP13 500 Years in the Future set. Super Rare (SR).",
     "details": "Near Mint | 500 Years in the Future | OP13-054 | SR"
+  },
+  {
+    "id": "lorcana-fabled-booster-pack",
+    "name": "Disney Lorcana - Fabled Booster Pack",
+    "price": 24.99,
+    "image": "images/lorcana-fabled-booster-pack.png",
+    "category": "Lorcana",
+    "type": "sealed",
+    "quantity": 10
   }
 ]
