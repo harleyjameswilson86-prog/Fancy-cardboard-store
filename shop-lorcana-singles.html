@@ -90,12 +90,7 @@ function renderPage(page) {
   const pageCards = allCards.slice(start, end);
   
   lorcanaSection.innerHTML = '';
-  
-  if (allCards.length === 0) {
-    lorcanaSection.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">Coming soon!</p>';
-    return;
-  }
-  pageCards.forEach(card => {
+    pageCards.forEach(card => {
     let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
     lorcanaSection.innerHTML += `
       <div class="product-card">
