@@ -71,7 +71,7 @@ const productStock = {
 fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
-    const lorcanaSection = document.getElementById('onepiece');
+    const lorcanaSection = document.getElementById('lorcana');
     inventory.filter(card => card.category === 'Lorcana' && card.type === 'graded').forEach(card => {
       const shipping = card.shipping || 0;
       let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';

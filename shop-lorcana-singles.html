@@ -83,7 +83,7 @@ fetch('backend/inventory.json')
 function renderPage(page) {
   window.scrollTo(0, 0);
   currentPage = page;
-  const lorcanaSection = document.getElementById('onepiece');
+  const lorcanaSection = document.getElementById('lorcana');
   const pagination = document.getElementById('pagination');
   const start = (page - 1) * itemsPerPage;
   const end = start + itemsPerPage;
