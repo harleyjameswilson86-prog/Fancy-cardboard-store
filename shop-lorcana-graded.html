@@ -62,17 +62,21 @@
 
 </main>
 <script>
-const productStock = {
-  'Disney Lorcana - Fabled Booster Box': 1,
-  'Disney Lorcana - Fabled Booster Box (Unsealed)': 2
-};
 
 // Fetch One Piece cards from inventory
 fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
     const lorcanaSection = document.getElementById('lorcana');
-    inventory.filter(card => card.category === 'Lorcana' && card.type === 'graded').forEach(card => {
+    // Filter for Lorcana graded and check for empty
+    const gradedCards = inventory.filter(card => card.category === 'Lorcana' && card.type === 'graded');
+    
+    if (gradedCards.length === 0) {
+      lorcanaSection.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">Coming soon!</p>';
+      return;
+    }
+    
+    gradedCards.forEach(card => {
       const shipping = card.shipping || 0;
       let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
       lorcanaSection.innerHTML += `
@@ -83,7 +87,7 @@ fetch('backend/inventory.json')
             <div class="product-name">${card.name}</div>
             <div class="product-price" style="color:#FC4C02 !important;">$${card.price.toFixed(2)}</div>
           </a>
-          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity})">Add to Cart</button>
+          <button class="btn" onclick="addToCart('${card.name}', ${card.price}, ${card.quantity || 99})">Add to Cart</button>
         </div>
       `;
     });
