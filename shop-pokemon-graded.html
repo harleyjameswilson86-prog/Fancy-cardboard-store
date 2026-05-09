@@ -71,7 +71,7 @@ fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
     const pokemonSection = document.getElementById('pokemon');
-    inventory.filter(card => card.category === 'Pokemon' && card.type === 'graded').forEach(card => {
+    inventory.filter(card => card.category === 'Pokemon' && card.type === 'graded' && card.quantity > 0).forEach(card => {
       let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
       pokemonSection.innerHTML += `
         <div class="product-card">

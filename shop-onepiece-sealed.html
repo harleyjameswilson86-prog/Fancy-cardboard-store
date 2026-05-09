@@ -72,7 +72,7 @@ fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
     const onepieceSection = document.getElementById('onepiece');
-    inventory.filter(card => card.category === 'One Piece' && card.type === 'sealed').forEach(card => {
+    inventory.filter(card => card.category === 'One Piece' && card.type === 'sealed' && card.quantity > 0).forEach(card => {
       const shipping = card.shipping || 0;
       let badge = card.quantity <= 3 ? '<div class="product-badge" style="background:#FC4C02 !important;">Only ' + card.quantity + ' Left</div>' : '';
       onepieceSection.innerHTML += `

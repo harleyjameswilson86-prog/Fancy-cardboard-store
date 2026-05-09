@@ -76,7 +76,7 @@ const productStock = {
 fetch('backend/inventory.json')
   .then(response => response.json())
   .then(inventory => {
-    allCards = inventory.filter(card => card.category === 'One Piece' && card.type === 'singles');
+    allCards = inventory.filter(card => card.category === 'One Piece' && card.type === 'singles' && card.quantity > 0);
     renderPage(1);
   });
 
