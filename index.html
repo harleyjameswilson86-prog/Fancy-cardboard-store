@@ -97,7 +97,7 @@ function searchProducts() {
   fetch('backend/inventory.json')
     .then(r => r.json())
     .then(inventory => {
-      const products = inventory.map(c => ({
+      const products = inventory.filter(c => c.quantity > 0).map(c => ({
         name: c.name,
         price: c.price,
         url: 'product.html?id=' + c.id
