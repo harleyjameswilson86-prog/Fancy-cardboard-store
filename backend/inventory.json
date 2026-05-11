@@ -1060,5 +1060,14 @@
     "category": "One Piece",
     "type": "singles",
     "quantity": 9
+  },
+  {
+    "id": "dracule-mihawk-op04-079",
+    "name": "Dracule Mihawk - Kingdoms of Intrigue - OP04-079 - SEC",
+    "price": 22.49,
+    "image": "images/dracule-mihawk-op04-079-front.jpg",
+    "category": "One Piece",
+    "type": "singles",
+    "quantity": 4
   }
 ]
