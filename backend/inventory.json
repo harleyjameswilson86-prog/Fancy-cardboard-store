@@ -1051,5 +1051,14 @@
     "quantity": 96,
     "description": "You will receive 1 randomly selected Disney Lorcana Fabled Booster Pack from the Fabled set. The photo shows all 3 possible designs you may receive \u2013 you get exactly 1 pack.",
     "details": "1 random pack | Design selection is random"
+  },
+  {
+    "id": "nami-op04-031",
+    "name": "Nami - Kingdoms of Intrigue - OP04-031 - SR",
+    "price": 24.99,
+    "image": "images/nami-op04-031-front.jpg",
+    "category": "One Piece",
+    "type": "singles",
+    "quantity": 9
   }
 ]
